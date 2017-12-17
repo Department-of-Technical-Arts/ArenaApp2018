@@ -3,4 +3,100 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- Colors used in the Arena logo-->
+    <color name="arena_color1">#282828</color>
+    <color name="arena_color2">#ffd00d</color>
+    <color name="arena_color3">#d3ac09</color>
+    <color name="arena_color4">#fff</color>
+    <color name="arena_color5">#ef1818</color>
+    <color name="arena_color6">#1a9ae2</color>
+    <color name="arena_color7">#c4c4c4</color>
+
+    <!-- Array of colors that will be used to fill corresponding paths from the string-array-->
+    <integer-array name="arena_colors">
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color2</item>
+        <item>@color/arena_color3</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color5</item>
+        <item>@color/arena_color6</item>
+        <item>@color/arena_color2</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color7</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color4</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+        <item>@color/arena_color1</item>
+    </integer-array>
+
 </resources>
