@@ -2,6 +2,10 @@
 
 PLEASE USE THE LATEST VERSIONS OF ALL LIBRARIES AND ANDROID STUDIO
 
+### Useful Links
+
+Pearl17 repo : https://github.com/TheGamer007/PearlApp17
+
 ### Overall priorities / instructions
 
 * ASK IF IN DOUBT
