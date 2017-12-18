@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
-    tools:context="com.dota.arena18.SplashActivity">
+    tools:context="com.dota.arena18.activities.SplashActivity">
 
     <com.jaredrummler.android.widget.AnimatedSvgView
         android:id="@+id/animated_svg_view"

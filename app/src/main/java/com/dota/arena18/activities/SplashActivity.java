@@ -1,13 +1,19 @@
-package com.dota.arena18;
+package com.dota.arena18.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.dota.arena18.R;
 import com.jaredrummler.android.widget.AnimatedSvgView;
 
 public class SplashActivity extends AppCompatActivity {
-    private static final String TAG = SplashActivity.class.getSimpleName();
+    /**
+     * The SplashActivity is used to display an opening animation. It is the entry point for the
+     * application (i.e. LAUNCHER_ACTIVITY).
+     * Once the animation finishes, the activity closes itself and opens the LandingActivity.
+     */
 
+    private static final String TAG = SplashActivity.class.getSimpleName();
     AnimatedSvgView svgView;
 
     @Override
