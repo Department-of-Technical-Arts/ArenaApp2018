@@ -23,4 +23,5 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.jaredrummler:animated-svg-view:1.0.5'
     implementation 'com.ramotion.foldingcell:folding-cell:1.2.1'
+    implementation 'com.google.android.gms:play-services-maps:11.6.2'
 }

@@ -86,6 +86,7 @@
         <item>M 143.79 310.36 H 153.79 V 322.02 H 143.79 V 310.36 Z</item>
         <item>M 843.64 312.01 H 856.13 V 322.49 H 843.64 V 312.01 Z</item>
     </string-array>
+    <string name="title_activity_maps">Map</string>
 
 
     <string name="title_activity_main2">Main2Activity</string>
