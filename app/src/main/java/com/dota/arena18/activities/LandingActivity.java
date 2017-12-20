@@ -1,5 +1,6 @@
 package com.dota.arena18.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,5 +28,14 @@ public class LandingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
+    }
+
+    public void handleClicks(View v){
+        switch (v.getId()){
+            case R.id.btn_about:
+                startActivity(new Intent(this, AboutActivity.class));
+                break;
+            default: break;
+        }
     }
 }

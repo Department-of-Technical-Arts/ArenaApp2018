@@ -16,32 +16,39 @@
 
     <Button
         android:text="Events"
+        android:onClick="handleClicks"
         android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:text="News"
+        android:onClick="handleClicks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
+        android:id="@+id/btn_about"
         android:text="About"
+        android:onClick="handleClicks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:text="Sponsors"
+        android:onClick="handleClicks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:text="Credits"
+        android:onClick="handleClicks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:text="Contacts"
+        android:onClick="handleClicks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>
