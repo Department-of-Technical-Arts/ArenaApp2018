@@ -24,4 +24,8 @@ dependencies {
     implementation 'com.jaredrummler:animated-svg-view:1.0.5'
     implementation 'com.ramotion.foldingcell:folding-cell:1.2.1'
     implementation 'com.google.android.gms:play-services-maps:11.6.2'
+    implementation 'com.google.android.gms:play-services-location:11.6.2'
+    implementation 'com.google.maps.android:android-maps-utils:0.5'
+    compile 'com.quinny898.library.persistentsearch:library:1.1.0-SNAPSHOT'
+
 }
