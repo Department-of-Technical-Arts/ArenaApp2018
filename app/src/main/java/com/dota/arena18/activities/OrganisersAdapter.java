@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,6 +46,17 @@ public class OrganisersAdapter extends RecyclerView.Adapter<OrganisersAdapter.My
 
     @Override
     public void onBindViewHolder(final MyViewHolder myViewHolder, final int i) {
+
+        Animation animation = AnimationUtils.loadAnimation(context, R.anim.anim_recycler_contact_show);
+        myViewHolder.mView.startAnimation(animation);
+
+        AlphaAnimation aa1 = new AlphaAnimation(1.0f, 0.1f);
+        aa1.setDuration(400);
+        myViewHolder.imageView.startAnimation(aa1);
+
+        AlphaAnimation aa = new AlphaAnimation(0.1f, 1.0f);
+        aa.setDuration(400);
+
         myViewHolder.name.setText(arrayList.get(i).getName());
         myViewHolder.designation.setText((arrayList.get(i).getDesignation()));
         myViewHolder.imageView.setImageResource(arrayList.get(i).getImage());
@@ -83,8 +97,10 @@ public class OrganisersAdapter extends RecyclerView.Adapter<OrganisersAdapter.My
         ImageView imageView;
         TextView name,designation,numberTV,mobile;
         Toolbar cardToolbar;
+        private View mView;
         public MyViewHolder(View itemView) {
             super(itemView);
+            mView=itemView;
             imageView = (ImageView) itemView.findViewById(R.id.contact_image);
             name=(TextView) itemView.findViewById(R.id.contact_name);
             designation=(TextView)itemView.findViewById(R.id.contact_designation);

@@ -50,8 +50,7 @@ public class OrganisersFragment extends android.support.v4.app.Fragment implemen
     }
 
     private void feedData() {
-        Contacts temp1 = new Contacts("Umamaheshwar Nuthulapati","Cricket","9652496568", R.drawable.default_pic,"umamaheshwarrocks@gmail.com");
-        data.add(temp1);
+        
     }
 
 
