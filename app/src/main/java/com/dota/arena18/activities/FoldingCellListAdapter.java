@@ -1,6 +1,7 @@
 package com.dota.arena18.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -34,7 +35,7 @@ public class FoldingCellListAdapter extends ArrayAdapter<events> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        events eventItem = getItem(position);
+        final events eventItem = getItem(position);
         FoldingCell foldingCell = (FoldingCell) convertView;
         ViewHolder viewHolder;
         if(foldingCell == null){
@@ -42,9 +43,10 @@ public class FoldingCellListAdapter extends ArrayAdapter<events> {
             LayoutInflater li = LayoutInflater.from(getContext());
             foldingCell = (FoldingCell) li.inflate(R.layout.cell,parent,false);
 
-            viewHolder.TitleName=(TextView) foldingCell.findViewById(R.id.title_eventname);
-            viewHolder.ContentName=(TextView) foldingCell.findViewById(R.id.content_eventname);
-            viewHolder.prizemoney = (TextView) foldingCell.findViewById(R.id.cell_content_prize);
+            viewHolder.TitleName = foldingCell.findViewById(R.id.title_eventname);
+            viewHolder.ContentName = foldingCell.findViewById(R.id.content_eventname);
+            viewHolder.prizemoney =  foldingCell.findViewById(R.id.cell_content_prize);
+            viewHolder.rules = foldingCell.findViewById(R.id.content_rules_view);
 
             foldingCell.setTag(viewHolder);
         }else {
@@ -58,6 +60,16 @@ public class FoldingCellListAdapter extends ArrayAdapter<events> {
         viewHolder.TitleName.setText(eventItem.getEventname());
         viewHolder.ContentName.setText(eventItem.getEventname());
         viewHolder.prizemoney.setText(eventItem.getPrize());
+
+        viewHolder.rules.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(),DetailsActivity.class);
+                i.putExtra("rules",eventItem.getRules());
+               getContext().startActivity(i);
+            }
+        });
+
 
 
         return foldingCell;
@@ -81,5 +93,8 @@ public class FoldingCellListAdapter extends ArrayAdapter<events> {
         TextView TitleName;
         TextView ContentName;
         TextView prizemoney;
+        TextView rules;
+
+
     }
 }
