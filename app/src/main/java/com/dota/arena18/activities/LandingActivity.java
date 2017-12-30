@@ -75,6 +75,8 @@ public class LandingActivity extends AppCompatActivity {
             case R.id.btn_contact:
                 startActivity(new Intent(this, ContactsActivity.class));
                 break;
+            case R.id.btn_news:
+                startActivity(new Intent(this,NewsActivity.class));
             default: break;
         }
     }

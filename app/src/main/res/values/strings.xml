@@ -90,4 +90,8 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_main2">Main2Activity</string>
 
+    <string name="consumer_key">MgxtRJPfrI69bHViQA69mdngm</string>
+
+    <string name="consumer_secret">xK3o4ebHE1Eq4KIikpkjHyB3L1rhwzYnPtgcI4cCTpFX05evqr</string>
+
 </resources>

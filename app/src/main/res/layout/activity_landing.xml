@@ -8,7 +8,7 @@
         android:id="@+id/panorama_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/download_landing"
+        android:src="@drawable/download2"
         app:piv_enablePanoramaMode="true"
         app:piv_show_scrollbar="false"
         app:piv_invertScrollDirection="false" />
@@ -34,6 +34,7 @@
         android:layout_marginBottom="5dp"/>
 
     <Button
+        android:id="@+id/btn_news"
         android:text="News"
         android:onClick="handleClicks"
         android:layout_width="match_parent"

@@ -1,11 +1,19 @@
 package com.dota.arena18.activities;
 
+import android.app.ListActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.dota.arena18.R;
+import com.twitter.sdk.android.core.DefaultLogger;
+import com.twitter.sdk.android.core.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import com.twitter.sdk.android.core.TwitterConfig;
+import com.twitter.sdk.android.tweetui.SearchTimeline;
+import com.twitter.sdk.android.tweetui.TweetTimelineListAdapter;
 
-public class NewsActivity extends AppCompatActivity {
+public class NewsActivity extends ListActivity {
     /**
      * The NewsActivity contains a link to the scores tally table, and a list of newsletters
      * Required details will all be retrieved from the servers via API calls.
@@ -24,5 +32,21 @@ public class NewsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
+
+        TwitterConfig config = new TwitterConfig.Builder(this)
+                .logger(new DefaultLogger(Log.DEBUG))
+                .twitterAuthConfig(new TwitterAuthConfig(getString(R.string.consumer_key),getString(R.string.consumer_secret)))
+                .debug(true)
+                .build();
+        Twitter.initialize(config);
+
+        final SearchTimeline searchTimeline = new SearchTimeline.Builder()
+                .query("#Football")
+                .maxItemsPerRequest(50)
+                .build();
+        final TweetTimelineListAdapter adapter = new TweetTimelineListAdapter.Builder(this)
+                .setTimeline(searchTimeline)
+                .build();
+        setListAdapter(adapter);
     }
 }
