@@ -10,8 +10,10 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.dota.arena18.R;
+import com.dota.arena18.activities.Retrofit2.events;
 import com.ramotion.foldingcell.FoldingCell;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -19,12 +21,12 @@ import java.util.List;
  * Created by lenovo on 12/19/2017.
  */
 
-public class FoldingCellListAdapter extends ArrayAdapter<EventItem> {
+public class FoldingCellListAdapter extends ArrayAdapter<events> {
 
     private HashSet<Integer> unfoldedindexes = new HashSet<>();
 
 
-    public FoldingCellListAdapter(Context context, List<EventItem> objects) {
+    public FoldingCellListAdapter(Context context, ArrayList<events> objects) {
         super(context, 0, objects);
     }
 
@@ -32,7 +34,7 @@ public class FoldingCellListAdapter extends ArrayAdapter<EventItem> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        EventItem eventItem = getItem(position);
+        events eventItem = getItem(position);
         FoldingCell foldingCell = (FoldingCell) convertView;
         ViewHolder viewHolder;
         if(foldingCell == null){
@@ -42,6 +44,8 @@ public class FoldingCellListAdapter extends ArrayAdapter<EventItem> {
 
             viewHolder.TitleName=(TextView) foldingCell.findViewById(R.id.title_eventname);
             viewHolder.ContentName=(TextView) foldingCell.findViewById(R.id.content_eventname);
+            viewHolder.prizemoney = (TextView) foldingCell.findViewById(R.id.cell_content_prize);
+
             foldingCell.setTag(viewHolder);
         }else {
             if (unfoldedindexes.contains(position)){
@@ -53,6 +57,8 @@ public class FoldingCellListAdapter extends ArrayAdapter<EventItem> {
         }
         viewHolder.TitleName.setText(eventItem.getEventname());
         viewHolder.ContentName.setText(eventItem.getEventname());
+        viewHolder.prizemoney.setText(eventItem.getPrize());
+
 
         return foldingCell;
     }
@@ -74,5 +80,6 @@ public class FoldingCellListAdapter extends ArrayAdapter<EventItem> {
     private static class ViewHolder{
         TextView TitleName;
         TextView ContentName;
+        TextView prizemoney;
     }
 }

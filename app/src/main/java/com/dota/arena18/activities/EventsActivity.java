@@ -1,15 +1,26 @@
 package com.dota.arena18.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.dota.arena18.R;
+import com.dota.arena18.activities.Retrofit2.ApiInterface;
+import com.dota.arena18.activities.Retrofit2.Apiclient;
+import com.dota.arena18.activities.Retrofit2.events;
 import com.ramotion.foldingcell.FoldingCell;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class EventsActivity extends AppCompatActivity {
     /**
@@ -18,16 +29,38 @@ public class EventsActivity extends AppCompatActivity {
      *
      */
 
+
+    ArrayList<events> list = new ArrayList<>();
+    FoldingCellListAdapter adapter;
+    ListView theListView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
 
-        ListView theListView = (ListView) findViewById(R.id.mainListView);
-        final ArrayList<EventItem> eventItems = EventItem.gettestinglist();
-        final FoldingCellListAdapter adapter = new FoldingCellListAdapter(this, eventItems);
+        theListView = (ListView) findViewById(R.id.mainListView);
 
-        theListView.setAdapter(adapter);
+
+        ApiInterface apiservice  = Apiclient.getClient().create(ApiInterface.class);
+        Call<ArrayList<events>> call = apiservice.getEvents();
+        call.enqueue(new Callback<ArrayList<events>>() {
+            @Override
+            public void onResponse(Call<ArrayList<events>> call, Response<ArrayList<events>> response) {
+                list = response.body();
+                adapter = new FoldingCellListAdapter(EventsActivity.this,list);
+                theListView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<events>> call, Throwable t) {
+                Log.e(EventsActivity.class.getSimpleName(),"not able to access");
+
+            }
+        });
+
+
+
 
         theListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
