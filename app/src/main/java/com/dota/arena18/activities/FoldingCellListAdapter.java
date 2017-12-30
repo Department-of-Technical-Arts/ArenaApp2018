@@ -10,23 +10,22 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.dota.arena18.R;
-import com.dota.arena18.activities.Retrofit2.events;
+import com.dota.arena18.api.EventDetails;
 import com.ramotion.foldingcell.FoldingCell;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 
 /**
  * Created by lenovo on 12/19/2017.
  */
 
-public class FoldingCellListAdapter extends ArrayAdapter<events> {
+public class FoldingCellListAdapter extends ArrayAdapter<EventDetails> {
 
     private HashSet<Integer> unfoldedindexes = new HashSet<>();
 
 
-    public FoldingCellListAdapter(Context context, ArrayList<events> objects) {
+    public FoldingCellListAdapter(Context context, ArrayList<EventDetails> objects) {
         super(context, 0, objects);
     }
 
@@ -34,7 +33,7 @@ public class FoldingCellListAdapter extends ArrayAdapter<events> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        events eventItem = getItem(position);
+        EventDetails eventItem = getItem(position);
         FoldingCell foldingCell = (FoldingCell) convertView;
         ViewHolder viewHolder;
         if(foldingCell == null){

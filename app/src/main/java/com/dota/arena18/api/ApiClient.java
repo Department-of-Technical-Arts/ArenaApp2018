@@ -1,4 +1,4 @@
-package com.dota.arena18.activities.Retrofit2;
+package com.dota.arena18.api;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by ashwik on 12/29/17.
  */
 
-public class Apiclient {
+public class ApiClient {
 
     public static final String baseurl = "http://www.bits-arena.com/api/";
     public static Retrofit retrofit = null;

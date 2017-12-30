@@ -1,4 +1,4 @@
-package com.dota.arena18.activities.Retrofit2;
+package com.dota.arena18.api;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by ashwik on 12/29/17.
  */
 
-public class events {
+public class EventDetails {
 
     @SerializedName("name")
     String eventname;
@@ -26,7 +26,7 @@ public class events {
     @SerializedName("endTime")
     String endtime;
 
-    public events(String eventname, String rules, String venue, String prize, String starttime, String endtime) {
+    public EventDetails(String eventname, String rules, String venue, String prize, String starttime, String endtime) {
         this.eventname = eventname;
         this.rules = rules;
         this.venue = venue;
