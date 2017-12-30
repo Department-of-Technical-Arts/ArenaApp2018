@@ -33,12 +33,7 @@ public class NewsActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
 
-        TwitterConfig config = new TwitterConfig.Builder(this)
-                .logger(new DefaultLogger(Log.DEBUG))
-                .twitterAuthConfig(new TwitterAuthConfig(getString(R.string.consumer_key),getString(R.string.consumer_secret)))
-                .debug(true)
-                .build();
-        Twitter.initialize(config);
+
 
         final SearchTimeline searchTimeline = new SearchTimeline.Builder()
                 .query("#Football")
