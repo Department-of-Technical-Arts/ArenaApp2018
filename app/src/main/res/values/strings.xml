@@ -1,5 +1,21 @@
 <resources>
     <string name="app_name">Arena 2018</string>
+    <string name="title_activity_maps">Campus Map</string>
+
+    <!--TODO check if needed-->
+    <string name="about_us">Pearl is the Annual Cultural Festival of the Birla Institute of Technology and Science (BITS) Pilani, Hyderabad Campus. Following the immense popularity of the festival over the previous years, Pearl ‘17 aspires to venture into new avenues by playing host to a wide range of cultural extravaganza! This year, be part of the madness as thousands throughout the country assemble for the time of their lives.</string>
+
+    <string name="directions">From Secunderabad Railway Station to BITS Pilani, Hyderabad Campus one has to travel 22 KM on Rajiv Rahadari/ Karim Nagar Highway, up to Dongala Mysamma Junction after Aalankrita Resorts in Thumkunta Village and then take a right turn towards Ghatkesar. After travelling 1.5 KMs on this road, there is again a diversion to the right leading to the Campus. BITS sign boards indicating the directions are available on the way.\n\n
+There is a direct Bus No. 212 from Secunderabad Railway Station (Gurudwara Point) to BITS Pilani Hyderabad Campus Main Gate.\n\n
+APSRTC City Bus Timings : (From 6th August 2015) Bus No.212\n\n
+From Secunderabad Railway Station (Gurudwara Point) to BITS Main Gate:\n\n
+07:50, 8:20, 8:50, 09:50, 11:00, 12:00, 13:00, 14:10, 15:05, 16:05, 17:20, 18:15, 19:15, 20:15, 21:15.\n\n
+From BITS Main Gate to Secunderabad Railway Station :\n\n
+06:55, 07:55, 08:50, 09:20, 09:50, 11:00, 12:00, 13:00, 14:00, 15:05, 16:05, 18:15, 19:15, 20:15\n\n
+Besides that, there are City Buses having numbers 211S, 211A, 211C, 211D, 211E, 211J, 211K, 211T, 211U, 567, 568, 569 which ply from Secunderabad Railway Station to various destinations on the Campus side. Further, there are many APSRTC buses from Secunderabad and Jubilee bus stand to Karim Nagar, Siddhipet, Ramagundam, Gajwel, Cheriyal etc. People can board any of these buses, get down either at Thumkunta or Dongala Mysamma junction which is 1KM away and take an auto to the campus.\n</string>
+
+    <string name="consumer_key">MgxtRJPfrI69bHViQA69mdngm</string>
+    <string name="consumer_secret">xK3o4ebHE1Eq4KIikpkjHyB3L1rhwzYnPtgcI4cCTpFX05evqr</string>
 
     <!-- Array of strings corresponding to Arena logo SVG paths-->
     <string-array name="arena_strings">
@@ -86,12 +102,5 @@
         <item>M 143.79 310.36 H 153.79 V 322.02 H 143.79 V 310.36 Z</item>
         <item>M 843.64 312.01 H 856.13 V 322.49 H 843.64 V 312.01 Z</item>
     </string-array>
-
-    <string name="title_activity_maps">Map</string>
-    <string name="title_activity_main2">Main2Activity</string>
-
-    <string name="consumer_key">MgxtRJPfrI69bHViQA69mdngm</string>
-
-    <string name="consumer_secret">xK3o4ebHE1Eq4KIikpkjHyB3L1rhwzYnPtgcI4cCTpFX05evqr</string>
 
 </resources>

@@ -23,4 +23,16 @@ public class AboutActivity extends AppCompatActivity {
     public void openMap(View v){
         startActivity(new Intent(this, MapsActivity.class));
     }
+
+    public void openAbout(View v){
+        Intent i = new Intent(this, TextDisplayActivity.class);
+        i.putExtra("text", "about");
+        startActivity(i);
+    }
+
+    public void openDir(View v){
+        Intent i = new Intent(this, TextDisplayActivity.class);
+        i.putExtra("text", "dir");
+        startActivity(i);
+    }
 }

@@ -3,19 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context="com.dota.arena18.activities.AboutActivity">
 
-    <TextView
-        android:text="ABOUT ACTIVITY"
-        android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+    <Button
+        android:id="@+id/btn_about"
+        android:text="About us"
+        android:onClick="openAbout"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
-        android:text="Map"
-        android:onClick="openMap"
-        android:layout_centerVertical="true"
+        android:id="@+id/btn_dir"
+        android:text="Directions"
+        android:onClick="openDir"
+        android:layout_below="@id/btn_about"
+        android:layout_marginBottom="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_map"
+        android:text="Campus Map"
+        android:onClick="openMap"
+        android:layout_below="@id/btn_dir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>
