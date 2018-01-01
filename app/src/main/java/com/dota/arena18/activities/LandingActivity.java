@@ -3,15 +3,10 @@ package com.dota.arena18.activities;
 import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.BounceInterpolator;
-import android.view.animation.DecelerateInterpolator;
 
 import com.dota.arena18.R;
 import com.gjiazhe.panoramaimageview.GyroscopeObserver;
