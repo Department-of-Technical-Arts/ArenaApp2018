@@ -16,7 +16,7 @@ public class NewsActivity extends AppCompatActivity {
     }
 
     public void openTally(View v) {
-
+        startActivity(new Intent(this, MedalsTallyActivity.class));
     }
 
     public void openTweets(View v) {
