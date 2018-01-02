@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.dota.arena18.R;
 import com.dota.arena18.api.EventDetails;
+import com.dota.arena18.database.Model;
 import com.ramotion.foldingcell.FoldingCell;
 
 import java.util.ArrayList;
@@ -21,12 +22,12 @@ import java.util.HashSet;
  * Created by lenovo on 12/19/2017.
  */
 
-public class FoldingCellListAdapter extends ArrayAdapter<EventDetails> {
+public class FoldingCellListAdapter extends ArrayAdapter<Model> {
 
     private HashSet<Integer> unfoldedindexes = new HashSet<>();
 
 
-    public FoldingCellListAdapter(Context context, ArrayList<EventDetails> objects) {
+    public FoldingCellListAdapter(Context context, ArrayList<Model> objects) {
         super(context, 0, objects);
     }
 
@@ -34,7 +35,7 @@ public class FoldingCellListAdapter extends ArrayAdapter<EventDetails> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        final EventDetails eventItem = getItem(position);
+        final Model eventItem = getItem(position);
         FoldingCell foldingCell = (FoldingCell) convertView;
         ViewHolder viewHolder;
         if(foldingCell == null){
@@ -56,15 +57,15 @@ public class FoldingCellListAdapter extends ArrayAdapter<EventDetails> {
             }
             viewHolder = (ViewHolder) foldingCell.getTag();
         }
-        viewHolder.TitleName.setText(eventItem.getEventname());
-        viewHolder.ContentName.setText(eventItem.getEventname());
-        viewHolder.prizemoney.setText(eventItem.getPrize());
+        viewHolder.TitleName.setText(eventItem.getDb_eventname());
+        viewHolder.ContentName.setText(eventItem.getDb_eventname());
+        viewHolder.prizemoney.setText(eventItem.getDb_prizemoney());
 
         viewHolder.rules.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getContext(),DetailsActivity.class);
-                i.putExtra("rules",eventItem.getRules());
+                i.putExtra("rules",eventItem.getDb_rules());
                getContext().startActivity(i);
             }
         });
