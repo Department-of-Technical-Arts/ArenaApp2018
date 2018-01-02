@@ -115,7 +115,8 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:id="@+id/content_contact_captain">
 
 
             <TextView
@@ -153,7 +154,8 @@
 
         <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+            android:id="@+id/content_rules">
 
 
             <TextView
@@ -189,7 +191,8 @@
 
         <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+            android:id="@+id/content_location">
 
 
             <TextView

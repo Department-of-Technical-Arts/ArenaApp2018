@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dota.arena18.R;
 import com.dota.arena18.api.EventDetails;
@@ -47,6 +49,36 @@ public class FoldingCellListAdapter extends ArrayAdapter<Model> {
             viewHolder.ContentName = foldingCell.findViewById(R.id.content_eventname);
             viewHolder.prizemoney =  foldingCell.findViewById(R.id.cell_content_prize);
             viewHolder.rules = foldingCell.findViewById(R.id.content_rules_view);
+            viewHolder.locationlayout = foldingCell.findViewById(R.id.content_location);
+
+            viewHolder.locationlayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast toast = Toast.makeText(getContext(), "To maps", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+            });
+
+            viewHolder.contactcaptainlayout = foldingCell.findViewById(R.id.content_contact_captain);
+
+            viewHolder.contactcaptainlayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast toast = Toast.makeText(getContext(), "To captain's contacts", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+            });
+
+            viewHolder.ruleslayout = foldingCell.findViewById(R.id.content_rules);
+
+            viewHolder.ruleslayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast toast = Toast.makeText(getContext(), "To rules", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+            });
+
 
             foldingCell.setTag(viewHolder);
         }else {
@@ -94,6 +126,9 @@ public class FoldingCellListAdapter extends ArrayAdapter<Model> {
         TextView ContentName;
         TextView prizemoney;
         TextView rules;
+        RelativeLayout locationlayout;
+        RelativeLayout contactcaptainlayout;
+        RelativeLayout ruleslayout;
 
 
     }
