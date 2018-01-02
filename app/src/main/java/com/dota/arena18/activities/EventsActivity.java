@@ -1,5 +1,8 @@
 package com.dota.arena18.activities;
 
+import android.content.DialogInterface;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -37,7 +40,8 @@ public class EventsActivity extends AppCompatActivity {
     ListView theListView;
     private Realm myrealm;
     public Model model = new Model();
-    int id=0;
+    int id;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
 
 
@@ -47,46 +51,11 @@ public class EventsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_events);
 
         theListView = (ListView) findViewById(R.id.mainListView);
+        swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swiperefresh);
         myrealm = Realm.getDefaultInstance();
         adapter = new FoldingCellListAdapter(EventsActivity.this,realmlist);
         theListView.setAdapter(adapter);
-
-        if(myrealm!=null)
-        {
-            getdatafromrealm(myrealm);
-        }
-
-
-        EventsInterface apiservice  = ApiClient.getClient().create(EventsInterface.class);
-        Call<ArrayList<EventDetails>> call = apiservice.getEvents();
-        call.enqueue(new Callback<ArrayList<EventDetails>>() {
-            @Override
-            public void onResponse(Call<ArrayList<EventDetails>> call, Response<ArrayList<EventDetails>> response) {
-                list = response.body();
-                if(realmlist.size()==0)
-                {
-                    for(int i=0;i<list.size();i++)
-                    {
-                       model.setDb_eventname(list.get(i).getEventname());
-                       model.setDb_rules(list.get(i).getRules());
-                       model.setDb_prizemoney(list.get(i).getPrize());
-                      adddatatorealm(model);
-                    }
-
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<EventDetails>> call, Throwable t) {
-                Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
-
-            }
-        });
-
-
-
-
+        callapi();
         theListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -94,6 +63,46 @@ public class EventsActivity extends AppCompatActivity {
                 adapter.registerToggle(i);
             }
         });
+
+        swipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        callapi();
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                }
+        );
+
+     }
+
+     public void callapi()
+     {
+         id=0;
+
+         EventsInterface apiservice  = ApiClient.getClient().create(EventsInterface.class);
+         Call<ArrayList<EventDetails>> call = apiservice.getEvents();
+         call.enqueue(new Callback<ArrayList<EventDetails>>() {
+             @Override
+             public void onResponse(Call<ArrayList<EventDetails>> call, Response<ArrayList<EventDetails>> response) {
+                 list = response.body();
+                   for(int i=0;i<list.size();i++)
+                     {
+                         model.setDb_eventname(list.get(i).getEventname());
+                         model.setDb_rules(list.get(i).getRules());
+                         model.setDb_prizemoney(list.get(i).getPrize());
+                         adddatatorealm(model);
+                     }
+
+                 adapter.notifyDataSetChanged();
+             }
+
+             @Override
+             public void onFailure(Call<ArrayList<EventDetails>> call, Throwable t) {
+                 Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
+                 getdatafromrealm(myrealm);
+             }
+         });
 
      }
 
@@ -108,6 +117,17 @@ public class EventsActivity extends AppCompatActivity {
              id++;
          }
            adapter.notifyDataSetChanged();
+         if(results.size()==0)
+         {
+             AlertDialog.Builder alertdailog = new AlertDialog.Builder(this);
+             alertdailog.setMessage("Please check your network connection")
+                     .setCancelable(false).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                 @Override
+                 public void onClick(DialogInterface dialogInterface, int i) {
+                     dialogInterface.cancel();
+                 }
+             }).create().show();
+         }
 
      }
 
