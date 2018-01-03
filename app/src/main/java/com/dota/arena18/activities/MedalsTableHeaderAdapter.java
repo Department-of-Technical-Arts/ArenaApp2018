@@ -12,6 +12,8 @@ import com.dota.arena18.R;
 
 import de.codecrafters.tableview.TableHeaderAdapter;
 
+import static android.util.TypedValue.COMPLEX_UNIT_SP;
+
 /**
  * Created by TheGamer007 on 2/1/18.
  */
@@ -26,30 +28,36 @@ public class MedalsTableHeaderAdapter extends TableHeaderAdapter {
     public View getHeaderView(int columnIndex, ViewGroup parentView) {
 
         TextView tv = new TextView(parentView.getContext());
+        tv.setTextColor(Color.BLACK);
+        tv.setPadding(8,0,0,0);
+        tv.setTextSize(COMPLEX_UNIT_SP,14);
 //        tv.setBackgroundColor(Color.BLUE);
         parentView.setPadding(24,24,24,24);
 
         switch (columnIndex) {
             case 0:
-                tv.setText("Col 1");
+                tv.setText("Rank");
                 break;
             case 1:
-                tv.setText("Col 2");
+                tv.setText("College");
                 break;
             case 2:
-                ImageView iv = new ImageView(parentView.getContext());
-                iv.setImageResource(R.drawable.menu_icon);
-                iv.setBackgroundColor(Color.BLACK);
-                iv.setPadding(0,8,0,8);
-                return iv;
+                ImageView iv_gold = new ImageView(parentView.getContext());
+                iv_gold.setImageResource(R.drawable.ic_medal_gold);
+//                iv_gold.setBackgroundColor(Color.BLACK);
+                return iv_gold;
             case 3:
-                tv.setText("Col 4");
-                break;
+                ImageView iv_silver = new ImageView(parentView.getContext());
+//                iv_silver.setBackgroundColor(Color.BLACK);
+                iv_silver.setImageResource(R.drawable.ic_medal_silver);
+                return iv_silver;
             case 4:
-                tv.setText("Col 5");
-                break;
+                ImageView iv_bronze = new ImageView(parentView.getContext());
+//                iv_bronze.setBackgroundColor(Color.BLACK);
+                iv_bronze.setImageResource(R.drawable.ic_medal_bronze);
+                return iv_bronze;
             case 5:
-                tv.setText("Col 6");
+                tv.setText("Others");
                 break;
         }
 

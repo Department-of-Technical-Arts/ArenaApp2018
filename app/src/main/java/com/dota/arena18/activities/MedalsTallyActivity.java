@@ -155,8 +155,8 @@ public class MedalsTallyActivity extends AppCompatActivity {
     void loadData() {
 //        String[][] DATA_TO_SHOW = {{"1", "BITS Hyderabad", "2", "2", "1", "1"}, {"2", "Harvard University", "2", "0", "1", "0"}};
 
-//        sortableTableView.setHeaderAdapter(new MedalsTableHeaderAdapter(this));
-        sortableTableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, TABLE_HEADERS));
+        sortableTableView.setHeaderAdapter(new MedalsTableHeaderAdapter(this));
+//        sortableTableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, TABLE_HEADERS));
         sortableTableView.setDataAdapter(new SimpleTableDataAdapter(this, getList(tableData)));
     }
 
