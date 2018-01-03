@@ -8,12 +8,14 @@ import com.dota.arena18.R;
 import com.dota.arena18.api.CollegeDetails;
 import com.dota.arena18.api.ScoresInterface;
 import com.dota.arena18.api.TestApiClient;
+import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 import de.codecrafters.tableview.SortableTableView;
+import de.codecrafters.tableview.listeners.TableDataClickListener;
 import de.codecrafters.tableview.model.TableColumnWeightModel;
 import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
 import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
@@ -51,6 +53,7 @@ public class MedalsTallyActivity extends AppCompatActivity {
 
         sortableTableView = findViewById(R.id.table_tally);
 
+        // Define a column weight model to specify width distribution
         TableColumnWeightModel columnModel = new TableColumnWeightModel(6);
         columnModel.setColumnWeight(COLUMN_RANK, 1);
         columnModel.setColumnWeight(COLUMN_NAME, 3);
@@ -132,6 +135,17 @@ public class MedalsTallyActivity extends AppCompatActivity {
             }
         });
 
+        // Add a click listener to each row of the table
+        sortableTableView.addDataClickListener(new TableDataClickListener<String[]>() {
+            @Override
+            public void onDataClicked(int rowIndex, String[] clickedData) {
+                new LovelyInfoDialog(MedalsTallyActivity.this)
+                        .setTopColorRes(R.color.colorPrimary)
+                        .setTitle(clickedData[COLUMN_NAME])
+                        .setMessage("sample message text")
+                        .show();
+            }
+        });
         testResponse();
     }
 
