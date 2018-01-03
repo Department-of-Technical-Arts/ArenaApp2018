@@ -14,10 +14,24 @@
         android:layout_height="wrap_content" />
 
     <Button
+        android:id="@+id/btn_feed"
+        android:text="Live Feed"
+        android:layout_below="@id/btn_tally"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_news"
+        android:text="Newsletters"
+        android:layout_below="@id/btn_feed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
         android:id="@+id/btn_tweets"
         android:text="Tweets"
         android:onClick="openTweets"
-        android:layout_below="@id/btn_tally"
+        android:layout_below="@id/btn_news"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

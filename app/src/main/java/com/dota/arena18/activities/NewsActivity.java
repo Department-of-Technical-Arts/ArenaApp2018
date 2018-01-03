@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.dota.arena18.R;
+import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
 public class NewsActivity extends AppCompatActivity {
 
