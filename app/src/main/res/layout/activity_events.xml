@@ -8,8 +8,8 @@
     tools:context=".activities.EventsActivity">
 
 
-    <ListView
-        android:id="@+id/mainListView"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mainRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#B2EBF2"

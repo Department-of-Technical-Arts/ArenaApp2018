@@ -1,12 +1,16 @@
 package com.dota.arena18.activities;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -25,93 +29,42 @@ import java.util.HashSet;
  * Created by lenovo on 12/19/2017.
  */
 
-public class FoldingCellListAdapter extends ArrayAdapter<Model> {
+public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellListAdapter.MyViewHolder> implements AdapterView.OnItemClickListener {
 
+    private static final String TAG = "FoldingCellListAdapter";
     private HashSet<Integer> unfoldedindexes = new HashSet<>();
 
+    Context context;
+    LayoutInflater inflater;
+    ArrayList<Model> objects;
 
     public FoldingCellListAdapter(Context context, ArrayList<Model> objects) {
-        super(context, 0, objects);
+        this.context = context;
+        inflater=LayoutInflater.from(context);
+        this.objects = objects;
     }
 
-    @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-
-        final Model eventItem = getItem(position);
-        FoldingCell foldingCell = (FoldingCell) convertView;
-        ViewHolder viewHolder;
-        if(foldingCell == null){
-            viewHolder = new ViewHolder();
-            LayoutInflater li = LayoutInflater.from(getContext());
-            foldingCell = (FoldingCell) li.inflate(R.layout.cell,parent,false);
-
-            viewHolder.TitleName = foldingCell.findViewById(R.id.title_eventname);
-            viewHolder.ContentName = foldingCell.findViewById(R.id.content_eventname);
-            viewHolder.prizemoney =  foldingCell.findViewById(R.id.cell_content_prize);
-            viewHolder.rules = foldingCell.findViewById(R.id.content_rules_view);
-            viewHolder.locationlayout = foldingCell.findViewById(R.id.content_location);
-
-            viewHolder.prizelayout = foldingCell.findViewById(R.id.prize_layout);
-
-            viewHolder.prizelayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                }
-            });
-
-
-
-
-            viewHolder.locationlayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast toast = Toast.makeText(getContext(), "To maps", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-            });
-
-            viewHolder.contactcaptainlayout = foldingCell.findViewById(R.id.content_contact_captain);
-
-            viewHolder.contactcaptainlayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast toast = Toast.makeText(getContext(), "To captain's contacts", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-            });
-
-            viewHolder.ruleslayout = foldingCell.findViewById(R.id.content_rules);
-
-            viewHolder.ruleslayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent i = new Intent(getContext(),DetailsActivity.class);
-                    i.putExtra("rules",eventItem.getDb_rules());
-                    getContext().startActivity(i);
-                }
-            });
-
-
-            foldingCell.setTag(viewHolder);
-        }else {
-            if (unfoldedindexes.contains(position)){
-                foldingCell.unfold(true);
-            }else {
-                foldingCell.fold(true);
-            }
-            viewHolder = (ViewHolder) foldingCell.getTag();
-        }
-        viewHolder.TitleName.setText(eventItem.getDb_eventname());
-        viewHolder.ContentName.setText(eventItem.getDb_eventname());
-        viewHolder.prizemoney.setText(eventItem.getDb_prizemoney());
-
-
-
-
-        return foldingCell;
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new MyViewHolder(inflater.inflate(R.layout.cell,parent,false));
     }
+
+    @Override
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
+
+
+        holder.TitleName.setText(objects.get(position).getDb_eventname());
+        holder.ContentName.setText(objects.get(position).getDb_eventname());
+        holder.prizemoney.setText(objects.get(position).getDb_prizemoney());
+
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return objects.size();
+    }
+
     public void registerToggle(int position) {
         if (unfoldedindexes.contains(position))
             registerFold(position);
@@ -127,7 +80,15 @@ public class FoldingCellListAdapter extends ArrayAdapter<Model> {
         unfoldedindexes.add(position);
     }
 
-    private static class ViewHolder{
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+       /* ((FoldingCell) view).toggle(false);
+        registerToggle(i);*/
+        Log.v(TAG, "index=" + i);
+    }
+
+
+    class MyViewHolder extends RecyclerView.ViewHolder{
         TextView TitleName;
         TextView ContentName;
         TextView prizemoney;
@@ -138,5 +99,18 @@ public class FoldingCellListAdapter extends ArrayAdapter<Model> {
         RelativeLayout prizelayout;
 
 
+        public MyViewHolder(View itemView) {
+            super(itemView);
+
+            TitleName = (TextView) itemView.findViewById(R.id.title_eventname);
+            ContentName = (TextView) itemView.findViewById(R.id.content_eventname);
+            prizemoney =  (TextView)itemView.findViewById(R.id.cell_content_prize);
+            rules = (TextView) itemView.findViewById(R.id.content_rules_view);
+            locationlayout = (RelativeLayout) itemView.findViewById(R.id.content_location);
+
+            prizelayout = (RelativeLayout) itemView.findViewById(R.id.prize_layout);
+            ruleslayout = (RelativeLayout) itemView.findViewById(R.id.content_rules);
+            contactcaptainlayout = (RelativeLayout) itemView.findViewById(R.id.content_contact_captain);
+        }
     }
 }

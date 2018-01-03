@@ -5,6 +5,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -37,7 +38,7 @@ public class EventsActivity extends AppCompatActivity {
     ArrayList<EventDetails> list = new ArrayList<>();
     ArrayList<Model> realmlist = new ArrayList<>();
     FoldingCellListAdapter adapter;
-    ListView theListView;
+    RecyclerView theRecyclerView;
     private Realm myrealm;
     public Model model = new Model();
     int id;
@@ -50,19 +51,14 @@ public class EventsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
 
-        theListView = (ListView) findViewById(R.id.mainListView);
+        theRecyclerView = (RecyclerView) findViewById(R.id.mainRecyclerView);
         swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swiperefresh);
         myrealm = Realm.getDefaultInstance();
         adapter = new FoldingCellListAdapter(EventsActivity.this,realmlist);
-        theListView.setAdapter(adapter);
+        theRecyclerView.setAdapter(adapter);
+
+        theRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         callapi();
-        theListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                ((FoldingCell) view).toggle(false);
-                adapter.registerToggle(i);
-            }
-        });
 
         swipeRefreshLayout.setOnRefreshListener(
                 new SwipeRefreshLayout.OnRefreshListener() {
