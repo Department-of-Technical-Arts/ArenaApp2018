@@ -10,6 +10,8 @@ import com.dota.arena18.api.ScoresInterface;
 import com.dota.arena18.api.TestApiClient;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import de.codecrafters.tableview.TableView;
 import de.codecrafters.tableview.model.TableColumnWeightModel;
@@ -87,9 +89,23 @@ public class MedalsTallyActivity extends AppCompatActivity {
     }
 
     ArrayList<String[]> getList(ArrayList<CollegeDetails> list) {
+        ArrayList<CollegeDetails> sorted = new ArrayList<>(list);
+        Collections.sort(sorted, new Comparator<CollegeDetails>() {
+            @Override
+            public int compare(CollegeDetails cd1, CollegeDetails cd2) {
+                // higher priority means first in the order. i.e. desc order of priority
+                if (cd1.getPriority() > cd2.getPriority()) return -1;
+                else if (cd1.getPriority() < cd2.getPriority()) return 1;
+                else return 0;
+            }
+        });
+
         ArrayList<String[]> arr = new ArrayList<>();
-        for (CollegeDetails col : list) {
-            arr.add(col.toStringArray());
+
+        for (int i = 1; i <= sorted.size(); i++) {
+            CollegeDetails col = sorted.get(i-1);
+            String[] col_arr = new String[]{"" + i, col.getName(), "" + col.getGoldCount(), "" + col.getSilverCount(), "" + col.getBronzeCount(), "" + col.getOthersCount()};
+            arr.add(col_arr);
             Log.i(TAG, "getList: " + col.toString());
         }
         return arr;

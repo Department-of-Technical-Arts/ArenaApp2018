@@ -51,7 +51,8 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".activities.TextDisplayActivity" />
         <activity android:name=".activities.NewsActivity" />
-        <activity android:name=".activities.MedalsTallyActivity"></activity>
+        <activity android:name=".activities.MedalsTallyActivity"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

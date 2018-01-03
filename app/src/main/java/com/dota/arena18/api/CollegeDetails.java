@@ -39,12 +39,63 @@ public class CollegeDetails {
         return name + " G: " + gold.length + ", S: " + silver.length + ", B: " + bronze.length + ", O: " + others.length;
     }
 
-    public String[] toStringArray() {
-        int count_gold = gold.length;
-        int count_silver = silver.length;
-        int count_bronze = bronze.length;
-        int count_others = others.length;
+    public int getPriority(){
+        return gold.length + silver.length + bronze.length + others.length;
+    }
 
-        return new String[]{("" + (count_gold + count_silver + count_bronze + count_others)), name, ("" + count_gold), ("" + count_silver), ("" + count_bronze), ("" + count_others)};
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String[] getGold() {
+        return gold;
+    }
+
+    public int getGoldCount() {
+        return gold.length;
+    }
+
+    public void setGold(String[] gold) {
+        this.gold = gold;
+    }
+
+    public String[] getSilver() {
+        return silver;
+    }
+
+    public int getSilverCount() {
+        return silver.length;
+    }
+
+    public void setSilver(String[] silver) {
+        this.silver = silver;
+    }
+
+    public String[] getBronze() {
+        return bronze;
+    }
+
+    public int getBronzeCount() {
+        return bronze.length;
+    }
+
+    public void setBronze(String[] bronze) {
+        this.bronze = bronze;
+    }
+
+    public String[] getOthers() {
+        return others;
+    }
+
+    public int getOthersCount() {
+        return others.length;
+    }
+
+    public void setOthers(String[] others) {
+        this.others = others;
     }
 }
