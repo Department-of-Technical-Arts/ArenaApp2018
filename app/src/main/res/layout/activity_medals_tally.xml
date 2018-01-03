@@ -6,7 +6,7 @@
     android:padding="16dp"
     tools:context="com.dota.arena18.activities.MedalsTallyActivity">
 
-    <de.codecrafters.tableview.TableView xmlns:table="http://schemas.android.com/apk/res-auto"
+    <de.codecrafters.tableview.SortableTableView xmlns:table="http://schemas.android.com/apk/res-auto"
         android:id="@+id/table_tally"
         table:tableView_headerColor="@android:color/white"
         android:layout_width="match_parent"
