@@ -27,7 +27,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class EventsActivity extends AppCompatActivity {
+public class EventsActivity extends AppCompatActivity implements FoldingCellListAdapter.ListItemClickListener {
     /**
      * The EventsActivity lists all the sporting EventDetails scheduled to happen during the fest.
      * Each event will have its own DetailsActivity to display information.
@@ -54,7 +54,7 @@ public class EventsActivity extends AppCompatActivity {
         theRecyclerView = (RecyclerView) findViewById(R.id.mainRecyclerView);
         swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swiperefresh);
         myrealm = Realm.getDefaultInstance();
-        adapter = new FoldingCellListAdapter(EventsActivity.this,realmlist);
+        adapter = new FoldingCellListAdapter(EventsActivity.this,realmlist,this);
         theRecyclerView.setAdapter(adapter);
 
         theRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -140,4 +140,10 @@ public class EventsActivity extends AppCompatActivity {
         id++;
         adapter.notifyDataSetChanged();
        }
+
+    @Override
+    public void OnListItemClick(int clickedItemIndex,View view) {
+        ((FoldingCell) view).toggle(false);
+        adapter.registerToggle(clickedItemIndex);
+    }
 }

@@ -29,19 +29,21 @@ import java.util.HashSet;
  * Created by lenovo on 12/19/2017.
  */
 
-public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellListAdapter.MyViewHolder> implements AdapterView.OnItemClickListener {
+public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellListAdapter.MyViewHolder> {
 
     private static final String TAG = "FoldingCellListAdapter";
+    final private ListItemClickListener listItemClickListener;
     private HashSet<Integer> unfoldedindexes = new HashSet<>();
 
     Context context;
     LayoutInflater inflater;
     ArrayList<Model> objects;
 
-    public FoldingCellListAdapter(Context context, ArrayList<Model> objects) {
+    public FoldingCellListAdapter(Context context, ArrayList<Model> objects, ListItemClickListener listener) {
         this.context = context;
         inflater=LayoutInflater.from(context);
         this.objects = objects;
+        listItemClickListener = listener;
     }
 
     @Override
@@ -80,15 +82,12 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
         unfoldedindexes.add(position);
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-       /* ((FoldingCell) view).toggle(false);
-        registerToggle(i);*/
-        Log.v(TAG, "index=" + i);
+    public interface ListItemClickListener{
+        void OnListItemClick(int clickedItemIndex, View view);
     }
 
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView TitleName;
         TextView ContentName;
         TextView prizemoney;
@@ -111,6 +110,13 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
             prizelayout = (RelativeLayout) itemView.findViewById(R.id.prize_layout);
             ruleslayout = (RelativeLayout) itemView.findViewById(R.id.content_rules);
             contactcaptainlayout = (RelativeLayout) itemView.findViewById(R.id.content_contact_captain);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int clickedPosition = getAdapterPosition();
+            listItemClickListener.OnListItemClick(clickedPosition,itemView);
         }
     }
 }
