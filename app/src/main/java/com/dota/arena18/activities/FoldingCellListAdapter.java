@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,6 +52,18 @@ public class FoldingCellListAdapter extends ArrayAdapter<Model> {
             viewHolder.rules = foldingCell.findViewById(R.id.content_rules_view);
             viewHolder.locationlayout = foldingCell.findViewById(R.id.content_location);
 
+            viewHolder.prizelayout = foldingCell.findViewById(R.id.prize_layout);
+
+            viewHolder.prizelayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
+
+
+
+
             viewHolder.locationlayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -74,8 +87,9 @@ public class FoldingCellListAdapter extends ArrayAdapter<Model> {
             viewHolder.ruleslayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast toast = Toast.makeText(getContext(), "To rules", Toast.LENGTH_SHORT);
-                    toast.show();
+                    Intent i = new Intent(getContext(),DetailsActivity.class);
+                    i.putExtra("rules",eventItem.getDb_rules());
+                    getContext().startActivity(i);
                 }
             });
 
@@ -93,14 +107,6 @@ public class FoldingCellListAdapter extends ArrayAdapter<Model> {
         viewHolder.ContentName.setText(eventItem.getDb_eventname());
         viewHolder.prizemoney.setText(eventItem.getDb_prizemoney());
 
-        viewHolder.rules.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getContext(),DetailsActivity.class);
-                i.putExtra("rules",eventItem.getDb_rules());
-               getContext().startActivity(i);
-            }
-        });
 
 
 
@@ -129,6 +135,7 @@ public class FoldingCellListAdapter extends ArrayAdapter<Model> {
         RelativeLayout locationlayout;
         RelativeLayout contactcaptainlayout;
         RelativeLayout ruleslayout;
+        RelativeLayout prizelayout;
 
 
     }
