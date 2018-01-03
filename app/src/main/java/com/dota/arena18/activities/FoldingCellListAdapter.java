@@ -1,10 +1,13 @@
 package com.dota.arena18.activities;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,12 +28,15 @@ import com.ramotion.foldingcell.FoldingCell;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import static android.support.v4.content.PermissionChecker.PERMISSION_DENIED;
+
 /**
  * Created by lenovo on 12/19/2017.
  */
 
 public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellListAdapter.MyViewHolder> {
 
+    private static final int REQUEST_LOCATION = 101;
     private static final String TAG = "FoldingCellListAdapter";
     final private ListItemClickListener listItemClickListener;
     private HashSet<Integer> unfoldedindexes = new HashSet<>();
@@ -58,6 +64,53 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
         holder.TitleName.setText(objects.get(position).getDb_eventname());
         holder.ContentName.setText(objects.get(position).getDb_eventname());
         holder.prizemoney.setText(objects.get(position).getDb_prizemoney());
+        holder.prizelayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        holder.one.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        holder.contactcaptainlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast toast = Toast.makeText(context, "To captain's contacts", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+        holder.two.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        holder.ruleslayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context,DetailsActivity.class);
+                i.putExtra("rules",objects.get(position).getDb_rules());
+                context.startActivity(i);
+            }
+        });
+        holder.three.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        holder.locationlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast toast = Toast.makeText(context, "To maps", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+
 
 
     }
@@ -96,6 +149,10 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
         RelativeLayout contactcaptainlayout;
         RelativeLayout ruleslayout;
         RelativeLayout prizelayout;
+        RelativeLayout PrizeLayout;
+        ImageView one;
+        ImageView two;
+        ImageView three;
 
 
         public MyViewHolder(View itemView) {
@@ -110,6 +167,13 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
             prizelayout = (RelativeLayout) itemView.findViewById(R.id.prize_layout);
             ruleslayout = (RelativeLayout) itemView.findViewById(R.id.content_rules);
             contactcaptainlayout = (RelativeLayout) itemView.findViewById(R.id.content_contact_captain);
+            one = (ImageView) itemView.findViewById(R.id.firstline);
+            two = (ImageView) itemView.findViewById(R.id.secondline);
+            three = (ImageView) itemView.findViewById(R.id.thirdline);
+
+
+
+
             itemView.setOnClickListener(this);
         }
 

@@ -113,7 +113,8 @@
             android:layout_marginBottom="6dp"
             android:layout_marginTop="9dp"
             android:src="@color/contentDividerLine"
-            android:id="@+id/first"/>
+            android:id="@+id/firstline"
+            android:clickable="false"/>
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -152,7 +153,8 @@
             android:layout_marginBottom="6dp"
             android:layout_marginTop="9dp"
             android:src="@color/contentDividerLine"
-            android:id="@+id/second"/>
+            android:id="@+id/secondline"
+            android:clickable="false"/>
 
 
         <RelativeLayout
@@ -190,7 +192,8 @@
             android:layout_marginBottom="6dp"
             android:layout_marginTop="9dp"
             android:src="@color/contentDividerLine"
-            android:id="@+id/third"/>
+            android:id="@+id/thirdline"
+            android:clickable="false"/>
 
 
         <RelativeLayout
