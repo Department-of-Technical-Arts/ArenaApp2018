@@ -111,10 +111,17 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
              realm1.beginTransaction();
              results.get(i).setId(id);
              realm1.commitTransaction();
-             realmlist.add(results.get(i));
+             if((realmlist.size()-1)<id)
+             {realmlist.add(id,results.get(i));}
+             else
+             {
+                 realmlist.set(id,results.get(i));
+             }
              id++;
          }
-           adapter.notifyDataSetChanged();
+         Log.e(EventsActivity.class.getSimpleName(),String.valueOf(results.size()));
+
+         adapter.notifyDataSetChanged();
          if(results.size()==0)
          {
              AlertDialog.Builder alertdailog = new AlertDialog.Builder(this);
@@ -132,13 +139,28 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
     private void adddatatorealm(Model mymodel)
        {
         myrealm.beginTransaction();
+        Model checkmodel = myrealm.where(Model.class).equalTo("id",id).findFirst();
+        if(checkmodel==null) {
         Model event = myrealm.createObject(Model.class);
         event.setId(id);
         event.setDb_eventname(mymodel.getDb_eventname());
         event.setDb_rules(mymodel.getDb_rules());
         event.setDb_prizemoney(mymodel.getDb_prizemoney());
+        realmlist.add(event);}
+
+        else{
+            checkmodel.setDb_eventname(mymodel.getDb_eventname());
+            checkmodel.setDb_prizemoney(mymodel.getDb_prizemoney());
+            checkmodel.setDb_rules(mymodel.getDb_rules());
+            if((realmlist.size()-1)<id)
+            {realmlist.add(id,checkmodel);}
+            else
+            {
+                realmlist.set(id,checkmodel);
+            }
+        }
+
         myrealm.commitTransaction();
-        realmlist.add(event);
         id++;
         adapter.notifyDataSetChanged();
        }
