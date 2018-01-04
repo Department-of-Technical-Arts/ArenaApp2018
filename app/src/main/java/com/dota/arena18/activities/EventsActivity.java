@@ -82,8 +82,10 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
              @Override
              public void onResponse(Call<ArrayList<EventDetails>> call, Response<ArrayList<EventDetails>> response) {
                  list = response.body();
+
                    for(int i=0;i<list.size();i++)
                      {
+
                          model.setDb_eventname(list.get(i).getEventname());
                          model.setDb_rules(list.get(i).getRules());
                          model.setDb_prizemoney(list.get(i).getPrize());

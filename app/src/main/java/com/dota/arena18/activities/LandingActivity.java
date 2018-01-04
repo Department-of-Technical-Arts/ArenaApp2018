@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 
@@ -34,6 +35,7 @@ public class LandingActivity extends AppCompatActivity {
     // TODO: Copy over current OnClick functions to Recycler when implemented
 
     private GyroscopeObserver gyroscopeObserver;
+    CardView events,aboutus,news,sponsers,credits,contacts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,52 @@ public class LandingActivity extends AppCompatActivity {
         panoramaImageView.setGyroscopeObserver(gyroscopeObserver);
 
 
+       events = (CardView)findViewById(R.id.card_events);
+        aboutus= (CardView)findViewById(R.id.card_about);
+        news= (CardView)findViewById(R.id.card_news);
+        sponsers = (CardView)findViewById(R.id.card_sposners);
+        contacts = (CardView)findViewById(R.id.card_contacts);
+        credits = (CardView)findViewById(R.id.card_credits);
+
+
+        events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), EventsActivity.class));
+            }
+        });
+
+        aboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), AboutActivity.class));
+            }
+        });
+
+        news.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), NewsActivity.class));
+            }
+        });
+
+        sponsers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
+        credits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
+
+        contacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ContactsActivity.class));
+            }
+        });
 
 
     }
@@ -69,22 +117,22 @@ public class LandingActivity extends AppCompatActivity {
     }
 
 
-    public void handleClicks(View v){
+    /*public void handleClicks(View v){
         switch (v.getId()){
-            case R.id.btn_about:
+            case R.id.card_about:
                 startActivity(new Intent(this, AboutActivity.class));
                 break;
-            case R.id.btn_events:
+            case R.id.card_events:
                 startActivity(new Intent(this, EventsActivity.class));
                 break;
-            case R.id.btn_contact:
+            case R.id.card_contacts:
                 startActivity(new Intent(this, ContactsActivity.class));
                 break;
-            case R.id.btn_news:
+            case R.id.card_news:
                 startActivity(new Intent(this,NewsActivity.class));
             default: break;
         }
-    }
+    }*/
 
     public class TwitterAuth extends AsyncTaskLoader{
 

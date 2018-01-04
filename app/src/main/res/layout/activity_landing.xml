@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <com.gjiazhe.panoramaimageview.PanoramaImageView
         android:id="@+id/panorama_image_view"
@@ -10,77 +11,167 @@
         android:layout_height="match_parent"
         android:src="@drawable/download5"
         app:piv_enablePanoramaMode="true"
-        app:piv_show_scrollbar="false"
-        app:piv_invertScrollDirection="false" />
+        app:piv_invertScrollDirection="false"
+        app:piv_show_scrollbar="false" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="8dp"
-    tools:context="com.dota.arena18.activities.LandingActivity">
-
-
-
-    <Button
-        android:id="@+id/btn_events"
-        android:text="Events"
-        android:onClick="handleClicks"
-        android:layout_marginTop="16dp"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corner_background"
-        android:textColor="#ffffff"
-        android:layout_marginBottom="5dp"/>
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_news"
-        android:text="News"
-        android:onClick="handleClicks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corner_background"
-        android:textColor="#ffffff"
-        android:layout_marginBottom="5dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btn_about"
-        android:text="About"
-        android:onClick="handleClicks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corner_background"
-        android:textColor="#ffffff"
-        android:layout_marginBottom="5dp"/>
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_events"
+                style="@style/LandingPagecardview"
 
-    <Button
-        android:text="Sponsors"
-        android:onClick="handleClicks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corner_background"
-        android:textColor="#ffffff"
-        android:layout_marginBottom="5dp"/>
+                android:layout_alignTop="@+id/card_contacts"
+                android:layout_toEndOf="@+id/card_contacts"
+                android:layout_toRightOf="@+id/card_contacts"
+                android:backgroundTint="#890000FF"
+                tools:layout_editor_absoluteX="213dp"
+                tools:layout_editor_absoluteY="45dp">
 
-    <Button
-        android:text="Credits"
-        android:onClick="handleClicks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corner_background"
-        android:textColor="#ffffff"
-        android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:id="@+id/textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Events"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+            </android.support.v7.widget.CardView>
 
-    <Button
-        android:id="@+id/btn_contact"
-        android:text="Contacts"
-        android:onClick="handleClicks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corner_background"
-        android:textColor="#ffffff"/>
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_news"
+                style="@style/LandingPagecardview"
 
+                android:layout_alignParentLeft="true"
 
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:backgroundTint="#8900FF00"
+                tools:layout_editor_absoluteX="26dp"
+                tools:layout_editor_absoluteY="45dp">
+
+                <TextView
+                    android:id="@+id/textview2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="news"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_sposners"
+                style="@style/LandingPagecardview"
+
+                android:layout_alignParentLeft="true"
+
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:backgroundTint="#89008080"
+                tools:layout_editor_absoluteX="26dp"
+                tools:layout_editor_absoluteY="45dp">
+
+                <TextView
+                    android:id="@+id/textview4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Sponsers"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_about"
+                style="@style/LandingPagecardview"
+
+                android:layout_alignTop="@+id/card_contacts"
+                android:layout_toEndOf="@+id/card_contacts"
+                android:layout_toRightOf="@+id/card_contacts"
+                android:backgroundTint="#89800080"
+                tools:layout_editor_absoluteX="213dp"
+                tools:layout_editor_absoluteY="45dp">
+
+                <TextView
+                    android:id="@+id/textview3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="About"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_credits"
+                style="@style/LandingPagecardview"
+
+                android:layout_alignTop="@+id/card_contacts"
+                android:layout_toEndOf="@+id/card_contacts"
+                android:layout_toRightOf="@+id/card_contacts"
+                android:backgroundTint="#89FF0000"
+                tools:layout_editor_absoluteX="213dp"
+                tools:layout_editor_absoluteY="45dp">
+
+                <TextView
+                    android:id="@+id/textview5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Credits"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_contacts"
+                style="@style/LandingPagecardview"
+
+                android:layout_height="match_parent"
+
+                android:layout_alignParentLeft="true"
+
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:backgroundTint="#89FFD700"
+                tools:layout_editor_absoluteX="26dp"
+                tools:layout_editor_absoluteY="45dp">
+
+                <TextView
+                    android:id="@+id/textview6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Contacts"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
     </LinearLayout>
 
 </FrameLayout>
