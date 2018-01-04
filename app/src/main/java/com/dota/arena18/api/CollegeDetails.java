@@ -26,6 +26,8 @@ public class CollegeDetails {
     @SerializedName("others")
     String[] others;
 
+    int rank = -1;
+
     public CollegeDetails(String name, String[] gold, String[] silver, String[] bronze, String[] others) {
         this.name = name;
         this.gold = gold;
@@ -36,7 +38,7 @@ public class CollegeDetails {
 
     @Override
     public String toString() {
-        return name + " G: " + gold.length + ", S: " + silver.length + ", B: " + bronze.length + ", O: " + others.length;
+        return "#" + rank + ": " + name + " G: " + gold.length + ", S: " + silver.length + ", B: " + bronze.length + ", O: " + others.length;
     }
 
     public int getPriority(){
@@ -97,5 +99,17 @@ public class CollegeDetails {
 
     public void setOthers(String[] others) {
         this.others = others;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
+    public String getMessage() {
+        return this.toString();
     }
 }

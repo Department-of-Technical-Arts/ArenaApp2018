@@ -18,7 +18,6 @@ import de.codecrafters.tableview.SortableTableView;
 import de.codecrafters.tableview.listeners.TableDataClickListener;
 import de.codecrafters.tableview.model.TableColumnWeightModel;
 import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
-import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,23 +26,14 @@ public class MedalsTallyActivity extends AppCompatActivity {
 
     private static final String TAG = MedalsTallyActivity.class.getSimpleName();
 
-    private final int COLUMN_RANK = 0;
-    private final int COLUMN_NAME = 1;
-    private final int COLUMN_GOLD = 2;
-    private final int COLUMN_SILVER = 3;
-    private final int COLUMN_BRONZE = 4;
-    private final int COLUMN_OTHERS = 5;
+    public static final int COLUMN_RANK = 0;
+    public static final int COLUMN_NAME = 1;
+    public static final int COLUMN_GOLD = 2;
+    public static final int COLUMN_SILVER = 3;
+    public static final int COLUMN_BRONZE = 4;
+    public static final int COLUMN_OTHERS = 5;
 
-    private final String HEADER_RANK = "Rank";
-    private final String HEADER_NAME = "College";
-    private final String HEADER_GOLD = "Gold";
-    private final String HEADER_SILVER = "Silver";
-    private final String HEADER_BRONZE = "Bronze";
-    private final String HEADER_OTHERS = "Others";
-
-    private final String[] TABLE_HEADERS = {HEADER_RANK, HEADER_NAME, HEADER_GOLD, HEADER_SILVER, HEADER_BRONZE, HEADER_OTHERS};
-
-    private SortableTableView<String[]> sortableTableView;
+    private SortableTableView<CollegeDetails> sortableTableView;
     private ArrayList<CollegeDetails> tableData;
 
     @Override
@@ -64,11 +54,11 @@ public class MedalsTallyActivity extends AppCompatActivity {
         sortableTableView.setColumnModel(columnModel);
 
         // Add comparators to define sorting
-        sortableTableView.setColumnComparator(COLUMN_RANK, new Comparator<String[]>() {
+        sortableTableView.setColumnComparator(COLUMN_RANK, new Comparator<CollegeDetails>() {
             @Override
-            public int compare(String[] strings1, String[] strings2) {
-                int rank1 = Integer.parseInt(strings1[COLUMN_RANK]);
-                int rank2 = Integer.parseInt(strings2[COLUMN_RANK]);
+            public int compare(CollegeDetails cd1, CollegeDetails cd2) {
+                int rank1 = cd1.getRank();
+                int rank2 = cd2.getRank();
 
                 // -1 implies order rank1 before rank2
                 // 1 implies rank2 before rank1
@@ -80,18 +70,18 @@ public class MedalsTallyActivity extends AppCompatActivity {
             }
         });
 
-        sortableTableView.setColumnComparator(COLUMN_NAME, new Comparator<String[]>() {
+        sortableTableView.setColumnComparator(COLUMN_NAME, new Comparator<CollegeDetails>() {
             @Override
-            public int compare(String[] strings1, String[] strings2) {
-                return strings1[COLUMN_NAME].compareToIgnoreCase(strings2[COLUMN_NAME]);
+            public int compare(CollegeDetails cd1, CollegeDetails cd2) {
+                return cd1.getName().compareToIgnoreCase(cd2.getName());
             }
         });
 
-        sortableTableView.setColumnComparator(COLUMN_GOLD, new Comparator<String[]>() {
+        sortableTableView.setColumnComparator(COLUMN_GOLD, new Comparator<CollegeDetails>() {
             @Override
-            public int compare(String[] strings1, String[] strings2) {
-                int count1 = Integer.parseInt(strings1[COLUMN_GOLD]);
-                int count2 = Integer.parseInt(strings2[COLUMN_GOLD]);
+            public int compare(CollegeDetails cd1, CollegeDetails cd2) {
+                int count1 = cd1.getGoldCount();
+                int count2 = cd2.getGoldCount();
 
                 if (count1 < count2) return -1;
                 else if (count1 > count2) return 1;
@@ -99,11 +89,11 @@ public class MedalsTallyActivity extends AppCompatActivity {
             }
         });
 
-        sortableTableView.setColumnComparator(COLUMN_SILVER, new Comparator<String[]>() {
+        sortableTableView.setColumnComparator(COLUMN_SILVER, new Comparator<CollegeDetails>() {
             @Override
-            public int compare(String[] strings1, String[] strings2) {
-                int count1 = Integer.parseInt(strings1[COLUMN_SILVER]);
-                int count2 = Integer.parseInt(strings2[COLUMN_SILVER]);
+            public int compare(CollegeDetails cd1, CollegeDetails cd2) {
+                int count1 = cd1.getSilverCount();
+                int count2 = cd2.getSilverCount();
 
                 if (count1 < count2) return -1;
                 else if (count1 > count2) return 1;
@@ -111,11 +101,11 @@ public class MedalsTallyActivity extends AppCompatActivity {
             }
         });
 
-        sortableTableView.setColumnComparator(COLUMN_BRONZE, new Comparator<String[]>() {
+        sortableTableView.setColumnComparator(COLUMN_BRONZE, new Comparator<CollegeDetails>() {
             @Override
-            public int compare(String[] strings1, String[] strings2) {
-                int count1 = Integer.parseInt(strings1[COLUMN_BRONZE]);
-                int count2 = Integer.parseInt(strings2[COLUMN_BRONZE]);
+            public int compare(CollegeDetails cd1, CollegeDetails cd2) {
+                int count1 = cd1.getBronzeCount();
+                int count2 = cd2.getBronzeCount();
 
                 if (count1 < count2) return -1;
                 else if (count1 > count2) return 1;
@@ -123,11 +113,11 @@ public class MedalsTallyActivity extends AppCompatActivity {
             }
         });
 
-        sortableTableView.setColumnComparator(COLUMN_OTHERS, new Comparator<String[]>() {
+        sortableTableView.setColumnComparator(COLUMN_OTHERS, new Comparator<CollegeDetails>() {
             @Override
-            public int compare(String[] strings1, String[] strings2) {
-                int count1 = Integer.parseInt(strings1[COLUMN_OTHERS]);
-                int count2 = Integer.parseInt(strings2[COLUMN_OTHERS]);
+            public int compare(CollegeDetails cd1, CollegeDetails cd2) {
+                int count1 = cd1.getOthersCount();
+                int count2 = cd2.getOthersCount();
 
                 if (count1 < count2) return -1;
                 else if (count1 > count2) return 1;
@@ -136,13 +126,13 @@ public class MedalsTallyActivity extends AppCompatActivity {
         });
 
         // Add a click listener to each row of the table
-        sortableTableView.addDataClickListener(new TableDataClickListener<String[]>() {
+        sortableTableView.addDataClickListener(new TableDataClickListener<CollegeDetails>() {
             @Override
-            public void onDataClicked(int rowIndex, String[] clickedData) {
+            public void onDataClicked(int rowIndex, CollegeDetails clickedData) {
                 new LovelyInfoDialog(MedalsTallyActivity.this)
                         .setTopColorRes(R.color.colorPrimary)
-                        .setTitle(clickedData[COLUMN_NAME])
-                        .setMessage("sample message text")
+                        .setTitle(clickedData.getName())
+                        .setMessage(clickedData.getMessage())
                         .show();
             }
         });
@@ -167,14 +157,11 @@ public class MedalsTallyActivity extends AppCompatActivity {
     }
 
     void loadData() {
-//        String[][] DATA_TO_SHOW = {{"1", "BITS Hyderabad", "2", "2", "1", "1"}, {"2", "Harvard University", "2", "0", "1", "0"}};
-
         sortableTableView.setHeaderAdapter(new MedalsTableHeaderAdapter(this));
-//        sortableTableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, TABLE_HEADERS));
-        sortableTableView.setDataAdapter(new SimpleTableDataAdapter(this, getList(tableData)));
+        sortableTableView.setDataAdapter(new MedalsTableDataAdapter(this, getRankedList(tableData)));
     }
 
-    ArrayList<String[]> getList(ArrayList<CollegeDetails> list) {
+    ArrayList<CollegeDetails> getRankedList(ArrayList<CollegeDetails> list) {
         ArrayList<CollegeDetails> sorted = new ArrayList<>(list);
         Collections.sort(sorted, new Comparator<CollegeDetails>() {
             @Override
@@ -190,14 +177,11 @@ public class MedalsTallyActivity extends AppCompatActivity {
             }
         });
 
-        ArrayList<String[]> arr = new ArrayList<>();
-
         for (int i = 1; i <= sorted.size(); i++) {
             CollegeDetails col = sorted.get(i-1);
-            String[] col_arr = new String[]{"" + i, col.getName(), "" + col.getGoldCount(), "" + col.getSilverCount(), "" + col.getBronzeCount(), "" + col.getOthersCount()};
-            arr.add(col_arr);
-            Log.i(TAG, "getList: " + col.toString());
+            col.setRank(i);
+            Log.i(TAG, "getRankedList: " + col.toString());
         }
-        return arr;
+        return sorted;
     }
 }
