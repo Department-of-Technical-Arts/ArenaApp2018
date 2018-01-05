@@ -11,6 +11,11 @@ import java.util.ArrayList;
  */
 
 public class CollegeDetails {
+
+    public static final int POINTS_GOLD = 15;
+    public static final int POINTS_SILVER = 10;
+    public static final int POINTS_BRONZE = 5;
+
     @SerializedName("name")
     String name;
 
@@ -41,8 +46,12 @@ public class CollegeDetails {
         return "#" + rank + ": " + name + " G: " + gold.length + ", S: " + silver.length + ", B: " + bronze.length + ", O: " + others.length;
     }
 
-    public int getPriority(){
-        return gold.length + silver.length + bronze.length + others.length;
+    public int getPoints(){
+        return (gold.length * POINTS_GOLD) + (silver.length * POINTS_SILVER) + (bronze.length * POINTS_BRONZE);
+    }
+
+    public String getScoreString() {
+        return ("" + gold.length + silver.length + bronze.length);
     }
 
     public String getName() {

@@ -17,7 +17,6 @@ import java.util.Comparator;
 import de.codecrafters.tableview.SortableTableView;
 import de.codecrafters.tableview.listeners.TableDataClickListener;
 import de.codecrafters.tableview.model.TableColumnWeightModel;
-import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -166,14 +165,11 @@ public class MedalsTallyActivity extends AppCompatActivity {
         Collections.sort(sorted, new Comparator<CollegeDetails>() {
             @Override
             public int compare(CollegeDetails cd1, CollegeDetails cd2) {
-                // higher priority means first in the order. i.e. desc order of priority
                 // -1 implies order cd1 before cd2
                 // 1 implies cd2 before cd1
                 // 0 implies equal
-
-                if (cd1.getPriority() > cd2.getPriority()) return -1;
-                else if (cd1.getPriority() < cd2.getPriority()) return 1;
-                else return 0;
+                
+                return -1 * cd1.getScoreString().compareToIgnoreCase(cd2.getScoreString());
             }
         });
 
