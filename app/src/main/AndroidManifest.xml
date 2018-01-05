@@ -33,7 +33,9 @@
         <activity android:name=".activities.TweetsActivity" />
         <activity android:name=".activities.ContactsActivity" />
         <activity android:name=".activities.EventsActivity" />
-        <activity android:name=".activities.DetailsActivity" />
+        <activity android:name=".activities.DetailsActivity"
+              android:theme="@style/AppTheme.NoActionBar"
+            />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

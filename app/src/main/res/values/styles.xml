@@ -52,6 +52,16 @@
         <item name="android:layout_margin">10dp</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
-
+    <style name="collapsingtoolbarexpandedtitle" parent="AppTheme">
+        <item name="android:textColor">#f8f8ff</item>
+    </style>
+    <style name="collapsingtoolbarcollapsedtitle" parent="AppTheme">
+     <item name="android:textColor">#f8f8ff</item>
+     <item name="android:gravity">left</item>
+    </style>
 </resources>

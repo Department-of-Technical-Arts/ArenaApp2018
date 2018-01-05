@@ -1,9 +1,12 @@
 package com.dota.arena18.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 import com.dota.arena18.R;
 
@@ -21,6 +24,8 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         Intent intent = getIntent();
         String rulesdata = intent.getStringExtra("rules");
         TextView rules = (TextView)findViewById(R.id.rules_details);
