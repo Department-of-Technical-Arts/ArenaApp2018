@@ -6,8 +6,18 @@
     android:padding="8dp"
     tools:context="com.dota.arena18.activities.MedalsTallyActivity">
 
+    <TextView
+        android:id="@+id/tv_points"
+        android:visibility="gone"
+        android:text="Gold - 15 pts, Silver - 10 pts, Bronze - 5 pts"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <de.codecrafters.tableview.SortableTableView xmlns:table="http://schemas.android.com/apk/res-auto"
         android:id="@+id/table_tally"
+        android:layout_below="@id/tv_points"
         table:tableView_headerColor="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

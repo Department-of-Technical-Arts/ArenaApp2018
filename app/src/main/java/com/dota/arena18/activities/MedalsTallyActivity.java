@@ -3,6 +3,8 @@ package com.dota.arena18.activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.dota.arena18.R;
 import com.dota.arena18.api.CollegeDetails;
@@ -35,10 +37,24 @@ public class MedalsTallyActivity extends AppCompatActivity {
     private SortableTableView<CollegeDetails> sortableTableView;
     private ArrayList<CollegeDetails> tableData;
 
+    private boolean isInterBITS = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medals_tally);
+
+        Log.i(TAG, "onCreate: flag: " + getIntent().getIntExtra("flag", 0));
+        isInterBITS = (getIntent().getIntExtra("flag", 0) == 1);
+
+        TextView tv_points = findViewById(R.id.tv_points);
+        
+        if (isInterBITS) {
+            Log.i(TAG, "onCreate: isInterBits");
+            tv_points.setVisibility(View.VISIBLE);
+        } else {
+            tv_points.setVisibility(View.GONE);
+        }
 
         sortableTableView = findViewById(R.id.table_tally);
 
@@ -140,7 +156,16 @@ public class MedalsTallyActivity extends AppCompatActivity {
 
     void testResponse() {
         ScoresInterface scores = TestApiClient.getClient().create(ScoresInterface.class);
-        Call<ArrayList<CollegeDetails>> call = scores.getLeaderboard();
+        Call<ArrayList<CollegeDetails>> call;
+
+        if (isInterBITS) {
+            // TODO change API call here
+            // call = scores.getBitsLeaderboard();
+            call = scores.getArenaLeaderboard();
+        } else {
+            call = scores.getArenaLeaderboard();
+        }
+
         call.enqueue(new Callback<ArrayList<CollegeDetails>>() {
             @Override
             public void onResponse(Call<ArrayList<CollegeDetails>> call, Response<ArrayList<CollegeDetails>> response) {
@@ -168,8 +193,18 @@ public class MedalsTallyActivity extends AppCompatActivity {
                 // -1 implies order cd1 before cd2
                 // 1 implies cd2 before cd1
                 // 0 implies equal
-                
-                return -1 * cd1.getScoreString().compareToIgnoreCase(cd2.getScoreString());
+
+                if (isInterBITS) {
+                    int count1 = cd1.getPoints();
+                    int count2 = cd2.getPoints();
+
+                    if (count1 < count2) return 1;
+                    else if (count1 > count2) return -1;
+                    else return -1 * cd1.getScoreString().compareToIgnoreCase(cd2.getScoreString());
+                } else {
+                    // ie ARENA
+                    return -1 * cd1.getScoreString().compareToIgnoreCase(cd2.getScoreString());
+                }
             }
         });
 

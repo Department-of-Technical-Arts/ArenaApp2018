@@ -12,5 +12,8 @@ import retrofit2.http.GET;
 public interface ScoresInterface {
 
     @GET("leaderboard")
-    Call<ArrayList<CollegeDetails>> getLeaderboard();
+    Call<ArrayList<CollegeDetails>> getArenaLeaderboard();
+
+//    @GET("bits")
+//    Call<ArrayList<CollegeDetails>> getBitsLeaderboard();
 }

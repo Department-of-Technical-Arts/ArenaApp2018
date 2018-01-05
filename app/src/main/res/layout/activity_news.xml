@@ -7,16 +7,24 @@
     tools:context="com.dota.arena18.activities.NewsActivity">
 
     <Button
-        android:id="@+id/btn_tally"
-        android:text="Medals Tally"
+        android:id="@+id/btn_arena"
+        android:text="Arena Leaderboard"
         android:onClick="openTally"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_interbits"
+        android:text="Inter-BITS Leaderboard"
+        android:onClick="openTally"
+        android:layout_below="@id/btn_arena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btn_feed"
         android:text="Live Feed"
-        android:layout_below="@id/btn_tally"
+        android:layout_below="@id/btn_interbits"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

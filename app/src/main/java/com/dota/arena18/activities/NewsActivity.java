@@ -17,7 +17,18 @@ public class NewsActivity extends AppCompatActivity {
     }
 
     public void openTally(View v) {
-        startActivity(new Intent(this, MedalsTallyActivity.class));
+        Intent i = new Intent(this, MedalsTallyActivity.class);
+
+        switch (v.getId()) {
+            case R.id.btn_arena:
+                i.putExtra("flag", 0);
+                break;
+            case R.id.btn_interbits:
+                i.putExtra("flag", 1);
+                break;
+        }
+
+        startActivity(i);
     }
 
     public void openTweets(View v) {
