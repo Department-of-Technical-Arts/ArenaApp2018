@@ -119,6 +119,37 @@ public class CollegeDetails {
     }
 
     public String getMessage() {
-        return this.toString();
+        String bulletString = "  * ";
+
+        StringBuilder msg = new StringBuilder();
+
+        if (gold.length > 0) {
+            msg.append("Gold\n");
+            for (String event : gold) {
+                msg.append(bulletString);
+                msg.append(event);
+                msg.append("\n");
+            }
+        }
+
+        if (silver.length > 0) {
+            msg.append("\nSilver\n");
+            for (String event : silver) {
+                msg.append(bulletString);
+                msg.append(event);
+                msg.append("\n");
+            }
+        }
+
+        if (bronze.length > 0) {
+            msg.append("\nBronze\n");
+            for (String event : bronze) {
+                msg.append(bulletString);
+                msg.append(event);
+                msg.append("\n");
+            }
+        }
+
+        return msg.toString().trim();
     }
 }

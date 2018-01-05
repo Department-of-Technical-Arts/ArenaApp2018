@@ -1,5 +1,6 @@
 package com.dota.arena18.activities;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -146,7 +147,8 @@ public class MedalsTallyActivity extends AppCompatActivity {
             public void onDataClicked(int rowIndex, CollegeDetails clickedData) {
                 new LovelyInfoDialog(MedalsTallyActivity.this)
                         .setTopColorRes(R.color.colorPrimary)
-                        .setTitle(clickedData.getName())
+                        .setTopTitleColor(Color.WHITE)
+                        .setTopTitle(clickedData.getName())
                         .setMessage(clickedData.getMessage())
                         .show();
             }
