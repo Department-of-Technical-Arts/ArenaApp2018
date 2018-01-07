@@ -7,6 +7,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 
 import com.dota.arena18.R;
@@ -27,9 +28,32 @@ public class AboutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        CardView cardView_abt ,cardView_dir ,cardView_map;
+        cardView_abt = findViewById(R.id.cardview_abtus);
+        cardView_dir = findViewById(R.id.cardview_dir);
+        cardView_map = findViewById(R.id.cardview_map);
+        cardView_abt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openAbout();
+            }
+        });
+        cardView_dir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDir();
+            }
+        });
+        cardView_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMap();
+            }
+        });
+
     }
 
-    public void openMap(View v){
+    public void openMap(){
         int permCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
         if (permCheck == PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
@@ -38,13 +62,13 @@ public class AboutActivity extends AppCompatActivity {
         }
     }
 
-    public void openAbout(View v){
+    public void openAbout(){
         Intent i = new Intent(this, TextDisplayActivity.class);
         i.putExtra("text", "about");
         startActivity(i);
     }
 
-    public void openDir(View v){
+    public void openDir(){
         Intent i = new Intent(this, TextDisplayActivity.class);
         i.putExtra("text", "dir");
         startActivity(i);
