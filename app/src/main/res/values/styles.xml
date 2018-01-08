@@ -64,4 +64,10 @@
      <item name="android:textColor">#f8f8ff</item>
      <item name="android:gravity">left</item>
     </style>
+
+    <style name="cardviewaboutactivity" parent="AppTheme">
+        <item name="android:layout_height">175dp</item>
+        <item name="android:layout_width">350dp</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
 </resources>
