@@ -103,4 +103,9 @@ Besides that, there are City Buses having numbers 211S, 211A, 211C, 211D, 211E, 
         <item>M 843.64 312.01 H 856.13 V 322.49 H 843.64 V 312.01 Z</item>
     </string-array>
 
+    <string name="harshvardhan">Harshvardhan Takawale</string>
+    <string name="doris_day">Doris Day</string>
+    <string name="grace_kelly">Grace Kelly</string>
+    <string name="desc1">Bahut kaam karate hai bhaiya</string>
+
 </resources>
