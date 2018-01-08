@@ -39,4 +39,5 @@ dependencies {
     implementation 'com.twitter.sdk.android:tweet-ui:3.1.1'
     implementation 'de.codecrafters.tableview:tableview:2.8.0'
     implementation 'com.yarolegovich:lovely-dialog:1.0.7'
+    implementation 'com.github.jaouan:compoundlayout:1.0.1'
 }
