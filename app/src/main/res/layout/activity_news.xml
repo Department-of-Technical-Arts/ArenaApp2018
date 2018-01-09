@@ -1,46 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:padding="16dp"
+    android:id="@+id/relative"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.dota.arena18.activities.NewsActivity">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_arena"
-        android:text="Arena Leaderboard"
-        android:onClick="openTally"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/news_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/btn_interbits"
-        android:text="Inter-BITS Leaderboard"
-        android:onClick="openTally"
-        android:layout_below="@id/btn_arena"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/btn_feed"
-        android:text="Live Feed"
-        android:layout_below="@id/btn_interbits"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/btn_news"
-        android:text="Newsletters"
-        android:layout_below="@id/btn_feed"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/btn_tweets"
-        android:text="Tweets"
-        android:onClick="openTweets"
-        android:layout_below="@id/btn_news"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="match_parent" />
 </RelativeLayout>
