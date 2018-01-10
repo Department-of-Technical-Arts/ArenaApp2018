@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.dota.arena18.R;
 
 import java.util.ArrayList;
@@ -17,25 +18,24 @@ import java.util.List;
  * Created by ashwik on 09-01-2018.
  */
 
-public class NewsActivityAdapter extends RecyclerView.Adapter<NewsActivityAdapter.CustomViewHolder>{
-
+public class AboutActivityAdapter extends RecyclerView.Adapter<AboutActivityAdapter.AboutViewHolder> {
     List<Imagedata> list = new ArrayList<>();
     Context context ;
-    public NewsActivityAdapter(Context context , List<Imagedata> list) {
+    AboutActivity aboutActivity = new AboutActivity();
 
+    public AboutActivityAdapter(Context context , List<Imagedata> list) {
         this.list = list;
         this.context = context;
     }
-
+;
     @Override
-    public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_news_content, parent, false);
-        CustomViewHolder customviewholder = new CustomViewHolder(v);
-        return customviewholder;
+    public AboutViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_about_content, parent, false);
+        return new AboutViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(CustomViewHolder holder, final int position) {
+    public void onBindViewHolder(AboutViewHolder holder, final int position) {
         holder.textView.setText(list.get(position).getTitle());
         holder.imageView.setImageResource(list.get(position).getImage());
 
@@ -43,19 +43,18 @@ public class NewsActivityAdapter extends RecyclerView.Adapter<NewsActivityAdapte
 
     @Override
     public int getItemCount() {
-        return list.size();}
+        return list.size();
+    }
 
-
-    public class CustomViewHolder extends RecyclerView.ViewHolder{
+    public class AboutViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView textView;
         LinearLayout layout;
-        public CustomViewHolder(View itemView) {
+        public AboutViewHolder(View itemView) {
             super(itemView);
-            imageView = (ImageView)itemView.findViewById(R.id.news_image);
-            textView  = (TextView)itemView.findViewById(R.id.news_text);
-            layout = itemView.findViewById(R.id.news_layout);
+            imageView = (ImageView)itemView.findViewById(R.id.about_image);
+            textView  = (TextView)itemView.findViewById(R.id.about_text);
+            layout = itemView.findViewById(R.id.about_layout);
         }
-
     }
 }

@@ -7,10 +7,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.MotionEvent;
 import android.view.View;
 
 import com.dota.arena18.R;
@@ -30,9 +28,9 @@ public class AboutActivity extends AppCompatActivity {
 
     public static final int REQUEST_LOCATION = 101;
     RecyclerView recyclerView;
-    NewsActivityAdapter adapter;
     List<Imagedata> list = new ArrayList<>();
     public static int permCheck;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +39,7 @@ public class AboutActivity extends AppCompatActivity {
         list.add(new Imagedata(R.drawable.abt,"About us"));
         list.add(new Imagedata(R.drawable.about_directions,"Directions"));
         list.add(new Imagedata(R.drawable.about_map,"Map"));
-        final AboutActiivtyAdapter adapter = new AboutActiivtyAdapter(this,list);
+        AboutActivityAdapter adapter = new AboutActivityAdapter(this,list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
         recyclerView.addOnItemTouchListener(
@@ -49,10 +47,9 @@ public class AboutActivity extends AppCompatActivity {
                    @Override
                    public void onItemClick(View view, int position) {
                        switch (position){
-                           case 0:openAbout();
-                           break;
-                           case 1: openDir();break;
-                           case 2 :openMap();break;
+                           case 0: openAbout(); break;
+                           case 1: openDir(); break;
+                           case 2: openMap(); break;
                        }
                    }
 

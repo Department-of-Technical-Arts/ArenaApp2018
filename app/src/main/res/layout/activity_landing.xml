@@ -28,43 +28,34 @@
             <android.support.v7.widget.CardView
                 android:id="@+id/card_events"
                 style="@style/LandingPagecardview"
-
-                android:layout_alignTop="@+id/card_contacts"
-                android:layout_toEndOf="@+id/card_contacts"
-                android:layout_toRightOf="@+id/card_contacts"
-                android:backgroundTint="#890000FF"
+                app:cardBackgroundColor="#890000FF"
                 tools:layout_editor_absoluteX="213dp"
                 tools:layout_editor_absoluteY="45dp">
 
                 <TextView
                     android:id="@+id/textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="Events"
-                    android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button" />
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
                 android:id="@+id/card_news"
                 style="@style/LandingPagecardview"
-
-                android:layout_alignParentLeft="true"
-
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:backgroundTint="#8900FF00"
+                app:cardBackgroundColor="#8900FF00"
                 tools:layout_editor_absoluteX="26dp"
                 tools:layout_editor_absoluteY="45dp">
 
                 <TextView
                     android:id="@+id/textview2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:text="news"
-                    android:textAlignment="center"
+                    android:background="?android:attr/selectableItemBackground"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
             </android.support.v7.widget.CardView>
@@ -79,22 +70,17 @@
             <android.support.v7.widget.CardView
                 android:id="@+id/card_sposners"
                 style="@style/LandingPagecardview"
-
-                android:layout_alignParentLeft="true"
-
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:backgroundTint="#89008080"
+                app:cardBackgroundColor="#89008080"
                 tools:layout_editor_absoluteX="26dp"
                 tools:layout_editor_absoluteY="45dp">
 
                 <TextView
                     android:id="@+id/textview4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Sponsers"
-                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:text="Sponsors"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
             </android.support.v7.widget.CardView>
@@ -102,21 +88,17 @@
             <android.support.v7.widget.CardView
                 android:id="@+id/card_about"
                 style="@style/LandingPagecardview"
-
-                android:layout_alignTop="@+id/card_contacts"
-                android:layout_toEndOf="@+id/card_contacts"
-                android:layout_toRightOf="@+id/card_contacts"
-                android:backgroundTint="#89800080"
+                app:cardBackgroundColor="#89800080"
                 tools:layout_editor_absoluteX="213dp"
                 tools:layout_editor_absoluteY="45dp">
 
                 <TextView
                     android:id="@+id/textview3"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="About"
-                    android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button" />
             </android.support.v7.widget.CardView>
         </LinearLayout>
@@ -129,45 +111,35 @@
             <android.support.v7.widget.CardView
                 android:id="@+id/card_credits"
                 style="@style/LandingPagecardview"
-
-                android:layout_alignTop="@+id/card_contacts"
-                android:layout_toEndOf="@+id/card_contacts"
-                android:layout_toRightOf="@+id/card_contacts"
-                android:backgroundTint="#89FF0000"
+                app:cardBackgroundColor="#89FF0000"
                 tools:layout_editor_absoluteX="213dp"
                 tools:layout_editor_absoluteY="45dp">
 
                 <TextView
                     android:id="@+id/textview5"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="Credits"
-                    android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button" />
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
                 android:id="@+id/card_contacts"
                 style="@style/LandingPagecardview"
-
                 android:layout_height="match_parent"
-
-                android:layout_alignParentLeft="true"
-
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:backgroundTint="#89FFD700"
+                app:cardBackgroundColor="#89FFD700"
                 tools:layout_editor_absoluteX="26dp"
                 tools:layout_editor_absoluteY="45dp">
 
                 <TextView
                     android:id="@+id/textview6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
                     android:text="Contacts"
-                    android:textAlignment="center"
+                    android:gravity="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
             </android.support.v7.widget.CardView>

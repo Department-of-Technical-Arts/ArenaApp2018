@@ -35,7 +35,7 @@ public class LandingActivity extends AppCompatActivity {
     // TODO: Copy over current OnClick functions to Recycler when implemented
 
     private GyroscopeObserver gyroscopeObserver;
-    CardView events,aboutus,news,sponsers,credits,contacts;
+    CardView events,aboutus,news, sponsors,credits,contacts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class LandingActivity extends AppCompatActivity {
        events = (CardView)findViewById(R.id.card_events);
         aboutus= (CardView)findViewById(R.id.card_about);
         news= (CardView)findViewById(R.id.card_news);
-        sponsers = (CardView)findViewById(R.id.card_sposners);
+        sponsors = (CardView)findViewById(R.id.card_sposners);
         contacts = (CardView)findViewById(R.id.card_contacts);
         credits = (CardView)findViewById(R.id.card_credits);
 
@@ -83,7 +83,7 @@ public class LandingActivity extends AppCompatActivity {
             }
         });
 
-        sponsers.setOnClickListener(new View.OnClickListener() {
+        sponsors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
             }
@@ -116,24 +116,6 @@ public class LandingActivity extends AppCompatActivity {
         super.onResume();
         gyroscopeObserver.register(this);
     }
-
-
-    /*public void handleClicks(View v){
-        switch (v.getId()){
-            case R.id.card_about:
-                startActivity(new Intent(this, AboutActivity.class));
-                break;
-            case R.id.card_events:
-                startActivity(new Intent(this, EventsActivity.class));
-                break;
-            case R.id.card_contacts:
-                startActivity(new Intent(this, ContactsActivity.class));
-                break;
-            case R.id.card_news:
-                startActivity(new Intent(this,NewsActivity.class));
-            default: break;
-        }
-    }*/
 
     public class TwitterAuth extends AsyncTaskLoader{
 

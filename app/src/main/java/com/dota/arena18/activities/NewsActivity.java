@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Switch;
 
@@ -37,10 +38,30 @@ public class NewsActivity extends AppCompatActivity {
                 new RecyclerItemClickListener(this, recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Intent i = new Intent(NewsActivity.this, MedalsTallyActivity.class);
+                        Intent i;
                         switch (position){
-                            case 0 : i.putExtra("flag", 0);break;
-                            case 1 : i.putExtra("flag", 1);break;
+                            case 0 : // Arena tally
+                                i = new Intent(NewsActivity.this, MedalsTallyActivity.class);
+                                i.putExtra("flag", 0);
+                                break;
+                            case 1 : // InterBITS tally
+                                i = new Intent(NewsActivity.this, MedalsTallyActivity.class);
+                                i.putExtra("flag", 1);
+                                break;
+                            case 2: // News Feed
+//                                i = new Intent(NewsActivity.this, MedalsTallyActivity.class);
+//                                break;
+                                return;
+                            case 3: // Newsletters
+//                                i = new Intent(NewsActivity.this, MedalsTallyActivity.class);
+//                                break;
+                                return;
+                            case 4: // Tweets
+                                i = new Intent(NewsActivity.this, TweetsActivity.class);
+                                break;
+                            default:
+                                Log.i("NewsActivity", "onItemClick: unexpected position passed.");
+                                return;
                         }
                         startActivity(i);
                     }
@@ -51,24 +72,5 @@ public class NewsActivity extends AppCompatActivity {
                     }
                 })
         );
-    }
-
-    public void openTally(View v) {
-        /*Intent i = new Intent(this, MedalsTallyActivity.class);
-
-        switch (v.getId()) {
-            case R.id.btn_arena:
-                i.putExtra("flag", 0);
-                break;
-            case R.id.btn_interbits:
-                i.putExtra("flag", 1);
-                break;
-        }
-
-        startActivity(i);*/
-    }
-
-    public void openTweets(View v) {
-        startActivity(new Intent(this, TweetsActivity.class));
     }
 }
