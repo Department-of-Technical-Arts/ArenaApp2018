@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TestApiClient {
 
-    public static final String baseurl = "http://139.59.79.46:8000/api/scores/";
+    public static final String baseurl = "http://139.59.79.46:8000/api/";
     public static Retrofit retrofit = null;
 
     public static Retrofit getClient()

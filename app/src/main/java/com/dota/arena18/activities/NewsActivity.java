@@ -53,9 +53,8 @@ public class NewsActivity extends AppCompatActivity {
 //                                break;
                                 return;
                             case 3: // Newsletters
-//                                i = new Intent(NewsActivity.this, MedalsTallyActivity.class);
-//                                break;
-                                return;
+                                i = new Intent(NewsActivity.this, ArticlesActivity.class);
+                                break;
                             case 4: // Tweets
                                 i = new Intent(NewsActivity.this, TweetsActivity.class);
                                 break;

@@ -33,9 +33,9 @@
         <activity android:name=".activities.TweetsActivity" />
         <activity android:name=".activities.ContactsActivity" />
         <activity android:name=".activities.EventsActivity" />
-        <activity android:name=".activities.DetailsActivity"
-              android:theme="@style/AppTheme.NoActionBar"
-            />
+        <activity
+            android:name=".activities.DetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -53,8 +53,11 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".activities.TextDisplayActivity" />
         <activity android:name=".activities.NewsActivity" />
-        <activity android:name=".activities.MedalsTallyActivity"
-            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".activities.MedalsTallyActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".activities.ArticlesActivity"/>
+        <activity android:name=".activities.ArticleDisplayActivity"/>
     </application>
 
 </manifest>

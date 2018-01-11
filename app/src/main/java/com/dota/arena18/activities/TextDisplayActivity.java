@@ -20,6 +20,7 @@ public class TextDisplayActivity extends AppCompatActivity {
         String s = getIntent().getStringExtra("text");
         if (s.equalsIgnoreCase("about")) {
             setTitle("About us");
+            // TODO change this about text
             display.setText(R.string.about_us);
         } else if (s.equalsIgnoreCase("dir")) {
             setTitle("Directions");
