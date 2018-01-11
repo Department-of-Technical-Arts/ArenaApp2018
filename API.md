@@ -1,6 +1,6 @@
 A list of APIs being used in the app:
 
-base-url = "http://www.bits-arena/api/events"
+base-url = "http://www.bits-arena/api/"
 
 For the below,
 complete url = base-url + relative-endpoint
@@ -8,7 +8,7 @@ complete url = base-url + relative-endpoint
 #### All Events
 
 Type: **GET**  
-Relative endpoint: `/`  
+Relative endpoint: `events/`  
 Response: JSONArray with each item being a JSONObject representing one sport
 
 Example: "http://www.bits-arena/api/events/"
@@ -50,7 +50,7 @@ Tags we need:
 #### Event by ID
 
 Type: **GET**  
-Relative endpoint: `/id` (i.e. `id` is replaced with an actual id)  
+Relative endpoint: `events/id` (i.e. `id` is replaced with an actual id)  
 Response: A single JSONObject containting the event's data  
 
 Example: "http://www.bits-arena/api/events/5a39e9f972f7a67961ad41a1"
@@ -79,3 +79,161 @@ Example: "http://www.bits-arena/api/events/5a39e9f972f7a67961ad41a1"
     ]
 }
 ```
+
+#### Scores Leaderboard
+
+Type: **GET**
+Relative endpoint: `/scores/leaderboard`
+
+Example: "http://139.59.79.46:8000/api/scores/leaderboard"
+```
+[
+    {
+        "_id": "5a49ff33c2d45e765fc357e8",
+        "name": "Birla Institute of Technology & Science - Goa",
+        "updatedAt": "2018-01-01T09:28:19.353Z",
+        "__v": 0,
+        "createdAt": "2018-01-01T09:28:19.353Z",
+        "others": [],
+        "bronze": [],
+        "silver": [
+            "Cricket"
+        ],
+        "gold": []
+    },
+    {
+        "_id": "5a49ff58c2d45e765fc35837",
+        "name": "Harvard University",
+        "updatedAt": "2018-01-01T09:28:56.824Z",
+        "__v": 0,
+        "createdAt": "2018-01-01T09:28:56.824Z",
+        "others": [],
+        "bronze": [
+            "Cricket"
+        ],
+        "silver": [],
+        "gold": [
+            "Tennis",
+            "Wolf"
+        ]
+    },
+    {
+        "_id": "5a49ff17c2d45e765fc357b3",
+        "name": "Birla Institute of Technology & Science - Hyderabad",
+        "updatedAt": "2018-01-01T09:27:51.016Z",
+        "__v": 0,
+        "createdAt": "2018-01-01T09:27:51.016Z",
+        "others": [
+            "Football"
+        ],
+        "bronze": [
+            "Wolf"
+        ],
+        "silver": [
+            "Tennis",
+            "Generic/None"
+        ],
+        "gold": [
+            "Cricket",
+            "Contact"
+        ]
+    }
+]
+```
+
+#### All newsletter articles
+
+Type: **GET**
+Relative endpoint: `news/index`
+
+Example: "http://139.59.79.46:8000/api/news/index"
+```
+[
+    {
+        "_id": "5a55cb6c1cbbe128b6d9eadd",
+        "title": "random",
+        "text": "(redacted)",
+        "keywords": [],
+        "authors": []
+    },
+    {
+        "_id": "5a55cba51cbbe128b6d9eade",
+        "title": "random 2",
+        "text": "(redacted)",
+        "keywords": [],
+        "authors": []
+    },
+    {
+        "_id": "5a55ce208a1ca6fc7e80e2c2",
+        "title": "lorem ipsum but html generator",
+        "text": "(redacted)",
+        "keywords": [],
+        "authors": []
+    },
+    {
+        "_id": "5a55cfa58a1ca6fc7e80e2c3",
+        "title": "Pure HTML, Multiple elements. Should be interesting. Also, long heading. Have fun.",
+        "text": "(redacted)",
+        "keywords": [],
+        "authors": []
+    }
+]
+```
+
+#### Single newsletter article
+
+Type: **GET**
+Relative endpoint: `news/id` (`id` is a var)
+
+Example: "http://139.59.79.46:8000/api/news/5a55cfa58a1ca6fc7e80e2c3"
+```
+{
+    "_id": "5a55cfa58a1ca6fc7e80e2c3",
+    "title": "Pure HTML, Multiple elements. Should be interesting. Also, long heading. Have fun.",
+    "text": "Article text here",
+    "keywords": [],
+    "authors": []
+}
+```
+
+#### News Feed
+
+Type: **GET**
+Relative endpoint: `/scores/feed`
+
+Example: "http://139.59.79.46:8000/api/scores/feed"
+```
+[
+    {
+        "_id": "5a4a2ae0b8246742341ae927",
+        "updatedAt": "2018-01-01T12:34:40.961Z",
+        "createdAt": "2018-01-01T12:34:40.961Z",
+        "sport": "Cricket",
+        "text": "YJ scored a century. Yes, a century in a 10 over match. Dafuq he's doing.",
+        "team1": "Birla Institute of Technology & Science - Hyderabad",
+        "team2": "Birla Institute of Technology and Science, Pilani",
+        "__v": 0
+    },
+    {
+        "_id": "5a4a2b12b8246742341ae928",
+        "updatedAt": "2018-01-01T12:35:30.296Z",
+        "createdAt": "2018-01-01T12:35:30.296Z",
+        "sport": "Tennis",
+        "text": "Floof started playing tennis. And represents some unknown college.",
+        "team1": "Marathwada Mitra Mandals College of Engineering",
+        "team2": "",
+        "__v": 0
+    },
+    {
+        "_id": "5a4a2b3bb8246742341ae929",
+        "updatedAt": "2018-01-01T12:36:11.227Z",
+        "createdAt": "2018-01-01T12:36:11.227Z",
+        "sport": "Football",
+        "text": "All matches delayed as the refree died from free redbulls.",
+        "team1": "",
+        "team2": "",
+        "__v": 0
+    }
+]
+```
+
