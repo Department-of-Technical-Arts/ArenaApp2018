@@ -45,6 +45,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
     LayoutInflater inflater;
     ArrayList<Model> objects;
 
+
     public FoldingCellListAdapter(Context context, ArrayList<Model> objects, ListItemClickListener listener) {
         this.context = context;
         inflater=LayoutInflater.from(context);
@@ -59,6 +60,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
+
 
 
         holder.TitleName.setText(objects.get(position).getDb_eventname());
@@ -113,6 +115,13 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
 
 
 
+
+            if(holder.foldingCell.isUnfolded())
+            {
+                holder.foldingCell.fold(true);
+            }
+
+
     }
 
     @Override
@@ -122,9 +131,14 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
 
     public void registerToggle(int position) {
         if (unfoldedindexes.contains(position))
-            registerFold(position);
+        {
+         registerFold(position);
+
+        }
         else
+        {
             registerUnfold(position);
+        }
     }
 
     public void registerFold(int position) {
@@ -137,6 +151,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
 
     public interface ListItemClickListener{
         void OnListItemClick(int clickedItemIndex, View view);
+
     }
 
 
@@ -153,6 +168,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
         ImageView one;
         ImageView two;
         ImageView three;
+        FoldingCell foldingCell;
 
 
         public MyViewHolder(View itemView) {
@@ -170,6 +186,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
             one = (ImageView) itemView.findViewById(R.id.firstline);
             two = (ImageView) itemView.findViewById(R.id.secondline);
             three = (ImageView) itemView.findViewById(R.id.thirdline);
+            foldingCell = itemView.findViewById(R.id.folding_cell);
 
 
 
