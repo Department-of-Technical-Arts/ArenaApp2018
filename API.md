@@ -5,7 +5,7 @@ base-url = "http://www.bits-arena/api/"
 For the below,
 complete url = base-url + relative-endpoint
 
-#### All Events
+#### All Events (Full data)
 
 Type: **GET**  
 Relative endpoint: `events/`  
@@ -46,7 +46,38 @@ Tags we need:
 * `startTime` and `endTime`
 * `venue`
 * `prize`
+#### All Events (Light version)
 
+Type: **GET**  
+Relative endpoint: `events/index/`  
+Response: Same as above, but doesn't contain the text heavy `rules` field.
+
+Example: "http://www.bits-arena/api/events/index"
+```
+[
+  {
+    "name": "Badminton Girls",
+    "tagline": "",
+    "route": "BadmintonGirls",
+    "_id": "5a41d9c9e9587557556a77fb",
+    "category": "Girls"
+  },
+  {
+    "name": "Badminton Mixed",
+    "tagline": "",
+    "route": "BadmintonMixed",
+    "_id": "5a41dd51e9587557556a780a",
+    "category": "Boys"
+  },
+  {
+    "name": "Carrom ",
+    "tagline": "",
+    "route": "Carrom",
+    "_id": "5a41daa0e9587557556a77fc",
+    "category": "Open"
+  }
+]
+```
 #### Event by ID
 
 Type: **GET**  
@@ -80,12 +111,12 @@ Example: "http://www.bits-arena/api/events/5a39e9f972f7a67961ad41a1"
 }
 ```
 
-#### Scores Leaderboard
+#### Arena Scores Leaderboard
 
 Type: **GET**
 Relative endpoint: `/scores/leaderboard`
 
-Example: "http://139.59.79.46:8000/api/scores/leaderboard"
+Example: "http://bits-arena.com/api/scores/leaderboard"
 ```
 [
     {
@@ -141,12 +172,20 @@ Example: "http://139.59.79.46:8000/api/scores/leaderboard"
 ]
 ```
 
+#### InterBITS Scores Leaderboard
+
+Type: **GET**
+Relative endpoint: `/scores/leaderboard/bits`
+
+Example: "http://bits-arena.com/api/scores/leaderboard/bits"
+Response is same as above, but returns only BITS colleges.
+
 #### All newsletter articles
 
 Type: **GET**
 Relative endpoint: `news/index`
 
-Example: "http://139.59.79.46:8000/api/news/index"
+Example: "http://bits-arena.com/api/news/index"
 ```
 [
     {
@@ -185,7 +224,7 @@ Example: "http://139.59.79.46:8000/api/news/index"
 Type: **GET**
 Relative endpoint: `news/id` (`id` is a var)
 
-Example: "http://139.59.79.46:8000/api/news/5a55cfa58a1ca6fc7e80e2c3"
+Example: "http://bits-arena.com/api/news/5a55cfa58a1ca6fc7e80e2c3"
 ```
 {
     "_id": "5a55cfa58a1ca6fc7e80e2c3",
@@ -201,7 +240,7 @@ Example: "http://139.59.79.46:8000/api/news/5a55cfa58a1ca6fc7e80e2c3"
 Type: **GET**
 Relative endpoint: `/scores/feed`
 
-Example: "http://139.59.79.46:8000/api/scores/feed"
+Example: "http://bits-arena.com/api/scores/feed"
 ```
 [
     {
