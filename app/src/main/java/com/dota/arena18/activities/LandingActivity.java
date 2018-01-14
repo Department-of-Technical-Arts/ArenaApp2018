@@ -31,9 +31,6 @@ public class LandingActivity extends AppCompatActivity {
      * - App Credits
      */
 
-    // TODO: All items should be in a Recycler, instead of as individual buttons.
-    // TODO: Copy over current OnClick functions to Recycler when implemented
-
     private GyroscopeObserver gyroscopeObserver;
     CardView events,aboutus,news, sponsors,credits,contacts;
 
@@ -57,7 +54,6 @@ public class LandingActivity extends AppCompatActivity {
        events = (CardView)findViewById(R.id.card_events);
         aboutus= (CardView)findViewById(R.id.card_about);
         news= (CardView)findViewById(R.id.card_news);
-        sponsors = (CardView)findViewById(R.id.card_sposners);
         contacts = (CardView)findViewById(R.id.card_contacts);
         credits = (CardView)findViewById(R.id.card_credits);
 
@@ -83,11 +79,6 @@ public class LandingActivity extends AppCompatActivity {
             }
         });
 
-        sponsors.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
         credits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
