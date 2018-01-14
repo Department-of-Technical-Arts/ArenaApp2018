@@ -115,7 +115,7 @@
                 android:id="@+id/card_contacts"
                 style="@style/LandingPagecardview"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="#89FFD700"
+                app:cardBackgroundColor="#89FF7700"
                 tools:layout_editor_absoluteX="26dp"
                 tools:layout_editor_absoluteY="45dp">
 
