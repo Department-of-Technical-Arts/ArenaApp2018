@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="landing_text_color">#ffffff</color>
     <!-- Colors used in the Arena logo-->
     <color name="arena_color1">#282828</color>
     <color name="arena_color2">#ffd00d</color>

@@ -9,7 +9,7 @@
         android:id="@+id/panorama_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/download5"
+        android:src="@drawable/download_landing_compressed3"
         app:piv_enablePanoramaMode="true"
         app:piv_invertScrollDirection="false"
         app:piv_show_scrollbar="false" />
@@ -36,6 +36,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:background="?android:attr/selectableItemBackground"
+                    android:textColor="@color/landing_text_color"
                     android:text="About"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button" />
             </android.support.v7.widget.CardView>
@@ -53,6 +54,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="news"
+                    android:textColor="@color/landing_text_color"
                     android:background="?android:attr/selectableItemBackground"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
@@ -80,6 +82,7 @@
                     android:gravity="center"
                     android:background="?android:attr/selectableItemBackground"
                     android:text="Events"
+                    android:textColor="@color/landing_text_color"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button" />
             </android.support.v7.widget.CardView>
 
@@ -104,6 +107,7 @@
                     android:gravity="center"
                     android:background="?android:attr/selectableItemBackground"
                     android:text="Credits"
+                    android:textColor="@color/landing_text_color"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button" />
             </android.support.v7.widget.CardView>
 
@@ -121,6 +125,7 @@
                     android:layout_height="match_parent"
                     android:background="?android:attr/selectableItemBackground"
                     android:text="Contacts"
+                    android:textColor="@color/landing_text_color"
                     android:gravity="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
