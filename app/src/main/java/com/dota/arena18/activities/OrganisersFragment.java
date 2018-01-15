@@ -50,6 +50,61 @@ public class OrganisersFragment extends android.support.v4.app.Fragment implemen
     }
 
     private void feedData() {
+
+        Contacts temp1 = new Contacts("Abhinav Eittireddy","President",
+                "9542929354", R.drawable.default_pic,"blank");
+
+        Contacts temp2 = new Contacts("Aditya Iyer","General Secretary",
+                "9705932532", R.drawable.default_pic,"blank");
+
+        Contacts temp3 = new Contacts("Kritanshu Singh","Sports Secretary(B)",
+                "7587785794", R.drawable.default_pic,"blank");
+
+        Contacts temp4 = new Contacts("Alla Pranathi","Department of Arts and Deco",
+                "7675801005", R.drawable.default_pic,"blank");
+
+        Contacts temp5 = new Contacts("Poluri Siddhartha Reddy","Department of Firewallz",
+                "9640909609", R.drawable.default_pic,"blank");
+
+        Contacts temp6 = new Contacts("Deepansh Garg","Department of Lights and Sounds",
+                "8504923423", R.drawable.default_pic,"blank");
+
+        Contacts temp7 = new Contacts("Abhijeet Singh Shekhawat","Department of Photography",
+                "9133234429", R.drawable.default_pic,"blank");
+
+        Contacts temp8 = new Contacts("Kapil Shah","Department of Professional Events",
+                "9724320802", R.drawable.default_pic,"blank");
+
+        Contacts temp9 = new Contacts("Dirisala Ajay M.","Department of Publicity and Public Relations",
+                "9133192283", R.drawable.default_pic,"blank");
+
+        Contacts temp10 = new Contacts("Shobhit Jain","Department of Recreational Activities",
+                "8824272425", R.drawable.default_pic,"blank");
+
+        Contacts temp11 = new Contacts("Gummalla Sri Bhargav","Department of Sponsorship and Marketing",
+                "7661837418", R.drawable.default_pic,"blank");
+
+        Contacts temp12 = new Contacts("Seerapu Gagan Aditya Reddy","Department of Technical Arts",
+                "9493531127", R.drawable.default_pic,"blank");
+
+        Contacts temp13 = new Contacts("Sayan Ray","Department of Visual Effects",
+                "9133312930", R.drawable.default_pic,"blank");
+
+        data.add(temp1);
+        data.add(temp2);
+        data.add(temp3);
+        data.add(temp4);
+        data.add(temp5);
+        data.add(temp6);
+        data.add(temp7);
+        data.add(temp8);
+        data.add(temp9);
+        data.add(temp10);
+        data.add(temp11);
+        data.add(temp12);
+        data.add(temp13);
+
+
         
     }
 
