@@ -8,6 +8,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class EventDetails {
 
+    @SerializedName("_id")
+    String api_id;
+
     @SerializedName("name")
     String eventname;
 
@@ -26,13 +29,22 @@ public class EventDetails {
     @SerializedName("endTime")
     String endtime;
 
-    public EventDetails(String eventname, String rules, String venue, String prize, String starttime, String endtime) {
+    public EventDetails(String api_id,String eventname, String rules, String venue, String prize, String starttime, String endtime) {
+        this.api_id = api_id;
         this.eventname = eventname;
         this.rules = rules;
         this.venue = venue;
         this.prize = prize;
         this.starttime = starttime;
         this.endtime = endtime;
+    }
+
+    public String getApi_id() {
+        return api_id;
+    }
+
+    public void setApi_id(String api_id) {
+        this.api_id = api_id;
     }
 
     public String getEventname() {

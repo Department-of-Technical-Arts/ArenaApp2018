@@ -12,6 +12,15 @@ public class Model extends RealmObject {
     private  String db_eventname;
     private  String db_rules;
     private String db_prizemoney;
+    private String api_id;
+
+    public String getApi_id() {
+        return api_id;
+    }
+
+    public void setApi_id(String api_id) {
+        this.api_id = api_id;
+    }
 
     public int getId() {
         return id;

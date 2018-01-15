@@ -85,10 +85,10 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
                    for(int i=0;i<list.size();i++)
                      {
-
+                         model.setApi_id(list.get(i).getApi_id());
                          model.setDb_eventname(list.get(i).getEventname());
-                         model.setDb_rules(list.get(i).getRules());
-                         model.setDb_prizemoney(list.get(i).getPrize());
+                         model.setDb_rules("");
+                         model.setDb_prizemoney("0");
                          adddatatorealm(model);
                      }
 
@@ -146,12 +146,14 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
         event.setDb_eventname(mymodel.getDb_eventname());
         event.setDb_rules(mymodel.getDb_rules());
         event.setDb_prizemoney(mymodel.getDb_prizemoney());
+        event.setApi_id(mymodel.getApi_id());
         realmlist.add(event);}
 
         else{
             checkmodel.setDb_eventname(mymodel.getDb_eventname());
             checkmodel.setDb_prizemoney(mymodel.getDb_prizemoney());
             checkmodel.setDb_rules(mymodel.getDb_rules());
+            checkmodel.setApi_id(mymodel.getApi_id());
             if((realmlist.size()-1)<id)
             {realmlist.add(id,checkmodel);}
             else
