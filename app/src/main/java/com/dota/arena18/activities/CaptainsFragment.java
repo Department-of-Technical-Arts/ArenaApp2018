@@ -184,12 +184,12 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
                         Uri number = Uri.parse("tel:" + data1.get(i).getMobile());
                         view.getContext().startActivity(new Intent(Intent.ACTION_DIAL, number));
                         break;
-                    case R.id.mail:
+                    /*case R.id.mail:
                         Intent emailIntent = new Intent(Intent.ACTION_SEND);
                         emailIntent.setType("text/html").putExtra(Intent.EXTRA_EMAIL, new String[]{data1.get(i).getMail()});
                         emailIntent.setType("message/rfc822");
                         view.getContext().startActivity(Intent.createChooser(emailIntent, "Choose an Email client :"));
-                        break;
+                        break;*/
                 }
                 return false;
             }

@@ -121,12 +121,12 @@ public class OrganisersFragment extends android.support.v4.app.Fragment implemen
                         Uri number = Uri.parse("tel:" + data.get(i).getMobile());
                         view.getContext().startActivity(new Intent(Intent.ACTION_DIAL, number));
                         break;
-                    case R.id.mail:
+                    /*case R.id.mail:
                         Intent emailIntent = new Intent(Intent.ACTION_SEND);
                         emailIntent.setType("text/html").putExtra(Intent.EXTRA_EMAIL, new String[]{data.get(i).getMail()});
                         emailIntent.setType("message/rfc822");
                         view.getContext().startActivity(Intent.createChooser(emailIntent, "Choose an Email client :"));
-                        break;
+                        break;*/
                 }
                 return false;
             }

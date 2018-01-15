@@ -71,12 +71,12 @@ public class OrganisersAdapter extends RecyclerView.Adapter<OrganisersAdapter.My
                         Uri number = Uri.parse("tel:" + arrayList.get(i).getMobile());
                         myViewHolder.itemView.getContext().startActivity(new Intent(Intent.ACTION_DIAL, number));
                         break;
-                    case R.id.mail:
+                   /* case R.id.mail:
                         Intent emailIntent = new Intent(Intent.ACTION_SEND);
                         emailIntent.setType("text/html").putExtra(Intent.EXTRA_EMAIL, new String[]{arrayList.get(i).getMail()});
                         emailIntent.setType("message/rfc822");
                         myViewHolder.itemView.getContext().startActivity(Intent.createChooser(emailIntent, "Choose an Email client :"));
-                        break;
+                        break;*/
                 }
                 return false;
             }
