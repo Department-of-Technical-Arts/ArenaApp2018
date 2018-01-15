@@ -1,6 +1,7 @@
 package com.dota.arena18.activities;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -29,6 +30,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 import static android.support.v4.content.PermissionChecker.PERMISSION_DENIED;
+import static com.dota.arena18.activities.AboutActivity.permCheck;
 
 /**
  * Created by lenovo on 12/19/2017.
@@ -109,8 +111,13 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
         holder.locationlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(context, "To maps", Toast.LENGTH_SHORT);
-                toast.show();
+                permCheck = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION);
+                if (permCheck == PERMISSION_DENIED) {
+                    ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+                } else {
+                    Intent i = new Intent(context, MapsActivity.class);
+                    context.startActivity(i);
+                }
             }
         });
 

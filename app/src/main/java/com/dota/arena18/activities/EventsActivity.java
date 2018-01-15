@@ -1,6 +1,8 @@
 package com.dota.arena18.activities;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +29,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.support.v4.content.PermissionChecker.PERMISSION_GRANTED;
+import static com.dota.arena18.activities.AboutActivity.REQUEST_LOCATION;
+
 public class EventsActivity extends AppCompatActivity implements FoldingCellListAdapter.ListItemClickListener {
     /**
      * The EventsActivity lists all the sporting EventDetails scheduled to happen during the fest.
@@ -44,7 +49,19 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
     int id;
     private SwipeRefreshLayout swipeRefreshLayout;
 
-
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case REQUEST_LOCATION:
+                if (grantResults.length > 0 && grantResults[0] == PERMISSION_GRANTED) {
+                    startActivity(new Intent(this, MapsActivity.class));
+                } else {
+                    // Permissions not granted; display reasoning, or deactivate feature
+                }
+                break;
+            default: super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
