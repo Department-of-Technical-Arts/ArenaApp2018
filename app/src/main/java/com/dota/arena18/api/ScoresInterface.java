@@ -14,6 +14,6 @@ public interface ScoresInterface {
     @GET("scores/leaderboard")
     Call<ArrayList<CollegeDetails>> getArenaLeaderboard();
 
-//    @GET("bits")
-//    Call<ArrayList<CollegeDetails>> getBitsLeaderboard();
+    @GET("scores/leaderboard/bits")
+    Call<ArrayList<CollegeDetails>> getBitsLeaderboard();
 }

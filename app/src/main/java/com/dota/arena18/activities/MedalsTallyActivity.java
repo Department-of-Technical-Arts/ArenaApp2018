@@ -161,9 +161,7 @@ public class MedalsTallyActivity extends AppCompatActivity {
         Call<ArrayList<CollegeDetails>> call;
 
         if (isInterBITS) {
-            // TODO change API call here
-            // call = scores.getBitsLeaderboard();
-            call = scores.getArenaLeaderboard();
+            call = scores.getBitsLeaderboard();
         } else {
             call = scores.getArenaLeaderboard();
         }
