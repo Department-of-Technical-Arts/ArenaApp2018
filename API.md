@@ -1,6 +1,6 @@
 A list of APIs being used in the app:
 
-base-url = "http://www.bits-arena/api/"
+base-url = "http://www.bits-arena.com/api/"
 
 For the below,
 complete url = base-url + relative-endpoint
@@ -11,7 +11,7 @@ Type: **GET**
 Relative endpoint: `events/`  
 Response: JSONArray with each item being a JSONObject representing one sport
 
-Example: "http://www.bits-arena/api/events/"
+Example: "http://www.bits-arena.com/api/events/"
 ```
 [
     {
@@ -52,7 +52,7 @@ Type: **GET**
 Relative endpoint: `events/index/`  
 Response: Same as above, but doesn't contain the text heavy `rules` field.
 
-Example: "http://www.bits-arena/api/events/index"
+Example: "http://www.bits-arena.com/api/events/index"
 ```
 [
   {
@@ -84,7 +84,7 @@ Type: **GET**
 Relative endpoint: `events/id` (i.e. `id` is replaced with an actual id)  
 Response: A single JSONObject containting the event's data  
 
-Example: "http://www.bits-arena/api/events/5a39e9f972f7a67961ad41a1"
+Example: "http://www.bits-arena.com/api/events/5a39e9f972f7a67961ad41a1"
 ```
 {
     "_id": "5a39e9f972f7a67961ad41a1",
