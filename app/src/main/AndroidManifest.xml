@@ -29,11 +29,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.LandingActivity" />
-        <activity android:name=".activities.CreditsActivity" />
-        <activity android:name=".activities.AboutActivity" />
-        <activity android:name=".activities.TweetsActivity" />
-        <activity android:name=".activities.ContactsActivity" />
+        <activity android:name=".activities.LandingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.CreditsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.AboutActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.TweetsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.ContactsActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".activities.EventsActivity"
 
             />
@@ -55,13 +60,17 @@
         <activity
             android:name=".activities.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".activities.TextDisplayActivity" />
-        <activity android:name=".activities.NewsActivity" />
+        <activity android:name=".activities.TextDisplayActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.NewsActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.MedalsTallyActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".activities.ArticlesActivity"/>
-        <activity android:name=".activities.ArticleDisplayActivity"/>
+        <activity android:name=".activities.ArticlesActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.ArticleDisplayActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
