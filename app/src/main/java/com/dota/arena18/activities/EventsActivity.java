@@ -1,7 +1,11 @@
 package com.dota.arena18.activities;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
@@ -48,6 +52,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
     public Model model = new Model();
     int id;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private String TAG = EventsActivity.class.getSimpleName();
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -68,6 +73,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
 
+
         theRecyclerView = (RecyclerView) findViewById(R.id.mainRecyclerView);
         swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swiperefresh);
         myrealm = Realm.getDefaultInstance();
@@ -75,13 +81,33 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
         theRecyclerView.setAdapter(adapter);
 
         theRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        callapi();
+         if(myrealm.isEmpty())
+        {
+            Log.e(TAG,"realm is empty");
+            callapi();
+        }
+        else
+        {
+            Log.e(TAG,"realm is not empty");
+            callLightapi();
+        }
+
+
 
         swipeRefreshLayout.setOnRefreshListener(
                 new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
                     public void onRefresh() {
-                        callapi();
+                        if(myrealm.isEmpty())
+                        {
+                            Log.e(TAG,"realm is empty");
+                            callapi();
+                        }
+                        else
+                        {
+                            Log.e(TAG,"realm is not empty");
+                            callLightapi();
+                        }
                         swipeRefreshLayout.setRefreshing(false);
                     }
                 }
@@ -89,7 +115,42 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
      }
 
-     public void callapi()
+     public void callapi() {
+
+        if(isNetworkAvailable())
+        {
+            connectingdailog();
+        }
+         id =0;
+         EventsInterface apiservice  = ApiClient.getClient().create(EventsInterface.class);
+         Call<ArrayList<EventDetails>> call = apiservice.getEventsfromapi();
+         call.enqueue(new Callback<ArrayList<EventDetails>>() {
+             @Override
+             public void onResponse(Call<ArrayList<EventDetails>> call, Response<ArrayList<EventDetails>> response) {
+
+                 list = response.body();
+                 for(int i=0;i<list.size();i++)
+                 {
+                     model.setApi_id(list.get(i).getApi_id());
+                     model.setDb_eventname(list.get(i).getEventname());
+                     model.setDb_rules(list.get(i).getRules());
+                     model.setDb_prizemoney(list.get(i).getPrize());
+                     adddatatorealm(model);
+                 }
+
+                 adapter.notifyDataSetChanged();
+             }
+
+             @Override
+             public void onFailure(Call<ArrayList<EventDetails>> call, Throwable t) {
+                 Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
+                 getdatafromrealm(myrealm);
+             }
+         });
+
+     }
+
+     public void callLightapi()
      {
          id=0;
 
@@ -104,8 +165,6 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
                      {
                          model.setApi_id(list.get(i).getApi_id());
                          model.setDb_eventname(list.get(i).getEventname());
-                         model.setDb_rules("");
-                         model.setDb_prizemoney("0");
                          adddatatorealm(model);
                      }
 
@@ -142,7 +201,8 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
          if(results.size()==0)
          {
              AlertDialog.Builder alertdailog = new AlertDialog.Builder(this);
-             alertdailog.setMessage("Please check your network connection")
+             alertdailog.setMessage("Internet Connectivity is needed to load data for first time, and to update it. " +
+                     "Offline data will be available after this. ")
                      .setCancelable(false).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                  @Override
                  public void onClick(DialogInterface dialogInterface, int i) {
@@ -188,5 +248,44 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
     public void OnListItemClick(int clickedItemIndex,View view) {
         ((FoldingCell) view).toggle(false);
         adapter.registerToggle(clickedItemIndex);
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null ;
+    }
+
+    public void connectingdailog()
+    {
+        final AlertDialog.Builder alertdailog1 = new AlertDialog.Builder(this);
+        alertdailog1.setMessage("The Initial Load will take time , but the Future ones will be better.")
+                .setCancelable(false).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        final AlertDialog alert = alertdailog1.create();
+        alert.show();
+        final Handler handler = new Handler();
+        final Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                if (alert.isShowing()) {
+                    alert.dismiss();
+                }
+            }
+        };
+
+        alert.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                handler.removeCallbacks(runnable);
+            }
+        });
+
+        handler.postDelayed(runnable, 5000);
     }
 }

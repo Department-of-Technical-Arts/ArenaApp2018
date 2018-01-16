@@ -12,6 +12,9 @@ import retrofit2.http.Path;
 
 public interface EventsInterface {
 
+    @GET("events/")
+    Call<ArrayList<EventDetails>> getEventsfromapi();
+
     @GET("events/index")
     Call<ArrayList<EventDetails>> getEvents();
 

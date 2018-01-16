@@ -69,7 +69,7 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<EventDetails> call, Throwable t) {
 
-                Log.e(DetailsActivity.class.getSimpleName(),"error"+String.valueOf(id));
+                Log.e(DetailsActivity.class.getSimpleName(),"DetailsActivity:not connected to internet");
                 getDatafromrealm();
             }
         });
@@ -93,10 +93,6 @@ public class DetailsActivity extends AppCompatActivity {
           {
            rules.setText(eventmodel.getDb_rules());
           }
-        else
-        {
-          rules.setText("Check Your Network connection");
-        }
 
     }
 }
