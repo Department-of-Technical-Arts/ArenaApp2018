@@ -129,34 +129,61 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
                 "9591325445", R.drawable.default_pic,"blank");
 
 
+        data1.add(temp14);
+        data1.add(temp15);
 
         data1.add(temp1);
         data1.add(temp2);
+
+        data1.add(temp19);
+        data1.add(temp20);
+
+        data1.add(temp25);
+
+        data1.add(temp10);
+        data1.add(temp11);
+
         data1.add(temp3);
         data1.add(temp4);
         data1.add(temp5);
-        data1.add(temp6);
-        data1.add(temp7);
-        data1.add(temp8);
-        data1.add(temp9);
-        data1.add(temp10);
-        data1.add(temp11);
-        data1.add(temp12);
-        data1.add(temp13);
-        data1.add(temp14);
-        data1.add(temp15);
-        data1.add(temp16);
+
+        data1.add(temp24);
+
         data1.add(temp17);
         data1.add(temp18);
-        data1.add(temp19);
-        data1.add(temp20);
+
+        data1.add(temp6);
+
+        data1.add(temp7);
+
         data1.add(temp21);
-        data1.add(temp22);
-        data1.add(temp23);
-        data1.add(temp24);
-        data1.add(temp25);
+
+        data1.add(temp12);
+        data1.add(temp13);
+
         data1.add(temp26);
         data1.add(temp27);
+
+        data1.add(temp23);
+
+        data1.add(temp16);
+
+        data1.add(temp8);
+        data1.add(temp9);
+
+        data1.add(temp22);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
