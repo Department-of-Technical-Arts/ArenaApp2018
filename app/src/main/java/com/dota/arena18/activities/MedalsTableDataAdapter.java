@@ -19,7 +19,6 @@ import static com.dota.arena18.activities.MedalsTallyActivity.COLUMN_NAME;
 import static com.dota.arena18.activities.MedalsTallyActivity.COLUMN_GOLD;
 import static com.dota.arena18.activities.MedalsTallyActivity.COLUMN_SILVER;
 import static com.dota.arena18.activities.MedalsTallyActivity.COLUMN_BRONZE;
-import static com.dota.arena18.activities.MedalsTallyActivity.COLUMN_OTHERS;
 
 /**
  * Created by TheGamer007 on 4/1/18.
@@ -66,9 +65,6 @@ public class MedalsTableDataAdapter extends TableDataAdapter<CollegeDetails> {
                 break;
             case COLUMN_BRONZE:
                 textView.setText("" + currentRow.getBronzeCount());
-                break;
-            case COLUMN_OTHERS:
-                textView.setText("" + currentRow.getOthersCount());
                 break;
         }
 

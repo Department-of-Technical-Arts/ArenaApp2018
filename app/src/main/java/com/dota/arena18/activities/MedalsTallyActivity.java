@@ -33,7 +33,6 @@ public class MedalsTallyActivity extends AppCompatActivity {
     public static final int COLUMN_GOLD = 2;
     public static final int COLUMN_SILVER = 3;
     public static final int COLUMN_BRONZE = 4;
-    public static final int COLUMN_OTHERS = 5;
 
     private SortableTableView<CollegeDetails> sortableTableView;
     private ArrayList<CollegeDetails> tableData;
@@ -60,13 +59,12 @@ public class MedalsTallyActivity extends AppCompatActivity {
         sortableTableView = findViewById(R.id.table_tally);
 
         // Define a column weight model to specify width distribution
-        TableColumnWeightModel columnModel = new TableColumnWeightModel(6);
+        TableColumnWeightModel columnModel = new TableColumnWeightModel(5);
         columnModel.setColumnWeight(COLUMN_RANK, 1);
-        columnModel.setColumnWeight(COLUMN_NAME, 3);
+        columnModel.setColumnWeight(COLUMN_NAME, 5);
         columnModel.setColumnWeight(COLUMN_GOLD, 1);
         columnModel.setColumnWeight(COLUMN_SILVER, 1);
         columnModel.setColumnWeight(COLUMN_BRONZE, 1);
-        columnModel.setColumnWeight(COLUMN_OTHERS, 1);
         sortableTableView.setColumnModel(columnModel);
 
         // Add comparators to define sorting
@@ -129,18 +127,6 @@ public class MedalsTallyActivity extends AppCompatActivity {
             }
         });
 
-        sortableTableView.setColumnComparator(COLUMN_OTHERS, new Comparator<CollegeDetails>() {
-            @Override
-            public int compare(CollegeDetails cd1, CollegeDetails cd2) {
-                int count1 = cd1.getOthersCount();
-                int count2 = cd2.getOthersCount();
-
-                if (count1 < count2) return -1;
-                else if (count1 > count2) return 1;
-                else return 0;
-            }
-        });
-
         // Add a click listener to each row of the table
         sortableTableView.addDataClickListener(new TableDataClickListener<CollegeDetails>() {
             @Override
@@ -153,6 +139,7 @@ public class MedalsTallyActivity extends AppCompatActivity {
                         .show();
             }
         });
+
         testResponse();
     }
 

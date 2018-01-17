@@ -56,9 +56,6 @@ public class MedalsTableHeaderAdapter extends TableHeaderAdapter {
 //                iv_bronze.setBackgroundColor(Color.BLACK);
                 iv_bronze.setImageResource(R.drawable.ic_medal_bronze);
                 return iv_bronze;
-            case 5:
-                tv.setText("Others");
-                break;
         }
 
         return tv;
