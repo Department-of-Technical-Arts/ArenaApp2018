@@ -26,6 +26,7 @@ public class NewsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
+
         recyclerView = (RecyclerView)findViewById(R.id.news_recyclerview);
         list.add(new Imagedata(R.drawable.news_leaderboard,"Arena Leaderboard"));
         list.add(new Imagedata(R.drawable.news_lead,"Inter-BITS Leaderboard"));
