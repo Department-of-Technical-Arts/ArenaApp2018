@@ -1,6 +1,7 @@
 package com.dota.arena18.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,8 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.dota.arena18.R;
+import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +59,7 @@ public class NewsActivity extends AppCompatActivity {
                                 i = new Intent(NewsActivity.this, ArticlesActivity.class);
                                 break;
                             case 4: // Tweets
+                                Toast.makeText(NewsActivity.this,"Loading...", Toast.LENGTH_LONG).show();
                                 i = new Intent(NewsActivity.this, TweetsActivity.class);
                                 break;
                             default:
