@@ -33,7 +33,7 @@ public class TweetsActivity extends ListActivity {
 
 
         final SearchTimeline searchTimeline = new SearchTimeline.Builder()
-                .query("#Football")
+                .query("#Arena2018")
                 .maxItemsPerRequest(50)
                 .build();
         final TweetTimelineListAdapter adapter = new TweetTimelineListAdapter.Builder(this)
