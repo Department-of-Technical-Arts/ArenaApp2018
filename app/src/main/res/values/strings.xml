@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Arena 2018</string>
     <string name="title_activity_maps">Campus Map</string>
+    <string name="icons_license">Icons from  <a href="https://icons8.com">Icons8</a></string>
 
     <!--TODO check if needed-->
     <string name="about_us">Pearl is the Annual Cultural Festival of the Birla Institute of Technology and Science (BITS) Pilani, Hyderabad Campus. Following the immense popularity of the festival over the previous years, Pearl ‘17 aspires to venture into new avenues by playing host to a wide range of cultural extravaganza! This year, be part of the madness as thousands throughout the country assemble for the time of their lives.</string>

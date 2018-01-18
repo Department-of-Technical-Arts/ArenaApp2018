@@ -32,7 +32,6 @@ public class NewsActivity extends AppCompatActivity {
         list.add(new Imagedata(R.drawable.news_lead,"Inter-BITS Leaderboard"));
         list.add(new Imagedata(R.drawable.news_newsfeed,"Live Feed"));
         list.add(new Imagedata(R.drawable.news_newsletter,"Newsletters"));
-        list.add(new Imagedata(R.drawable.news_tweet,"Tweets"));
 
         adapter = new NewsActivityAdapter(this,list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -58,10 +57,6 @@ public class NewsActivity extends AppCompatActivity {
                                 return;
                             case 3: // Newsletters
                                 i = new Intent(NewsActivity.this, ArticlesActivity.class);
-                                break;
-                            case 4: // Tweets
-                                Toast.makeText(NewsActivity.this,"Loading...", Toast.LENGTH_LONG).show();
-                                i = new Intent(NewsActivity.this, TweetsActivity.class);
                                 break;
                             default:
                                 Log.i("NewsActivity", "onItemClick: unexpected position passed.");

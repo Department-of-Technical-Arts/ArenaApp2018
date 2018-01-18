@@ -39,10 +39,6 @@ public class LandingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
 
-        TwitterAuth twitterAuth = new TwitterAuth(this);
-        twitterAuth.loadInBackground();
-
-
         gyroscopeObserver = new GyroscopeObserver();
 
         gyroscopeObserver.setMaxRotateRadian(Math.PI/2);
@@ -106,28 +102,5 @@ public class LandingActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         gyroscopeObserver.register(this);
-    }
-
-    public class TwitterAuth extends AsyncTaskLoader{
-
-        private Context mcontext;
-
-        public TwitterAuth(Context context) {
-            super(context);
-            mcontext = context;
-        }
-
-        @Override
-        public Object loadInBackground() {
-
-            TwitterConfig config = new TwitterConfig.Builder(mcontext)
-                    .logger(new DefaultLogger(Log.DEBUG))
-                    .twitterAuthConfig(new TwitterAuthConfig(getString(R.string.consumer_key),getString(R.string.consumer_secret)))
-                    .debug(true)
-                    .build();
-            Twitter.initialize(config);
-
-            return null;
-        }
     }
 }
