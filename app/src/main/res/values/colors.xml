@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FB8C00</color>
-    <color name="colorPrimaryDark">#E65100</color>
+    <color name="colorPrimary">#46B96C</color>
+    <color name="colorPrimaryDark">#3B9456</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="landing_text_color">#ffffff</color>
+    <color name="activity_bg">#1D1D1D</color>
     <!-- Colors used in the Arena logo-->
     <color name="arena_color1">#282828</color>
     <color name="arena_color2">#ffd00d</color>
