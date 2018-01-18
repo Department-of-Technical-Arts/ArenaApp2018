@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.dota.arena18.R;
 
@@ -27,6 +28,7 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
     RecyclerView recyclerView;
     ArrayList<Contacts> data1;
     Toolbar toolbar;
+    int cap_scroll = 0;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -1,5 +1,6 @@
 package com.dota.arena18.activities;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,6 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.dota.arena18.R;
 
@@ -22,6 +24,7 @@ public class ContactsActivity extends AppCompatActivity {
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+    private int captain_scroll=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,18 @@ public class ContactsActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (!bundle.isEmpty()){
+            captain_scroll = bundle.getInt("event_index");
+        }
+        Toast.makeText(this,Integer.toString(captain_scroll),Toast.LENGTH_SHORT).show();
+
+
     }
+
+
 
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -47,11 +61,12 @@ public class ContactsActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    OrganisersFragment organisers = new com.dota.arena18.activities.OrganisersFragment();
-                    return organisers;
-                case 1:
                     CaptainsFragment captains = new com.dota.arena18.activities.CaptainsFragment();
                     return captains;
+                case 1:
+                    OrganisersFragment organisers = new com.dota.arena18.activities.OrganisersFragment();
+                    return organisers;
+
                 default:
                     return null;
 
@@ -67,9 +82,9 @@ public class ContactsActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Organisers";
-                case 1:
                     return "Captains";
+                case 1:
+                    return "Organisers";
             }
             return null;
         }
