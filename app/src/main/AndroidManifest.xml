@@ -22,6 +22,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,14 +33,17 @@
         <activity android:name=".activities.LandingActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".activities.CreditsActivity"
+            android:label="App Credits"
             android:screenOrientation="portrait"/>
         <activity android:name=".activities.AboutActivity"
+            android:label="About"
             android:screenOrientation="portrait"/>
         <activity android:name=".activities.ContactsActivity"
+            android:label="Contact Us"
             android:screenOrientation="portrait"/>
         <activity android:name=".activities.EventsActivity"
-
-            />
+            android:label="Events"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.DetailsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -64,8 +68,10 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.MedalsTallyActivity"
+            android:label="Leaderboard"
             android:screenOrientation="landscape" />
         <activity android:name=".activities.ArticlesActivity"
+            android:label="Newsletters"
             android:screenOrientation="portrait"/>
         <activity android:name=".activities.ArticleDisplayActivity"
             android:screenOrientation="portrait"/>
