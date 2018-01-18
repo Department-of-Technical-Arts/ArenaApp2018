@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.dota.arena18.R;
 import com.dota.arena18.api.EventsInterface;
@@ -92,8 +93,6 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
             callLightapi();
         }
 
-
-
         swipeRefreshLayout.setOnRefreshListener(
                 new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
@@ -143,6 +142,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
              @Override
              public void onFailure(Call<ArrayList<EventDetails>> call, Throwable t) {
+                 Toast.makeText(EventsActivity.this, "Network not available. Loading offline data...", Toast.LENGTH_SHORT).show();
                  Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
                  getdatafromrealm(myrealm);
              }
@@ -173,6 +173,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
              @Override
              public void onFailure(Call<ArrayList<EventDetails>> call, Throwable t) {
+                 Toast.makeText(EventsActivity.this, "Network not available. Loading offline data...", Toast.LENGTH_SHORT).show();
                  Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
                  getdatafromrealm(myrealm);
              }
@@ -201,8 +202,8 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
          if(results.size()==0)
          {
              AlertDialog.Builder alertdailog = new AlertDialog.Builder(this);
-             alertdailog.setMessage("Internet Connectivity is needed to load data for first time, and to update it. " +
-                     "Offline data will be available after this. ")
+             alertdailog.setMessage("Internet connectivity is needed to load and update data. " +
+                     "Offline data will be available after connecting once.")
                      .setCancelable(false).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                  @Override
                  public void onClick(DialogInterface dialogInterface, int i) {
@@ -260,7 +261,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
     public void connectingdailog()
     {
         final AlertDialog.Builder alertdailog1 = new AlertDialog.Builder(this);
-        alertdailog1.setMessage("The Initial Load will take time , but the Future ones will be better.")
+        alertdailog1.setMessage("The initial data load will take time , but the future ones will be faster.")
                 .setCancelable(false).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -286,6 +287,6 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
             }
         });
 
-        handler.postDelayed(runnable, 5000);
+        handler.postDelayed(runnable, 3000);
     }
 }
