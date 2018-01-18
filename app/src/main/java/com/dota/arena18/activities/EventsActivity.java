@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -45,6 +46,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
      *
      */
 
+    private static final float MILLIS_PER_INCH = 100f; // Larger value ==> slower scroll
 
     ArrayList<EventDetails> list = new ArrayList<>();
     ArrayList<Model> realmlist = new ArrayList<>();
@@ -90,6 +92,11 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
             @Override
             protected int getVerticalSnapPreference() {
                 return LinearSmoothScroller.SNAP_TO_START;
+            }
+
+            @Override
+            protected float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
+                return MILLIS_PER_INCH / displayMetrics.densityDpi;
             }
         };
         smoothScroller = linearSmoothScroller;
@@ -272,12 +279,6 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
         smoothScroller.setTargetPosition(clickedItemIndex);
         layoutManager.startSmoothScroll(smoothScroller);
         adapter.registerToggle(clickedItemIndex);
-        /*Toast.makeText(this,Integer.toString(clickedItemIndex),Toast.LENGTH_SHORT).show();
-        for(int i=0; i<26; ++i){
-            if(i!=clickedItemIndex){
-                adapter.registerFold(i);
-            }
-        }*/
     }
 
     private boolean isNetworkAvailable() {

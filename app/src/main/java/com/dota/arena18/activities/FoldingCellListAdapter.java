@@ -196,9 +196,6 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
             three = (ImageView) itemView.findViewById(R.id.thirdline);
             foldingCell = itemView.findViewById(R.id.folding_cell);
 
-
-
-
             itemView.setOnClickListener(this);
         }
 
