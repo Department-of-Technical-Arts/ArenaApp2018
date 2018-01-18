@@ -272,6 +272,12 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
         smoothScroller.setTargetPosition(clickedItemIndex);
         layoutManager.startSmoothScroll(smoothScroller);
         adapter.registerToggle(clickedItemIndex);
+        /*Toast.makeText(this,Integer.toString(clickedItemIndex),Toast.LENGTH_SHORT).show();
+        for(int i=0; i<26; ++i){
+            if(i!=clickedItemIndex){
+                adapter.registerFold(i);
+            }
+        }*/
     }
 
     private boolean isNetworkAvailable() {
