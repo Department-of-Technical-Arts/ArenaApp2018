@@ -12,6 +12,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -54,6 +55,8 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
     int id;
     private SwipeRefreshLayout swipeRefreshLayout;
     private String TAG = EventsActivity.class.getSimpleName();
+    private RecyclerView.SmoothScroller smoothScroller;
+    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -81,7 +84,15 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
         adapter = new FoldingCellListAdapter(EventsActivity.this,realmlist,this);
         theRecyclerView.setAdapter(adapter);
 
-        theRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        layoutManager = new LinearLayoutManager(this);
+        theRecyclerView.setLayoutManager(layoutManager);
+        LinearSmoothScroller linearSmoothScroller = new LinearSmoothScroller(this){
+            @Override
+            protected int getVerticalSnapPreference() {
+                return LinearSmoothScroller.SNAP_TO_START;
+            }
+        };
+        smoothScroller = linearSmoothScroller;
          if(myrealm.isEmpty())
         {
             Log.e(TAG,"realm is empty");
@@ -258,6 +269,8 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
     @Override
     public void OnListItemClick(int clickedItemIndex,View view) {
         ((FoldingCell) view).toggle(false);
+        smoothScroller.setTargetPosition(clickedItemIndex);
+        layoutManager.startSmoothScroll(smoothScroller);
         adapter.registerToggle(clickedItemIndex);
     }
 
