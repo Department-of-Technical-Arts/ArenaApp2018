@@ -165,6 +165,9 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
                      {
                          model.setApi_id(list.get(i).getApi_id());
                          model.setDb_eventname(list.get(i).getEventname());
+                         model.setDb_prizemoney(list.get(i).getPrize());
+                         Model model1 = myrealm.where(Model.class).equalTo("id",i).findFirst();
+                         model.setDb_rules(model1.getDb_rules());
                          adddatatorealm(model);
                      }
 
@@ -181,9 +184,11 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
      }
 
+
      public void getdatafromrealm(Realm realm1) {
 
         RealmResults<Model> results = realm1.where(Model.class).findAll();
+        Log.e(TAG,"results size:"+String.valueOf(results.size()));
          for (int i = 0; i < results.size(); i++) {
              realm1.beginTransaction();
              results.get(i).setId(id);
@@ -196,7 +201,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
              }
              id++;
          }
-         Log.e(EventsActivity.class.getSimpleName(),String.valueOf(results.size()));
+         Log.e(EventsActivity.class.getSimpleName(),"Get datafromrealm total events:"+String.valueOf(results.size()));
 
          adapter.notifyDataSetChanged();
          if(results.size()==0)
@@ -218,7 +223,8 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
        {
         myrealm.beginTransaction();
         Model checkmodel = myrealm.where(Model.class).equalTo("id",id).findFirst();
-        if(checkmodel==null) {
+        if(checkmodel == null ) {
+            Log.e(TAG,"checkmodel=null"+String.valueOf(id));
         Model event = myrealm.createObject(Model.class);
         event.setId(id);
         event.setDb_eventname(mymodel.getDb_eventname());
@@ -228,9 +234,13 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
         realmlist.add(event);}
 
         else{
+            Log.e(TAG,"checkmodel!=null"+String.valueOf(id));
             checkmodel.setDb_eventname(mymodel.getDb_eventname());
+            if(mymodel.getDb_rules()!="")
+            {
+                checkmodel.setDb_rules(mymodel.getDb_rules());
+            }
             checkmodel.setDb_prizemoney(mymodel.getDb_prizemoney());
-            checkmodel.setDb_rules(mymodel.getDb_rules());
             checkmodel.setApi_id(mymodel.getApi_id());
             if((realmlist.size()-1)<id)
             {realmlist.add(id,checkmodel);}
