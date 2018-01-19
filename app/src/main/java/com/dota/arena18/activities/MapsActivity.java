@@ -59,7 +59,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             @Override
             public void onSearchClosed() {
-
+                Log.i(TAG, "onSearchClosed");
             }
 
             @Override
@@ -108,6 +108,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mSearchBox.addSearchable(option);
         }
     }
+
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.dota.arena18.R;
 import com.dota.arena18.api.CollegeDetails;
 
 import java.util.List;
@@ -46,7 +47,8 @@ public class MedalsTableDataAdapter extends TableDataAdapter<CollegeDetails> {
         textView.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         textView.setTypeface(textView.getTypeface(), typeface);
         textView.setTextSize(textSize);
-        textView.setTextColor(textColor);
+        textView.setTextColor(getResources().getColor(R.color.card_bg));
+
         textView.setSingleLine();
         textView.setEllipsize(TextUtils.TruncateAt.END);
 

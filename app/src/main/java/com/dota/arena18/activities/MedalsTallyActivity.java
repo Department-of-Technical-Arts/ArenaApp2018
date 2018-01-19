@@ -18,6 +18,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import de.codecrafters.tableview.SortableTableView;
+import de.codecrafters.tableview.listeners.SwipeToRefreshListener;
 import de.codecrafters.tableview.listeners.TableDataClickListener;
 import de.codecrafters.tableview.model.TableColumnWeightModel;
 import retrofit2.Call;
@@ -57,6 +58,7 @@ public class MedalsTallyActivity extends AppCompatActivity {
         }
 
         sortableTableView = findViewById(R.id.table_tally);
+        sortableTableView.setSwipeToRefreshEnabled(true);
 
         // Define a column weight model to specify width distribution
         TableColumnWeightModel columnModel = new TableColumnWeightModel(5);
@@ -141,6 +143,14 @@ public class MedalsTallyActivity extends AppCompatActivity {
         });
 
         testResponse();
+
+        sortableTableView.setSwipeToRefreshListener(new SwipeToRefreshListener() {
+            @Override
+            public void onRefresh(RefreshIndicator refreshIndicator) {
+                Log.d(TAG, "onRefresh: called");
+                testResponse(refreshIndicator);
+            }
+        });
     }
 
     void testResponse() {
@@ -163,6 +173,32 @@ public class MedalsTallyActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ArrayList<CollegeDetails>> call, Throwable t) {
                 Log.i(TAG, "onFailure: " + call.request().url());
+            }
+        });
+    }
+
+    void testResponse(final SwipeToRefreshListener.RefreshIndicator ref) {
+        ScoresInterface scores = TestApiClient.getClient().create(ScoresInterface.class);
+        Call<ArrayList<CollegeDetails>> call;
+
+        if (isInterBITS) {
+            call = scores.getBitsLeaderboard();
+        } else {
+            call = scores.getArenaLeaderboard();
+        }
+
+        call.enqueue(new Callback<ArrayList<CollegeDetails>>() {
+            @Override
+            public void onResponse(Call<ArrayList<CollegeDetails>> call, Response<ArrayList<CollegeDetails>> response) {
+                tableData = response.body();
+                loadData();
+                ref.hide();
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<CollegeDetails>> call, Throwable t) {
+                Log.i(TAG, "onFailure: " + call.request().url());
+                ref.hide();
             }
         });
     }
