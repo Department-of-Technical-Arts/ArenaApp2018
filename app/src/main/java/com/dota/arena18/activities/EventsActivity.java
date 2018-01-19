@@ -100,6 +100,9 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
             }
         };
         smoothScroller = linearSmoothScroller;
+
+        swipeRefreshLayout.setRefreshing(true);
+
          if(myrealm.isEmpty())
         {
             Log.e(TAG,"realm is empty");
@@ -157,6 +160,8 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
                  }
 
                  adapter.notifyDataSetChanged();
+                 swipeRefreshLayout.setRefreshing(false);
+
              }
 
              @Override
@@ -192,6 +197,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
                      }
 
                  adapter.notifyDataSetChanged();
+                 swipeRefreshLayout.setRefreshing(false);
              }
 
              @Override
@@ -209,6 +215,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
         RealmResults<Model> results = realm1.where(Model.class).findAll();
         Log.e(TAG,"results size:"+String.valueOf(results.size()));
+
          for (int i = 0; i < results.size(); i++) {
              realm1.beginTransaction();
              results.get(i).setId(id);
@@ -221,7 +228,8 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
              }
              id++;
          }
-         Log.e(EventsActivity.class.getSimpleName(),"Get datafromrealm total events:"+String.valueOf(results.size()));
+
+         Log.e(EventsActivity.class.getSimpleName(),"Get datafromrealm total events: " + String.valueOf(results.size()));
 
          adapter.notifyDataSetChanged();
          if(results.size()==0)
@@ -236,6 +244,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
                  }
              }).create().show();
          }
+         swipeRefreshLayout.setRefreshing(false);
 
      }
 
