@@ -14,7 +14,6 @@
         android:fontFamily="@font/lato_bold"
         android:breakStrategy="simple"
         android:layout_width="match_parent"
-        android:text="@string/directions"
         android:textSize="15sp"
         android:layout_height="wrap_content" />
 
