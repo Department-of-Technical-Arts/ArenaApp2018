@@ -40,7 +40,6 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
         Bundle args = getArguments();
         if(args!=null) {
             captain_no = args.getInt("abc");
-            Toast.makeText(getContext(), Integer.toString(captain_no), Toast.LENGTH_SHORT).show();
         }
         View rootView = inflater.inflate(R.layout.fragment_captains, container, false);
 
@@ -141,7 +140,7 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
             case 16 :
-                smoothScroller.setTargetPosition(0);
+                smoothScroller.setTargetPosition(6);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
             case 17 :
