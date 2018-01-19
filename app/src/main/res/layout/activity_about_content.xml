@@ -14,7 +14,12 @@
         android:layout_gravity="center"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="10dp"
+        android:innerRadius="0dp"
+        android:shape="ring"
+        android:elevation="2dp"
+        >
 
         <LinearLayout
             android:id="@+id/about_layout"
