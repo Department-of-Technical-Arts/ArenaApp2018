@@ -1,131 +1,349 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/activity_bg"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".activities.CreditsActivity">
-
-  <!--  <com.jaouan.compoundlayout.CompoundLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/checkbox"
-        android:padding="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Custom checkbox with drawable selector" />
-
-    </com.jaouan.compoundlayout.CompoundLayout> -->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingStart="20dp"
-        android:paddingTop="20dp"
-        android:text="title"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:paddingLeft="20dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="20dp"
-        android:paddingEnd="20dp"
-        android:paddingStart="20dp"
-        android:paddingTop="10dp"
-        android:text="Developers" />
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.jaouan.compoundlayout.RadioLayoutGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:orientation="horizontal">
-
-            <com.jaouan.compoundlayout.CircleGradientRadioLayout
-                android:id="@+id/profile_1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:elevation="2dp"
-                app:angle="45"
-                app:checked="true"
-                app:colorA="#AAFFA726"
-                app:colorB="#AAEC407A">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/me" />
-            </com.jaouan.compoundlayout.CircleGradientRadioLayout>
-
-            <com.jaouan.compoundlayout.CircleGradientRadioLayout
-                android:id="@+id/profile_2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/rounded"
-                android:elevation="2dp"
-                app:colorA="#AA42A5F5"
-                app:colorB="#AAAB47BC">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/default_pic" />
-            </com.jaouan.compoundlayout.CircleGradientRadioLayout>
-
-            <com.jaouan.compoundlayout.CircleGradientRadioLayout
-                android:id="@+id/profile_3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/rounded"
-                android:elevation="2dp"
-                app:angle="45"
-                app:colorA="#BBAB47BC"
-                app:colorB="#BBEF5350">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/default_pic" />
-            </com.jaouan.compoundlayout.CircleGradientRadioLayout>
-
-        </com.jaouan.compoundlayout.RadioLayoutGroup>
-    </HorizontalScrollView>
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/description_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context=".activities.CreditsActivity">
 
         <TextView
-            android:id="@+id/subtitle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingEnd="20dp"
-            android:paddingStart="20dp"
-            android:paddingTop="20dp"
-            android:text="Harshvardhan Takawale"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:fontFamily="@font/lato_bold"
+            android:paddingEnd="16dp"
+            android:paddingLeft="20dp"
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:text="Android Developers"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white" />
 
         <TextView
-            android:id="@+id/long_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            android:paddingBottom="16dp"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:text="The brains behind this masterpiece"
+            android:textColor="@color/white" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.jaouan.compoundlayout.RadioLayoutGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:orientation="horizontal">
+
+                <com.jaouan.compoundlayout.CircleGradientRadioLayout
+                    android:id="@+id/profile_1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:elevation="2dp"
+                    app:angle="45"
+                    app:checked="true"
+                    app:colorA="#AAFFA726"
+                    app:colorB="#AAEC407A">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/akhil_round1_xhdpi" />
+                </com.jaouan.compoundlayout.CircleGradientRadioLayout>
+
+                <com.jaouan.compoundlayout.CircleGradientRadioLayout
+                    android:id="@+id/profile_2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded"
+                    android:elevation="2dp"
+                    app:colorA="#AA42A5F5"
+                    app:colorB="#AAAB47BC">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/me" />
+
+                </com.jaouan.compoundlayout.CircleGradientRadioLayout>
+
+                <com.jaouan.compoundlayout.CircleGradientRadioLayout
+                    android:id="@+id/profile_3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded"
+                    android:elevation="2dp"
+                    app:angle="45"
+                    app:colorA="#BBAB47BC"
+                    app:colorB="#BBEF5350">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/default_pic" />
+                </com.jaouan.compoundlayout.CircleGradientRadioLayout>
+
+            </com.jaouan.compoundlayout.RadioLayoutGroup>
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:id="@+id/description_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="20dp"
-            android:paddingEnd="20dp"
-            android:paddingStart="20dp"
-            android:paddingTop="10dp"
-            android:text="main_description"
-            />
+            android:orientation="vertical"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp">
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
+                android:paddingTop="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/white"
+                tools:text="Harshvardhan Takawale" />
+
+            <TextView
+                android:id="@+id/long_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
+                android:paddingBottom="16dp"
+                android:paddingTop="8dp"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                tools:text="Android Grunt #1" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_bold"
+            android:paddingEnd="16dp"
+            android:paddingLeft="20dp"
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:text="Web Developers"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            android:paddingBottom="16dp"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:text="Lords of the API endpoints"
+            android:textColor="@color/white" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.jaouan.compoundlayout.RadioLayoutGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:orientation="horizontal">
+
+                <com.jaouan.compoundlayout.CircleGradientRadioLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:elevation="2dp"
+                    app:angle="45"
+                    app:checked="true"
+                    app:colorA="#AAFFA726"
+                    app:colorB="#AAEC407A">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/default_pic" />
+                </com.jaouan.compoundlayout.CircleGradientRadioLayout>
+
+                <com.jaouan.compoundlayout.CircleGradientRadioLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded"
+                    android:elevation="2dp"
+                    app:colorA="#AA42A5F5"
+                    app:colorB="#AAAB47BC">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/default_pic" />
+                </com.jaouan.compoundlayout.CircleGradientRadioLayout>
+
+                <com.jaouan.compoundlayout.CircleGradientRadioLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded"
+                    android:elevation="2dp"
+                    app:angle="45"
+                    app:colorA="#BBAB47BC"
+                    app:colorB="#BBEF5350">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/default_pic" />
+                </com.jaouan.compoundlayout.CircleGradientRadioLayout>
+
+            </com.jaouan.compoundlayout.RadioLayoutGroup>
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
+                android:paddingTop="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/white"
+                tools:text="Harshvardhan Takawale" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
+                android:paddingBottom="16dp"
+                android:paddingTop="8dp"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                tools:text="Android Grunt #1" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_bold"
+            android:paddingEnd="16dp"
+            android:paddingLeft="20dp"
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:text="Designers"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            android:paddingBottom="16dp"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:text="Beautiful resources make all the difference"
+            android:textColor="@color/white" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.jaouan.compoundlayout.RadioLayoutGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:orientation="horizontal">
+
+                <com.jaouan.compoundlayout.CircleGradientRadioLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:elevation="2dp"
+                    app:angle="45"
+                    app:checked="true"
+                    app:colorA="#AAFFA726"
+                    app:colorB="#AAEC407A">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/default_pic" />
+                </com.jaouan.compoundlayout.CircleGradientRadioLayout>
+
+                <com.jaouan.compoundlayout.CircleGradientRadioLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded"
+                    android:elevation="2dp"
+                    app:colorA="#AA42A5F5"
+                    app:colorB="#AAAB47BC">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/default_pic" />
+                </com.jaouan.compoundlayout.CircleGradientRadioLayout>
+
+                <com.jaouan.compoundlayout.CircleGradientRadioLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded"
+                    android:elevation="2dp"
+                    app:angle="45"
+                    app:colorA="#BBAB47BC"
+                    app:colorB="#BBEF5350">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/default_pic" />
+                </com.jaouan.compoundlayout.CircleGradientRadioLayout>
+
+            </com.jaouan.compoundlayout.RadioLayoutGroup>
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
+                android:paddingTop="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/white"
+                tools:text="Harshvardhan Takawale" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
+                android:paddingBottom="16dp"
+                android:paddingTop="8dp"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                tools:text="Android Grunt #1" />
+        </LinearLayout>
     </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

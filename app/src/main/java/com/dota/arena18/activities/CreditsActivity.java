@@ -3,6 +3,7 @@ package com.dota.arena18.activities;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -29,14 +30,13 @@ public class CreditsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credits);
 
-        subtitleTextView = (TextView) findViewById(R.id.subtitle);
-        description = (TextView) findViewById(R.id.long_description);
+        subtitleTextView = findViewById(R.id.subtitle);
+        description = findViewById(R.id.long_description);
         descriptionLayout = findViewById(R.id.description_layout);
 
-        bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.harshvardhan,R.string.desc1);
-        bindCompoundListener((CompoundLayout) findViewById(R.id.profile_2), R.string.doris_day,R.string.doris_day);
-        bindCompoundListener((CompoundLayout) findViewById(R.id.profile_3), R.string.grace_kelly, R.string.grace_kelly);
-
+        bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.akhil, R.string.akhil);
+        bindCompoundListener((CompoundLayout) findViewById(R.id.profile_2), R.string.harshvardhan,R.string.harshvardhan);
+        bindCompoundListener((CompoundLayout) findViewById(R.id.profile_3), R.string.ashwik, R.string.ashwik);
     }
 
     /**
@@ -46,30 +46,27 @@ public class CreditsActivity extends AppCompatActivity {
      * @param subtitle       Subtitle to set.
      */
     private void bindCompoundListener(final CompoundLayout compoundLayout, @StringRes final int subtitle,@StringRes final int desc) {
-        compoundLayout.setOnCheckedChangeListener(new CompoundLayout.OnCheckedChangeListener() {
+        compoundLayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundLayout compoundLayout, boolean checked) {
-                if (checked) {
-                    final Animation fadeOutAnimation = AnimationUtils.loadAnimation(CreditsActivity.this, android.R.anim.fade_out);
-                    fadeOutAnimation.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationStart(Animation animation) {
-                        }
+            public void onClick(View view) {
+                final Animation fadeOutAnimation = AnimationUtils.loadAnimation(CreditsActivity.this, android.R.anim.fade_out);
+                fadeOutAnimation.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                    }
 
-                        @Override
-                        public void onAnimationEnd(Animation animation) {
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        subtitleTextView.setText(getString(subtitle));
+                        description.setText(desc);
+                        descriptionLayout.startAnimation(AnimationUtils.loadAnimation(CreditsActivity.this, android.R.anim.fade_in));
+                    }
 
-                            subtitleTextView.setText(getString(subtitle));
-                            description.setText(desc);
-                            descriptionLayout.startAnimation(AnimationUtils.loadAnimation(CreditsActivity.this, android.R.anim.fade_in));
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
-                        }
-                    });
-                    descriptionLayout.startAnimation(fadeOutAnimation);
-                }
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                    }
+                });
+                descriptionLayout.startAnimation(fadeOutAnimation);
             }
         });
     }
