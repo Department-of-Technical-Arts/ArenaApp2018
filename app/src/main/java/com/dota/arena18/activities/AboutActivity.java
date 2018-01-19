@@ -36,9 +36,9 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         recyclerView = findViewById(R.id.about_recyclerview);
-        list.add(new Imagedata(R.drawable.abt,"About Arena"));
-        list.add(new Imagedata(R.drawable.about_directions,"Directions"));
-        list.add(new Imagedata(R.drawable.about_map,"Map"));
+        list.add(new Imagedata(R.drawable.ic_about_info,"About Arena"));
+        list.add(new Imagedata(R.drawable.ic_school_bus,"Directions"));
+        list.add(new Imagedata(R.drawable.ic_street_map,"Map"));
         AboutActivityAdapter adapter = new AboutActivityAdapter(this,list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
