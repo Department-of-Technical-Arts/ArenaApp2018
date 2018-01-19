@@ -152,6 +152,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
                      model.setDb_eventname(list.get(i).getEventname());
                      model.setDb_rules(list.get(i).getRules());
                      model.setDb_prizemoney(list.get(i).getPrize());
+                     model.setDb_venue(list.get(i).getVenue());
                      adddatatorealm(model);
                  }
 
@@ -184,6 +185,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
                          model.setApi_id(list.get(i).getApi_id());
                          model.setDb_eventname(list.get(i).getEventname());
                          model.setDb_prizemoney(list.get(i).getPrize());
+                         model.setDb_venue(list.get(i).getVenue());
                          Model model1 = myrealm.where(Model.class).equalTo("id",i).findFirst();
                          model.setDb_rules(model1.getDb_rules());
                          adddatatorealm(model);
@@ -249,6 +251,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
         event.setDb_rules(mymodel.getDb_rules());
         event.setDb_prizemoney(mymodel.getDb_prizemoney());
         event.setApi_id(mymodel.getApi_id());
+        event.setDb_venue(mymodel.getDb_venue());
         realmlist.add(event);}
 
         else{
@@ -260,6 +263,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
             }
             checkmodel.setDb_prizemoney(mymodel.getDb_prizemoney());
             checkmodel.setApi_id(mymodel.getApi_id());
+            checkmodel.setDb_venue(mymodel.getDb_venue());
             if((realmlist.size()-1)<id)
             {realmlist.add(id,checkmodel);}
             else

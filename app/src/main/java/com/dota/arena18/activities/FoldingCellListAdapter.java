@@ -27,6 +27,8 @@ import com.dota.arena18.api.EventDetails;
 import com.dota.arena18.database.Model;
 import com.ramotion.foldingcell.FoldingCell;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -69,6 +71,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
         holder.TitleName.setText(objects.get(position).getDb_eventname());
         holder.ContentName.setText(objects.get(position).getDb_eventname());
         holder.prizemoney.setText(objects.get(position).getDb_prizemoney());
+        holder.venue.setText(objects.get(position).getDb_venue());
         holder.prizelayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,13 +118,13 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
         holder.locationlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                permCheck = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION);
+               /* permCheck = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION);
                 if (permCheck == PERMISSION_DENIED) {
                     ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
                 } else {
                     Intent i = new Intent(context, MapsActivity.class);
                     context.startActivity(i);
-                }
+                }*/
             }
         });
 
@@ -172,6 +175,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
         TextView ContentName;
         TextView prizemoney;
         TextView rules;
+        TextView venue;
         RelativeLayout locationlayout;
         RelativeLayout contactcaptainlayout;
         RelativeLayout ruleslayout;
@@ -190,6 +194,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
             ContentName = (TextView) itemView.findViewById(R.id.content_eventname);
             prizemoney =  (TextView)itemView.findViewById(R.id.cell_content_prize);
             rules = (TextView) itemView.findViewById(R.id.content_rules_view);
+            venue = (TextView) itemView.findViewById(R.id.cell_content_venue);
             locationlayout = (RelativeLayout) itemView.findViewById(R.id.content_location);
 
             prizelayout = (RelativeLayout) itemView.findViewById(R.id.prize_layout);

@@ -207,20 +207,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:text="LOCATION"
+                android:text="VENUE"
                 android:textColor="@color/mainTextColor"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp" />
-
-            <ImageView
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/cell_content_venue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/arrow"
-                android:layout_alignParentRight="true" />
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:text="20,000"
+                android:textColor="@color/mainTextColor"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 

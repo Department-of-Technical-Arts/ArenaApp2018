@@ -13,6 +13,7 @@ public class Model extends RealmObject {
     private  String db_rules;
     private String db_prizemoney;
     private String api_id;
+    private String db_venue;
 
     public String getApi_id() {
         return api_id;
@@ -52,5 +53,13 @@ public class Model extends RealmObject {
 
     public void setDb_prizemoney(String db_prizemoney) {
         this.db_prizemoney = db_prizemoney;
+    }
+
+    public String getDb_venue() {
+        return db_venue;
+    }
+
+    public void setDb_venue(String db_venue) {
+        this.db_venue = db_venue;
     }
 }
