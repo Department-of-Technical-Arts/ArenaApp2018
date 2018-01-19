@@ -28,10 +28,9 @@ public class MedalsTableHeaderAdapter extends TableHeaderAdapter {
     public View getHeaderView(int columnIndex, ViewGroup parentView) {
 
         TextView tv = new TextView(parentView.getContext());
-        tv.setTextColor(Color.BLACK);
+        tv.setTextColor(Color.WHITE);
         tv.setPadding(8,0,0,0);
         tv.setTextSize(COMPLEX_UNIT_SP,14);
-//        tv.setBackgroundColor(Color.BLUE);
         parentView.setPadding(24,24,24,24);
 
         switch (columnIndex) {

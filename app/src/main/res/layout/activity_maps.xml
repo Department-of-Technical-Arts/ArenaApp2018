@@ -7,6 +7,7 @@
 
     <com.quinny898.library.persistentsearch.SearchBox
         android:id="@+id/searchbox"
+        android:background="@color/activity_bg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
