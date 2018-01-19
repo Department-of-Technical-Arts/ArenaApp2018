@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.dota.arena18.R;
+import com.uncopt.android.widget.text.justify.JustifiedTextView;
 
 public class TextDisplayActivity extends AppCompatActivity {
     private static final String TAG = TextDisplayActivity.class.getSimpleName();
@@ -15,7 +16,7 @@ public class TextDisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_display);
 
-        TextView display = findViewById(R.id.tv_display);
+        JustifiedTextView display = findViewById(R.id.tv_display);
 
         String s = getIntent().getStringExtra("text");
         if (s.equalsIgnoreCase("about")) {

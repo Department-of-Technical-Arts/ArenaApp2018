@@ -4,14 +4,18 @@
     android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#212121"
     tools:context="com.dota.arena18.activities.TextDisplayActivity">
 
-    <TextView
+    <com.uncopt.android.widget.text.justify.JustifiedTextView
         android:id="@+id/tv_display"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/black"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/lato_bold"
         android:breakStrategy="simple"
         android:layout_width="match_parent"
+        android:text="@string/directions"
+        android:textSize="15sp"
         android:layout_height="wrap_content" />
 
 </ScrollView>
