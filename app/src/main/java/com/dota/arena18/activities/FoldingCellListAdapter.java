@@ -107,6 +107,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
                 Intent i = new Intent(context,DetailsActivity.class);
                 i.putExtra("api_id",objects.get(position).getApi_id());
                 i.putExtra("eventid",String.valueOf(objects.get(position).getId()));
+                i.putExtra("event_name",objects.get(position).getDb_eventname());
                 context.startActivity(i);
             }
         });

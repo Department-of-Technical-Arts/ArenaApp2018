@@ -37,7 +37,7 @@ public class DetailsActivity extends AppCompatActivity {
     Model model ;
     private Realm realm;
     TextView rules;
-    String api_id,stringid;
+    String api_id, stringid;
     int id;
 
 
@@ -48,6 +48,9 @@ public class DetailsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Intent intent = getIntent();
+        String name = getIntent().getStringExtra("event_name");
+        Log.i("DetailsActivity", "onCreate: " + name);
+        setTitle(name);
         api_id = intent.getStringExtra("api_id");
         stringid = intent.getStringExtra("eventid");
         id = Integer.parseInt(stringid);
@@ -69,7 +72,7 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<EventDetails> call, Throwable t) {
 
-                Log.e(DetailsActivity.class.getSimpleName(),"DetailsActivity:not connected to internet");
+                Log.e(DetailsActivity.class.getSimpleName(),"DetailsActivity: not connected to internet");
                 getDatafromrealm();
             }
         });
