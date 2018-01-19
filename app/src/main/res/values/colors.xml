@@ -5,6 +5,8 @@
     <color name="colorAccent">#FF871A</color>
 
     <color name="landing_text_color">#ffffff</color>
+    <color name="landing_tint_color">#55CCCCCC</color>
+
     <color name="activity_bg">#1D1D1D</color>
     <color name="card_bg">#FAFAFA</color>
     <color name="white">#fff</color>

@@ -119,13 +119,13 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
         holder.locationlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               /* permCheck = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION);
+                permCheck = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION);
                 if (permCheck == PERMISSION_DENIED) {
                     ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
                 } else {
                     Intent i = new Intent(context, MapsActivity.class);
                     context.startActivity(i);
-                }*/
+                }
             }
         });
 
