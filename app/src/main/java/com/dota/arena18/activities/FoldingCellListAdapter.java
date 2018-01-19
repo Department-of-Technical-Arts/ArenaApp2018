@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -176,7 +177,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
         TextView prizemoney;
         TextView rules;
         TextView venue;
-        RelativeLayout locationlayout;
+        LinearLayout locationlayout;
         RelativeLayout contactcaptainlayout;
         RelativeLayout ruleslayout;
         RelativeLayout prizelayout;
@@ -195,11 +196,11 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
             prizemoney =  (TextView)itemView.findViewById(R.id.cell_content_prize);
             rules = (TextView) itemView.findViewById(R.id.content_rules_view);
             venue = (TextView) itemView.findViewById(R.id.cell_content_venue);
-            locationlayout = (RelativeLayout) itemView.findViewById(R.id.content_location);
+            locationlayout = itemView.findViewById(R.id.content_location);
 
-            prizelayout = (RelativeLayout) itemView.findViewById(R.id.prize_layout);
-            ruleslayout = (RelativeLayout) itemView.findViewById(R.id.content_rules);
-            contactcaptainlayout = (RelativeLayout) itemView.findViewById(R.id.content_contact_captain);
+            prizelayout =  itemView.findViewById(R.id.prize_layout);
+            ruleslayout = itemView.findViewById(R.id.content_rules);
+            contactcaptainlayout = itemView.findViewById(R.id.content_contact_captain);
             one = (ImageView) itemView.findViewById(R.id.firstline);
             two = (ImageView) itemView.findViewById(R.id.secondline);
             three = (ImageView) itemView.findViewById(R.id.thirdline);

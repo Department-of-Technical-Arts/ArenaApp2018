@@ -202,16 +202,17 @@
             android:clickable="false"/>
 
 
-        <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-            android:id="@+id/content_location">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/content_location" >
 
 
             <TextView
                 android:id="@+id/content_location_view"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="2dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
@@ -219,23 +220,24 @@
                 android:fontFamily="@font/opensans_regular"
                 android:textColor="@color/mainTextColor"
                 android:textSize="18sp"/>
+
             <TextView
                 android:id="@+id/cell_content_venue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
                 android:layout_marginBottom="2dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                tools:text="Football Field"
+                tools:text="BITS Pilani Hyderabad Campus"
+                android:autoSizeTextType="uniform"
                 android:fontFamily="@font/opensans_regular"
                 android:textColor="@color/mainTextColor"
                 android:drawableRight="@drawable/ic_arrow_right"
                 android:drawablePadding="8dp"
                 android:textSize="16sp" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
