@@ -30,7 +30,7 @@ public class NewsActivity extends AppCompatActivity {
         recyclerView = (RecyclerView)findViewById(R.id.news_recyclerview);
         list.add(new Imagedata(R.drawable.ic_arena_leaderboard,"Arena Leaderboard"));
         list.add(new Imagedata(R.drawable.ic_interbits_leaderboard,"Inter-BITS Leaderboard"));
-        list.add(new Imagedata(R.drawable.news_newsfeed,"Live Feed"));
+        list.add(new Imagedata(R.drawable.ic_newsfeed,"Live Feed"));
         list.add(new Imagedata(R.drawable.ic_newsletter,"Newsletters"));
 
         adapter = new NewsActivityAdapter(this,list);
