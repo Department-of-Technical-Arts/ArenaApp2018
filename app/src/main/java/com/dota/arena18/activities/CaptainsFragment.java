@@ -112,71 +112,71 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
             case 9 :
-                smoothScroller.setTargetPosition(0);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 10 :
                 smoothScroller.setTargetPosition(12);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
-            case 11 :
+            case 10 :
                 smoothScroller.setTargetPosition(13);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
-            case 12 :
+            case 11 :
                 smoothScroller.setTargetPosition(14);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
-            case 13 :
+            case 12 :
                 smoothScroller.setTargetPosition(15);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
-            case 14 :
+            case 13 :
                 smoothScroller.setTargetPosition(16);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
-            case 15 :
-                smoothScroller.setTargetPosition(26);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 16 :
-                smoothScroller.setTargetPosition(6);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 17 :
+            case 14 :
                 smoothScroller.setTargetPosition(17);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
-            case 18 :
-                smoothScroller.setTargetPosition(18);
+            case 15 :
+                smoothScroller.setTargetPosition(27);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
-            case 19 :
-                smoothScroller.setTargetPosition(19);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 20 :
-                smoothScroller.setTargetPosition(21);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 21 :
-                smoothScroller.setTargetPosition(20);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 22 :
-                smoothScroller.setTargetPosition(22);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 23 :
-                smoothScroller.setTargetPosition(23);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 24 :
+            case 16 :
                 smoothScroller.setTargetPosition(24);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
-            case 25 :
+            case 17 :
+                smoothScroller.setTargetPosition(18);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 18 :
+                smoothScroller.setTargetPosition(19);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 19 :
+                smoothScroller.setTargetPosition(20);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 20 :
+                smoothScroller.setTargetPosition(22);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 21 :
+                smoothScroller.setTargetPosition(21);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 22 :
+                smoothScroller.setTargetPosition(23);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 23 :
+                smoothScroller.setTargetPosition(24);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 24 :
                 smoothScroller.setTargetPosition(25);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 25 :
+                smoothScroller.setTargetPosition(26);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
 
@@ -206,8 +206,8 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
         Contacts temp6 = new Contacts("Arpit","Hockey",
                 "9133235023", R.drawable.default_pic,"blank");
 
-        Contacts temp7 = new Contacts("Ishant Singh Bhadauriya","Kabaddi",
-                "9705932586", R.drawable.default_pic,"blank");
+        Contacts temp7 = new Contacts("Guna Kaushik","Kabaddi",
+                "9492322223", R.drawable.default_pic,"blank");
 
         Contacts temp8 = new Contacts("Rishi","Volleyball",
                 "7989906805", R.drawable.default_pic,"blank");
@@ -233,7 +233,7 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
         Contacts temp15 = new Contacts("Kritika Kasliwal","Athletics(G)",
                 "7997083711", R.drawable.default_pic,"blank");
 
-        Contacts temp16 = new Contacts("R. Aadith","Throwball",
+        Contacts temp16 = new Contacts("R. Aadith","Throwball, Powerlifting",
                 "8074629851", R.drawable.default_pic,"blank");
 
         Contacts temp17 = new Contacts("Pranav Mohan","Football",
@@ -269,6 +269,9 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
         Contacts temp27 = new Contacts("Aishwarya rebelly","Table Tennis(G)",
                 "9591325445", R.drawable.default_pic,"blank");
 
+        Contacts temp28 = new Contacts("Ishant Singh Bhadauriya","Cricket"
+                ,"9705932586", R.drawable.default_pic, "blank");
+
 
         data1.add(temp14);
         data1.add(temp15);
@@ -287,6 +290,8 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
         data1.add(temp3);
         data1.add(temp4);
         data1.add(temp5);
+
+        data1.add(temp28);
 
         data1.add(temp24);
 

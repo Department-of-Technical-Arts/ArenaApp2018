@@ -117,5 +117,7 @@
     <color name="mainTextColor">#343d43</color>
     <color name="btnRequest">#ffbf12</color>
 
+    <color name="circle1">#AA42A5F5</color>
+    <color name="circle2">#AAAB47BC</color>
 
 </resources>

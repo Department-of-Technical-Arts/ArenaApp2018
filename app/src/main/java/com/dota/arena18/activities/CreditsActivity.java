@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.dota.arena18.R;
 import com.jaouan.compoundlayout.CompoundLayout;
+import com.jaouan.compoundlayout.GradientRadioLayout;
 
 
 public class CreditsActivity extends AppCompatActivity {
@@ -35,6 +36,7 @@ public class CreditsActivity extends AppCompatActivity {
         bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.harshvardhan,R.string.desc1);
         bindCompoundListener((CompoundLayout) findViewById(R.id.profile_2), R.string.doris_day,R.string.doris_day);
         bindCompoundListener((CompoundLayout) findViewById(R.id.profile_3), R.string.grace_kelly, R.string.grace_kelly);
+
     }
 
     /**
@@ -56,6 +58,7 @@ public class CreditsActivity extends AppCompatActivity {
 
                         @Override
                         public void onAnimationEnd(Animation animation) {
+
                             subtitleTextView.setText(getString(subtitle));
                             description.setText(desc);
                             descriptionLayout.startAnimation(AnimationUtils.loadAnimation(CreditsActivity.this, android.R.anim.fade_in));
