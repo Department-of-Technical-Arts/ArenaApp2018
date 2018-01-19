@@ -30,20 +30,25 @@ public class ContactsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
+
+        if(getIntent().hasExtra("event_index")) {
+            Intent intent = getIntent();
+            Bundle bundle = intent.getExtras();
+            if (!bundle.isEmpty()) {
+                captain_scroll = bundle.getInt("event_index");
+
+            }
+        }
+
+
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
 
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        if (!bundle.isEmpty()){
-            captain_scroll = bundle.getInt("event_index");
-        }
-        Toast.makeText(this,Integer.toString(captain_scroll),Toast.LENGTH_SHORT).show();
 
 
     }
@@ -62,6 +67,9 @@ public class ContactsActivity extends AppCompatActivity {
             switch (position){
                 case 0:
                     CaptainsFragment captains = new com.dota.arena18.activities.CaptainsFragment();
+                    Bundle args = new Bundle();
+                    args.putInt("abc",captain_scroll);
+                    captains.setArguments(args);
                     return captains;
                 case 1:
                     OrganisersFragment organisers = new com.dota.arena18.activities.OrganisersFragment();

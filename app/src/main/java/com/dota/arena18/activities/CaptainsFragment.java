@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,11 +30,20 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
     RecyclerView recyclerView;
     ArrayList<Contacts> data1;
     Toolbar toolbar;
-    int cap_scroll = 0;
+    private RecyclerView.SmoothScroller smoothScroller;
+    int captain_no=0;
+    private static final float MILLIS_PER_INCH = 100f;
+    private RecyclerView.LayoutManager layoutManager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Bundle args = getArguments();
+        if(args!=null) {
+            captain_no = args.getInt("abc");
+            Toast.makeText(getContext(), Integer.toString(captain_no), Toast.LENGTH_SHORT).show();
+        }
         View rootView = inflater.inflate(R.layout.fragment_captains, container, false);
+
         return rootView;
     }
 
@@ -43,9 +54,138 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
         recyclerView = (RecyclerView) view.findViewById(R.id.contacts_recycler);
         OrganisersAdapter = new OrganisersAdapter(getActivity(),this,data1);
         recyclerView.setAdapter(OrganisersAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+        LinearSmoothScroller linearSmoothScroller = new LinearSmoothScroller(getContext()){
+            @Override
+            protected int getVerticalSnapPreference() {
+                return LinearSmoothScroller.SNAP_TO_START;
+            }
+
+            @Override
+            protected float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
+                return MILLIS_PER_INCH / displayMetrics.densityDpi;
+            }
+        };
+        smoothScroller = linearSmoothScroller;
+
         OrganisersAdapter.setArrayList(data1);
+
         feedData();
+
+        switch (captain_no){
+            case 0 :
+                smoothScroller.setTargetPosition(0);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+
+            case 1 :
+                smoothScroller.setTargetPosition(2);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 2 :
+                smoothScroller.setTargetPosition(3);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 3 :
+                smoothScroller.setTargetPosition(2);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 4 :
+                smoothScroller.setTargetPosition(4);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 5 :
+                smoothScroller.setTargetPosition(5);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 6 :
+                smoothScroller.setTargetPosition(6);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 7 :
+                smoothScroller.setTargetPosition(7);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 8 :
+                smoothScroller.setTargetPosition(9);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 9 :
+                smoothScroller.setTargetPosition(0);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 10 :
+                smoothScroller.setTargetPosition(12);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 11 :
+                smoothScroller.setTargetPosition(13);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 12 :
+                smoothScroller.setTargetPosition(14);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 13 :
+                smoothScroller.setTargetPosition(15);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 14 :
+                smoothScroller.setTargetPosition(16);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 15 :
+                smoothScroller.setTargetPosition(26);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 16 :
+                smoothScroller.setTargetPosition(0);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 17 :
+                smoothScroller.setTargetPosition(17);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 18 :
+                smoothScroller.setTargetPosition(18);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 19 :
+                smoothScroller.setTargetPosition(19);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 20 :
+                smoothScroller.setTargetPosition(21);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 21 :
+                smoothScroller.setTargetPosition(20);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 22 :
+                smoothScroller.setTargetPosition(22);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 23 :
+                smoothScroller.setTargetPosition(23);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 24 :
+                smoothScroller.setTargetPosition(24);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 25 :
+                smoothScroller.setTargetPosition(25);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+
+            default:
+                smoothScroller.setTargetPosition(0);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+        }
     }
 
     private void feedData() {
@@ -174,21 +314,6 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
         data1.add(temp9);
 
         data1.add(temp22);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }
