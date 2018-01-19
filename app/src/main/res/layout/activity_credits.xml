@@ -74,6 +74,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="#CCCCCC"
                         android:src="@drawable/dev_harshvardhan" />
 
                 </com.jaouan.compoundlayout.CircleGradientRadioLayout>
@@ -92,7 +93,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/default_pic" />
+                        android:src="@drawable/dev_ashwik" />
                 </com.jaouan.compoundlayout.CircleGradientRadioLayout>
 
             </com.jaouan.compoundlayout.RadioLayoutGroup>

@@ -37,9 +37,9 @@ public class CreditsActivity extends AppCompatActivity {
         descriptionLayout = findViewById(R.id.description_layout);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.akhil, R.string.akhil, (CircleGradientRadioLayout) findViewById(R.id.profile_1), getColor(R.color.circle2), getColor(R.color.circle2));
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.akhil, R.string.akhil, (CircleGradientRadioLayout) findViewById(R.id.profile_1), getColor(R.color.circle1), getColor(R.color.circle2));
             bindCompoundListener((CompoundLayout) findViewById(R.id.profile_2), R.string.harshvardhan, R.string.harshvardhan, (CircleGradientRadioLayout) findViewById(R.id.profile_2), getColor(R.color.circle3), getColor(R.color.circle4));
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_3), R.string.ashwik, R.string.ashwik, (CircleGradientRadioLayout) findViewById(R.id.profile_3), getColor(R.color.circle5), getColor(R.color.circle6));
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_3), R.string.ashwik, R.string.ashwik, (CircleGradientRadioLayout) findViewById(R.id.profile_3),getColor(R.color.circle5), getColor(R.color.circle6));
         } else {
             bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.akhil, R.string.akhil, (CircleGradientRadioLayout) findViewById(R.id.profile_1), 0, 0);
             bindCompoundListener((CompoundLayout) findViewById(R.id.profile_2), R.string.harshvardhan, R.string.harshvardhan, (CircleGradientRadioLayout) findViewById(R.id.profile_2), 0,0);
