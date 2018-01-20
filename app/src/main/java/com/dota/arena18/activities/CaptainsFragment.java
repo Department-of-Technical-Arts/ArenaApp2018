@@ -333,7 +333,7 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
     public void onItemClick(AdapterView<?> adapterView, final View view, final int i, long l) {
 
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.contact_card_toolbar);
-        toolbar.inflateMenu(R.menu.options_menu);
+        /*toolbar.inflateMenu(R.menu.options_menu);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -342,16 +342,17 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
                         Uri number = Uri.parse("tel:" + data1.get(i).getMobile());
                         view.getContext().startActivity(new Intent(Intent.ACTION_DIAL, number));
                         break;
-                    /*case R.id.mail:
+                    *//*case R.id.mail:
                         Intent emailIntent = new Intent(Intent.ACTION_SEND);
                         emailIntent.setType("text/html").putExtra(Intent.EXTRA_EMAIL, new String[]{data1.get(i).getMail()});
                         emailIntent.setType("message/rfc822");
                         view.getContext().startActivity(Intent.createChooser(emailIntent, "Choose an Email client :"));
-                        break;*/
+                        break;*//*
                 }
                 return false;
             }
-        });
+        });*/
+
 
     }
 }
