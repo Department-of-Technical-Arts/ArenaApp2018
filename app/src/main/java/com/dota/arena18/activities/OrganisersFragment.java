@@ -1,19 +1,16 @@
 package com.dota.arena18.activities;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 
 import com.dota.arena18.R;
 
@@ -28,6 +25,7 @@ public class OrganisersFragment extends android.support.v4.app.Fragment implemen
     OrganisersAdapter OrganisersAdapter;
     RecyclerView recyclerView;
     ArrayList<Contacts> data;
+    ImageView call_image_org;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +38,7 @@ public class OrganisersFragment extends android.support.v4.app.Fragment implemen
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         data = new ArrayList<>();
+        call_image_org =  view.findViewById(R.id.call_image_card);
         recyclerView = (RecyclerView) view.findViewById(R.id.contacts_recycler);
 
         OrganisersAdapter = new OrganisersAdapter(getActivity(),this,data);
@@ -47,6 +46,8 @@ public class OrganisersFragment extends android.support.v4.app.Fragment implemen
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         OrganisersAdapter.setArrayList(data);
         feedData();
+
+
     }
 
     private void feedData() {
@@ -115,8 +116,11 @@ public class OrganisersFragment extends android.support.v4.app.Fragment implemen
 
     @Override
     public void onItemClick(AdapterView<?> adapterView,final View view,final int i, long l) {
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.contact_card_toolbar);
-        /*toolbar.inflateMenu(R.menu.options_menu);
+
+
+
+        /*Toolbar toolbar = (Toolbar) view.findViewById(R.id.contact_card_toolbar);
+        toolbar.inflateMenu(R.menu.options_menu);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {

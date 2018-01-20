@@ -11,11 +11,10 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Toast;
+import android.widget.ImageView;
 
 import com.dota.arena18.R;
 
@@ -30,6 +29,7 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
     RecyclerView recyclerView;
     ArrayList<Contacts> data1;
     Toolbar toolbar;
+    ImageView call_image_captain;
     private RecyclerView.SmoothScroller smoothScroller;
     int captain_no=0;
     private static final float MILLIS_PER_INCH = 100f;
@@ -50,6 +50,7 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         data1 = new ArrayList<>();
+        call_image_captain = view.findViewById(R.id.call_image_card);
         recyclerView = (RecyclerView) view.findViewById(R.id.contacts_recycler);
         OrganisersAdapter = new OrganisersAdapter(getActivity(),this,data1);
         recyclerView.setAdapter(OrganisersAdapter);
@@ -332,9 +333,10 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
     @Override
     public void onItemClick(AdapterView<?> adapterView, final View view, final int i, long l) {
 
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.contact_card_toolbar);
-        /*toolbar.inflateMenu(R.menu.options_menu);
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+        
+        /*Toolbar toolbar = (Toolbar) view.findViewById(R.id.contact_card_toolbar);
+          toolbar.inflateMenu(R.menu.options_menu);
+          toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {

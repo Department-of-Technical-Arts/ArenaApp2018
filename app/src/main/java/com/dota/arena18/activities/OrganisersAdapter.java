@@ -60,8 +60,15 @@ public class OrganisersAdapter extends RecyclerView.Adapter<OrganisersAdapter.My
         myViewHolder.name.setText(arrayList.get(i).getName());
         myViewHolder.designation.setText((arrayList.get(i).getDesignation()));
         myViewHolder.imageView.setImageResource(arrayList.get(i).getImage());
-        myViewHolder.cardToolbar.getMenu().clear();
-      /*  myViewHolder.cardToolbar.inflateMenu(R.menu.options_menu);
+        myViewHolder.call_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri number = Uri.parse("tel:" + arrayList.get(i).getMobile());
+                myViewHolder.itemView.getContext().startActivity(new Intent(Intent.ACTION_DIAL, number));
+            }
+        });
+       /* myViewHolder.cardToolbar.getMenu().clear();
+        myViewHolder.cardToolbar.inflateMenu(R.menu.options_menu);
 //        myViewHolder.mobile.setText(arrayList.get(i).getMobile());
         myViewHolder.cardToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
@@ -94,7 +101,7 @@ public class OrganisersAdapter extends RecyclerView.Adapter<OrganisersAdapter.My
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        ImageView imageView;
+        ImageView imageView , call_image;
         TextView name,designation,numberTV,mobile;
         Toolbar cardToolbar;
         private View mView;
@@ -102,6 +109,7 @@ public class OrganisersAdapter extends RecyclerView.Adapter<OrganisersAdapter.My
             super(itemView);
             mView=itemView;
             imageView = (ImageView) itemView.findViewById(R.id.contact_image);
+            call_image = itemView.findViewById(R.id.call_image_card);
             name=(TextView) itemView.findViewById(R.id.contact_name);
             designation=(TextView)itemView.findViewById(R.id.contact_designation);
 //          mobile= (TextView) itemView.findViewById(R.id.phoneno);
