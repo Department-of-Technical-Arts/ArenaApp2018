@@ -137,7 +137,7 @@ public class MedalsTallyActivity extends AppCompatActivity {
             @Override
             public void onDataClicked(int rowIndex, CollegeDetails clickedData) {
                 new LovelyInfoDialog(MedalsTallyActivity.this)
-                        .setTopColorRes(R.color.colorPrimary)
+                        .setTopColorRes(R.color.colorPrimaryDark)
                         .setTopTitleColor(Color.WHITE)
                         .setTopTitle(clickedData.getName())
                         .setMessage(clickedData.getMessage())

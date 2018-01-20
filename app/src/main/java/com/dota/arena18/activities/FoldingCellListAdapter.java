@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -66,23 +67,24 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-
-
-
-        holder.TitleName.setText(objects.get(position).getDb_eventname());
+        final String eventTitle = objects.get(position).getDb_eventname();
+        holder.TitleName.setText(eventTitle);
         holder.ContentName.setText(objects.get(position).getDb_eventname());
         holder.prizemoney.setText(objects.get(position).getDb_prizemoney());
         holder.venue.setText(objects.get(position).getDb_venue());
+        holder.foldedImage.setImageResource(getFoldedImage(eventTitle.toLowerCase()));
+        holder.unfoldedImage.setImageResource(getUnfoldedImage(eventTitle.toLowerCase()));
+
         holder.prizelayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                // Do nothing
             }
         });
         holder.one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                // Do nothing
             }
         });
         holder.contactcaptainlayout.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +100,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
         holder.two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                // Do nothing
             }
         });
         holder.ruleslayout.setOnClickListener(new View.OnClickListener() {
@@ -107,14 +109,14 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
                 Intent i = new Intent(context,DetailsActivity.class);
                 i.putExtra("api_id",objects.get(position).getApi_id());
                 i.putExtra("eventid",String.valueOf(objects.get(position).getId()));
-                i.putExtra("event_name",objects.get(position).getDb_eventname());
+                i.putExtra("event_name",eventTitle);
                 context.startActivity(i);
             }
         });
         holder.three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                // Do nothing
             }
         });
         holder.locationlayout.setOnClickListener(new View.OnClickListener() {
@@ -130,14 +132,10 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
             }
         });
 
-
-
-
-            if(holder.foldingCell.isUnfolded())
-            {
-                holder.foldingCell.fold(true);
-            }
-
+        if(holder.foldingCell.isUnfolded())
+        {
+            holder.foldingCell.fold(true);
+        }
 
     }
 
@@ -171,6 +169,145 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
 
     }
 
+    /**
+     *
+     * @param event String <b>must</b> be lowercase
+     * @return Drawable resId for corresponding image
+     */
+    private @DrawableRes int getFoldedImage(String event){
+        int resId = R.drawable.download; // default value
+
+        if (event.contains("athletics")) {
+
+        }
+        else if (event.contains("badminton")) {
+
+        }
+        else if (event.contains("basketball")) {
+
+        }
+        else if (event.contains("body building")) {
+
+        }
+        else if (event.contains("carrom")) {
+            resId = R.drawable.event_carroms_fold;
+        }
+        else if (event.contains("chess")) {
+            resId = R.drawable.event_chess_fold;
+        }
+        else if (event.contains("cricket")) {
+
+        }
+        else if (event.contains("duathlon")) {
+
+        }
+        else if (event.contains("football")) {
+            resId = R.drawable.event_football_fold;
+        }
+        else if (event.contains("hockey")) {
+
+        }
+        else if (event.contains("kabaddi")) {
+
+        }
+        else if (event.contains("pool")) {
+
+        }
+        else if (event.contains("power lifting")) {
+
+        }
+        else if (event.contains("snooker")) {
+
+        }
+        else if (event.contains("squash")) {
+
+        }
+        else if (event.contains("table tennis")) {
+            resId = R.drawable.event_tabletennis_fold;
+        }
+        else if (event.contains("tennis")) {
+            // Keep it after table tennis, or it will assign the wrong image to TT
+            resId = R.drawable.event_tennis_fold;
+        }
+        else if (event.contains("throwball")) {
+
+        }
+        else if (event.contains("volleyball")) {
+
+        }
+
+        return resId;
+    }
+
+    /**
+     *
+     * @param event String <b>must</b> be lowercase
+     * @return Drawable resId for corresponding image
+     */
+    private @DrawableRes int getUnfoldedImage(String event){
+        int resId = R.drawable.head_image; // default value
+
+        if (event.contains("athletics")) {
+
+        }
+        else if (event.contains("badminton")) {
+
+        }
+        else if (event.contains("basketball")) {
+            resId = R.drawable.event_basketball_unfold;
+        }
+        else if (event.contains("body building")) {
+
+        }
+        else if (event.contains("carrom")) {
+            resId = R.drawable.event_carroms_unfold;
+        }
+        else if (event.contains("chess")) {
+            resId = R.drawable.event_chess_unfold;
+        }
+        else if (event.contains("cricket")) {
+
+        }
+        else if (event.contains("duathlon")) {
+
+        }
+        else if (event.contains("football")) {
+            resId = R.drawable.event_football_unfold;
+        }
+        else if (event.contains("hockey")) {
+
+        }
+        else if (event.contains("kabaddi")) {
+
+        }
+        else if (event.contains("pool")) {
+
+        }
+        else if (event.contains("power lifting")) {
+
+        }
+        else if (event.contains("snooker")) {
+
+        }
+        else if (event.contains("squash")) {
+
+        }
+        else if (event.contains("table tennis")) {
+            resId = R.drawable.event_tabletennis_unfold;
+        }
+        else if (event.contains("tennis")) {
+            // Keep it after table tennis, or it will assign the wrong image to TT
+            resId = R.drawable.event_tennis_unfold;
+        }
+        else if (event.contains("throwball")) {
+
+        }
+        else if (event.contains("volleyball")) {
+
+        }
+
+        return resId;
+    }
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView TitleName;
@@ -182,10 +319,11 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
         RelativeLayout contactcaptainlayout;
         RelativeLayout ruleslayout;
         RelativeLayout prizelayout;
-        RelativeLayout PrizeLayout;
         ImageView one;
         ImageView two;
         ImageView three;
+        ImageView foldedImage;
+        ImageView unfoldedImage;
         FoldingCell foldingCell;
 
 
@@ -197,14 +335,18 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
             prizemoney =  (TextView)itemView.findViewById(R.id.cell_content_prize);
             rules = (TextView) itemView.findViewById(R.id.content_rules_view);
             venue = (TextView) itemView.findViewById(R.id.cell_content_venue);
-            locationlayout = itemView.findViewById(R.id.content_location);
 
+            locationlayout = itemView.findViewById(R.id.content_location);
             prizelayout =  itemView.findViewById(R.id.prize_layout);
             ruleslayout = itemView.findViewById(R.id.content_rules);
             contactcaptainlayout = itemView.findViewById(R.id.content_contact_captain);
+
             one = (ImageView) itemView.findViewById(R.id.firstline);
             two = (ImageView) itemView.findViewById(R.id.secondline);
             three = (ImageView) itemView.findViewById(R.id.thirdline);
+            foldedImage = itemView.findViewById(R.id.folded_image);
+            unfoldedImage = itemView.findViewById(R.id.unfolded_image);
+
             foldingCell = itemView.findViewById(R.id.folding_cell);
 
             itemView.setOnClickListener(this);

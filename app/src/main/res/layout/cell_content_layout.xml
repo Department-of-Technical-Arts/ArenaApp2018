@@ -40,25 +40,27 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/head_image"
+            android:id="@+id/unfolded_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            android:src="@drawable/head_image" />
+            tools:src="@drawable/head_image" />
 
         <TextView
             android:id="@+id/content_eventname"
             style="@style/ContentImageBadgeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/head_image"
-            android:layout_alignStart="@id/head_image"
+            android:layout_alignBottom="@id/unfolded_image"
+            android:layout_alignStart="@id/unfolded_image"
             android:paddingBottom="10dp"
-            android:paddingStart="20dp"
             tools:text="Basketball"
             android:fontFamily="@font/lato_bold"
-            android:layout_alignLeft="@id/head_image"
-            android:paddingLeft="20dp" />
+            android:layout_alignLeft="@id/unfolded_image"
+            android:paddingStart="20dp"
+            android:paddingLeft="20dp"
+            android:paddingEnd="20dp"
+            android:paddingRight="20dp"/>
 
     </RelativeLayout>
 
