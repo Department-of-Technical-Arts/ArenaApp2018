@@ -3,33 +3,23 @@ package com.dota.arena18.activities;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dota.arena18.R;
-import com.dota.arena18.api.EventDetails;
 import com.dota.arena18.database.Model;
 import com.ramotion.foldingcell.FoldingCell;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -181,13 +171,23 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
 
         }
         else if (event.contains("badminton")) {
-
+            if (event.contains("boys")) {
+                resId = R.drawable.event_badminton_boys_fold;
+            } else if (event.contains("girls")) {
+                resId = R.drawable.event_badminton_girls_fold;
+            } else {
+                resId = R.drawable.event_badminton_mixed_fold;
+            }
         }
         else if (event.contains("basketball")) {
-
+            if (event.contains("boys")) {
+                resId = R.drawable.event_basketball_boys_fold;
+            } else {
+                resId = R.drawable.event_basketball_girls_fold;
+            }
         }
         else if (event.contains("body building")) {
-
+            resId = R.drawable.event_bodybuilding_fold;
         }
         else if (event.contains("carrom")) {
             resId = R.drawable.event_carroms_fold;
@@ -196,28 +196,32 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
             resId = R.drawable.event_chess_fold;
         }
         else if (event.contains("cricket")) {
-
+            resId = R.drawable.event_cricket_fold;
         }
         else if (event.contains("duathlon")) {
 
         }
         else if (event.contains("football")) {
-            resId = R.drawable.event_football_fold;
+            if (event.contains("boys")) {
+                resId = R.drawable.event_football_boys_fold;
+            } else {
+                resId = R.drawable.event_football_girls_fold;
+            }
         }
         else if (event.contains("hockey")) {
-
+            resId = R.drawable.event_hockey_fold;
         }
         else if (event.contains("kabaddi")) {
-
+            resId = R.drawable.event_kabaddi_fold;
         }
         else if (event.contains("pool")) {
-
+            
         }
         else if (event.contains("power lifting")) {
-
+            resId = R.drawable.event_powerlifting_fold;
         }
         else if (event.contains("snooker")) {
-
+            
         }
         else if (event.contains("squash")) {
 
@@ -251,13 +255,23 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
 
         }
         else if (event.contains("badminton")) {
-
+            if (event.contains("boys")) {
+                resId = R.drawable.event_badminton_boys_unfold;
+            } else if (event.contains("girls")) {
+                resId = R.drawable.event_badminton_girls_unfold;
+            } else {
+                resId = R.drawable.event_badminton_mixed_unfold;
+            }
         }
         else if (event.contains("basketball")) {
-            resId = R.drawable.event_basketball_unfold;
+            if (event.contains("boys")) {
+                resId = R.drawable.event_basketball_boys_unfold;
+            } else {
+                resId = R.drawable.event_basketball_girls_unfold;
+            }
         }
         else if (event.contains("body building")) {
-
+            resId = R.drawable.event_bodybuilding_unfold;
         }
         else if (event.contains("carrom")) {
             resId = R.drawable.event_carroms_unfold;
@@ -266,25 +280,29 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
             resId = R.drawable.event_chess_unfold;
         }
         else if (event.contains("cricket")) {
-
+            resId = R.drawable.event_cricket_unfold;
         }
         else if (event.contains("duathlon")) {
 
         }
         else if (event.contains("football")) {
-            resId = R.drawable.event_football_unfold;
+            if (event.contains("boys")) {
+                resId = R.drawable.event_football_boys_unfold;
+            } else {
+                resId = R.drawable.event_football_girls_unfold;
+            }
         }
         else if (event.contains("hockey")) {
-
+            resId = R.drawable.event_hockey_unfold;
         }
         else if (event.contains("kabaddi")) {
-
+            resId = R.drawable.event_kabaddi_unfold;
         }
         else if (event.contains("pool")) {
 
         }
         else if (event.contains("power lifting")) {
-
+            resId = R.drawable.event_powerlifting_unfold;
         }
         else if (event.contains("snooker")) {
 

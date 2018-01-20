@@ -6,6 +6,7 @@
     android:background="@color/activity_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="24dp"
     tools:context=".activities.EventsActivity">
 
     <android.support.v7.widget.RecyclerView
@@ -19,6 +20,6 @@
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
         android:paddingBottom="16dp"
-        android:paddingTop="16dp"
+        android:paddingTop="?android:attr/actionBarSize"
         android:scrollbars="none"/>
 </android.support.v4.widget.SwipeRefreshLayout>
