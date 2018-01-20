@@ -4,13 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/activity_bg"
-    android:padding="8dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="8dp"
+    android:paddingTop="?android:attr/actionBarSize"
     tools:context="com.dota.arena18.activities.MedalsTallyActivity">
 
     <TextView
         android:id="@+id/tv_points"
         android:visibility="gone"
         android:text="Gold - 15 pts, Silver - 10 pts, Bronze - 5 pts"
+        android:paddingTop="8dp"
         android:fontFamily="@font/opensans_regular"
         android:textColor="@color/white"
         android:layout_marginBottom="8dp"
@@ -21,7 +25,7 @@
     <de.codecrafters.tableview.SortableTableView xmlns:table="http://schemas.android.com/apk/res-auto"
         android:id="@+id/table_tally"
         android:layout_below="@id/tv_points"
-        table:tableView_headerColor="@color/colorPrimaryDark"
+        table:tableView_headerColor="@color/table_header_color"
         android:divider="@color/card_bg"
         android:dividerHeight="0.1dp"
         android:layout_width="match_parent"
