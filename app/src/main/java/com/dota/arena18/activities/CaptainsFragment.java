@@ -252,7 +252,7 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
         Contacts temp21 = new Contacts("Sudeep Athreya","Snooker",
                 "9133235134", R.drawable.default_pic,"blank");
 
-        Contacts temp22 = new Contacts("Apurav Gupta","8- BALL POOL",
+        Contacts temp22 = new Contacts("Apurav Gupta","8 Ball Pool",
                 "9133234271", R.drawable.default_pic,"blank");
 
         Contacts temp23 = new Contacts("Rishabh Singh","Tennis",

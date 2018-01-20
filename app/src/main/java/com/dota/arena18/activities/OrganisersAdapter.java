@@ -102,8 +102,7 @@ public class OrganisersAdapter extends RecyclerView.Adapter<OrganisersAdapter.My
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView imageView , call_image;
-        TextView name,designation,numberTV,mobile;
-        Toolbar cardToolbar;
+        TextView name,designation;
         private View mView;
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -112,9 +111,6 @@ public class OrganisersAdapter extends RecyclerView.Adapter<OrganisersAdapter.My
             call_image = itemView.findViewById(R.id.call_image_card);
             name=(TextView) itemView.findViewById(R.id.contact_name);
             designation=(TextView)itemView.findViewById(R.id.contact_designation);
-//          mobile= (TextView) itemView.findViewById(R.id.phoneno);
-//          numberTV=(TextView) itemView.findViewById(R.id.phoneno);
-            cardToolbar = (Toolbar) itemView.findViewById(R.id.contact_card_toolbar);
             itemView.setOnClickListener(this);
         }
 
