@@ -47,6 +47,9 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ActionBar actionBar =getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
         Intent intent = getIntent();
         String name = getIntent().getStringExtra("event_name");
         Log.i("DetailsActivity", "onCreate: " + name);
@@ -97,5 +100,10 @@ public class DetailsActivity extends AppCompatActivity {
            rules.setText(eventmodel.getDb_rules());
           }
 
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }
