@@ -13,6 +13,9 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
         app:cardCornerRadius="10dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
         android:innerRadius="0dp"
         android:shape="ring"
         android:elevation="2dp" >
@@ -21,7 +24,6 @@
             android:id="@+id/news_layout"
             android:focusable="true"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
