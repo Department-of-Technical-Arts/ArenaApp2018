@@ -90,9 +90,13 @@ public class OrganisersFragment extends android.support.v4.app.Fragment implemen
         Contacts temp13 = new Contacts("Sayan Ray","Department of Visual Effects",
                 "9133312930", R.drawable.default_pic,"blank");
 
+        Contacts temp14 = new Contacts("Aastha Singh","Sports Secretary(G)",
+                "9133235010",R.drawable.default_pic,"blank");
+
         data.add(temp1);
         data.add(temp2);
         data.add(temp3);
+        data.add(temp14);
         data.add(temp4);
         data.add(temp5);
         data.add(temp6);

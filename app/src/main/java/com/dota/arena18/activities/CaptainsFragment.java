@@ -188,19 +188,19 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
     }
 
     private void feedData() {
-        Contacts temp1 = new Contacts("Pranav Asthana","Badminton",
+        Contacts temp1 = new Contacts("Pranav Asthana","Badminton(B)",
                 "8142909120", R.drawable.default_pic,"blank");
 
         Contacts temp2 = new Contacts("Mrinalini Shukla","Badminton(G)",
                 "9756200943", R.drawable.default_pic,"blank");
 
-        Contacts temp3 = new Contacts("Rishi Teja","Chess",
+        Contacts temp3 = new Contacts("Rishi Teja","Chess, Team A",
                 "9030509445", R.drawable.default_pic,"blank");
 
-        Contacts temp4 = new Contacts("Surya Alluri","Chess",
+        Contacts temp4 = new Contacts("Surya Alluri","Chess, Team B",
                 "9440192257", R.drawable.default_pic,"blank");
 
-        Contacts temp5 = new Contacts("Akhilesh","Chess",
+        Contacts temp5 = new Contacts("Akhilesh","Chess, Team C",
                 "9133234481", R.drawable.default_pic,"blank");
 
         Contacts temp6 = new Contacts("Arpit","Hockey",
@@ -209,25 +209,25 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
         Contacts temp7 = new Contacts("Guna Kaushik","Kabaddi",
                 "9492322223", R.drawable.default_pic,"blank");
 
-        Contacts temp8 = new Contacts("Rishi","Volleyball",
+        Contacts temp8 = new Contacts("Rishi","Volleyball(B)",
                 "7989906805", R.drawable.default_pic,"blank");
 
         Contacts temp9 = new Contacts("Prathyusha","Volleyball(G)",
                 "7680830838", R.drawable.default_pic,"blank");
 
-        Contacts temp10 = new Contacts("Sumeeth","Carrom",
+        Contacts temp10 = new Contacts("Sumeeth","Carrom(B)",
                 "9010921979", R.drawable.default_pic,"blank");
 
         Contacts temp11 = new Contacts("Aishwarya","Carrom(G)",
                 "8885818066", R.drawable.default_pic,"blank");
 
-        Contacts temp12 = new Contacts("Siddharth Garg","Squash",
+        Contacts temp12 = new Contacts("Siddharth Garg","Squash, Team A",
                 "9100589625", R.drawable.default_pic,"blank");
 
-        Contacts temp13 = new Contacts("Madhan Thiyagarajan","Squash",
+        Contacts temp13 = new Contacts("Madhan Thiyagarajan","Squash, Team B",
                 "9611938719", R.drawable.default_pic,"blank");
 
-        Contacts temp14 = new Contacts("Ajay Singh","Athletics",
+        Contacts temp14 = new Contacts("Ajay Singh","Athletics(B)",
                 "7404556711", R.drawable.default_pic,"blank");
 
         Contacts temp15 = new Contacts("Kritika Kasliwal","Athletics(G)",
@@ -236,13 +236,13 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
         Contacts temp16 = new Contacts("R. Aadith","Throwball, Powerlifting",
                 "8074629851", R.drawable.default_pic,"blank");
 
-        Contacts temp17 = new Contacts("Pranav Mohan","Football",
+        Contacts temp17 = new Contacts("Pranav Mohan","Football(B)",
                 "8142899987", R.drawable.default_pic,"blank");
 
         Contacts temp18 = new Contacts("Shreya Deep","Football(G)",
                 "9343540996", R.drawable.default_pic,"blank");
 
-        Contacts temp19 = new Contacts("Vishnu Ramesh ","Basketball",
+        Contacts temp19 = new Contacts("Vishnu Ramesh ","Basketball(B)",
                 "8897055088", R.drawable.default_pic,"blank");
 
         Contacts temp20 = new Contacts("Uttara Ravi","Basketball(G)",
@@ -263,7 +263,7 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
         Contacts temp25 = new Contacts("Deepak Anjna","Bodybuilding",
                 "9711863989", R.drawable.default_pic,"blank");
 
-        Contacts temp26 = new Contacts("Purna Srivatsa","Table Tennis",
+        Contacts temp26 = new Contacts("Purna Srivatsa","Table Tennis(B)",
                 "8008397842", R.drawable.default_pic,"blank");
 
         Contacts temp27 = new Contacts("Aishwarya rebelly","Table Tennis(G)",
