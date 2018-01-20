@@ -2,11 +2,12 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/activity_bg"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/activity_bg">
 
     <LinearLayout
+        android:layout_marginTop="?android:attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -49,11 +50,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
-                    android:elevation="2dp"
-                    app:angle="45"
-                    app:checked="true"
-                    app:colorA="#AAFFA726"
-                    app:colorB="#AAEC407A">
+                    android:elevation="2dp">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -67,9 +64,7 @@
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/rounded"
-                    android:elevation="2dp"
-                    app:colorA="#AA42A5F5"
-                    app:colorB="#AAAB47BC">
+                    android:elevation="2dp">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -85,10 +80,7 @@
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/rounded"
-                    android:elevation="2dp"
-                    app:angle="45"
-                    app:colorA="#BBAB47BC"
-                    app:colorB="#BBEF5350">
+                    android:elevation="2dp">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -165,11 +157,18 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
-                    android:elevation="2dp"
-                    app:angle="45"
-                    app:checked="true"
-                    app:colorA="#AAFFA726"
-                    app:colorB="#AAEC407A">
+                    android:elevation="2dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/default_pic" />
+                </com.jaouan.compoundlayout.CircleGradientRadioLayout>
+
+                <com.jaouan.compoundlayout.CircleGradientRadioLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -181,26 +180,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/rounded"
-                    android:elevation="2dp"
-                    app:colorA="#AA42A5F5"
-                    app:colorB="#AAAB47BC">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/default_pic" />
-                </com.jaouan.compoundlayout.CircleGradientRadioLayout>
-
-                <com.jaouan.compoundlayout.CircleGradientRadioLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/rounded"
-                    android:elevation="2dp"
-                    app:angle="45"
-                    app:colorA="#BBAB47BC"
-                    app:colorB="#BBEF5350">
+                    android:elevation="2dp">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -274,11 +254,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
-                    android:elevation="2dp"
-                    app:angle="45"
-                    app:checked="true"
-                    app:colorA="#AAFFA726"
-                    app:colorB="#AAEC407A">
+                    android:elevation="2dp">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -290,10 +266,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/rounded"
-                    android:elevation="2dp"
-                    app:colorA="#AA42A5F5"
-                    app:colorB="#AAAB47BC">
+                    android:elevation="2dp">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -305,11 +278,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/rounded"
-                    android:elevation="2dp"
-                    app:angle="45"
-                    app:colorA="#BBAB47BC"
-                    app:colorB="#BBEF5350">
+                    android:elevation="2dp">
 
                     <ImageView
                         android:layout_width="wrap_content"
