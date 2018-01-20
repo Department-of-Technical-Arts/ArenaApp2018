@@ -25,11 +25,13 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
     <ImageView
-        android:layout_gravity="center"
-        android:src="@drawable/logo_journal"
-        android:scaleType="centerInside"
+        android:id="@+id/journal_club_link"
         android:layout_width="130dp"
-        android:layout_height="130dp" />
+        android:layout_height="130dp"
+        android:layout_gravity="center"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo_journal" />
 
 </LinearLayout>
