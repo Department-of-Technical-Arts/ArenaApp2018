@@ -3,6 +3,7 @@ package com.dota.arena18.activities;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.Spanned;
@@ -34,7 +35,9 @@ public class ArticleDisplayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_display);
-
+        ActionBar actionBar =getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
         id = getIntent().getStringExtra("_id");
 
         mTitle = findViewById(R.id.tv_title);
@@ -92,5 +95,10 @@ public class ArticleDisplayActivity extends AppCompatActivity {
         } else {
             return Html.fromHtml(content);
         }
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

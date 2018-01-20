@@ -1,5 +1,6 @@
 package com.dota.arena18.activities;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,9 @@ public class TextDisplayActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar actionBar =getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
         setContentView(R.layout.activity_text_display);
 
         JustifiedTextView display = findViewById(R.id.tv_display);
@@ -29,5 +33,10 @@ public class TextDisplayActivity extends AppCompatActivity {
         } else {
             Log.i(TAG, "onCreate: Something went wrong");
         }
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

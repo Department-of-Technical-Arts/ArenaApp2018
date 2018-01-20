@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -78,7 +79,9 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
-
+        ActionBar actionBar =getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
 
         theRecyclerView = (RecyclerView) findViewById(R.id.mainRecyclerView);
         swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swiperefresh);
@@ -331,5 +334,10 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
         });
 
         handler.postDelayed(runnable, 3000);
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

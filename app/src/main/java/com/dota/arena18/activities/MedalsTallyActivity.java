@@ -1,6 +1,7 @@
 package com.dota.arena18.activities;
 
 import android.graphics.Color;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,7 +45,9 @@ public class MedalsTallyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medals_tally);
-
+        ActionBar actionBar =getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
         Log.i(TAG, "onCreate: flag: " + getIntent().getIntExtra("flag", 0));
         isInterBITS = (getIntent().getIntExtra("flag", 0) == 1);
 
@@ -237,5 +240,10 @@ public class MedalsTallyActivity extends AppCompatActivity {
             Log.i(TAG, "getRankedList: " + col.toString());
         }
         return sorted;
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

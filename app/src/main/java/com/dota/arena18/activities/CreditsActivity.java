@@ -2,6 +2,7 @@ package com.dota.arena18.activities;
 
 import android.os.Build;
 import android.support.annotation.StringRes;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,7 +32,9 @@ public class CreditsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credits);
-
+        ActionBar actionBar =getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
         subtitleTextView = findViewById(R.id.subtitle);
         description = findViewById(R.id.long_description);
         descriptionLayout = findViewById(R.id.description_layout);
@@ -85,5 +88,9 @@ public class CreditsActivity extends AppCompatActivity {
             }
         });
     }
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
 }

@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.dota.arena18.R;
@@ -35,6 +37,9 @@ public class AboutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        ActionBar actionBar =getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
         recyclerView = findViewById(R.id.about_recyclerview);
         list.add(new Imagedata(R.drawable.ic_about_info,"About Arena"));
         list.add(new Imagedata(R.drawable.ic_school_bus,"Directions"));
@@ -96,5 +101,11 @@ public class AboutActivity extends AppCompatActivity {
             default: super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

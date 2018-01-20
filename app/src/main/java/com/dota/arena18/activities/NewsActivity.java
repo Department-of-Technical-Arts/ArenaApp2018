@@ -2,6 +2,7 @@ package com.dota.arena18.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,7 +27,9 @@ public class NewsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
-
+        ActionBar actionBar =getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
         recyclerView = (RecyclerView)findViewById(R.id.news_recyclerview);
         list.add(new Imagedata(R.drawable.ic_arena_leaderboard,"Arena Leaderboard"));
         list.add(new Imagedata(R.drawable.ic_interbits_leaderboard,"Inter-BITS Leaderboard"));
@@ -71,5 +74,10 @@ public class NewsActivity extends AppCompatActivity {
                     }
                 })
         );
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }
