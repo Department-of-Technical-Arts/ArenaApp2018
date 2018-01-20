@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.dota.arena18.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -19,6 +18,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.ui.IconGenerator;
+import com.muddzdev.styleabletoastlibrary.StyleableToast;
 import com.quinny898.library.persistentsearch.SearchBox;
 import com.quinny898.library.persistentsearch.SearchResult;
 
@@ -98,7 +98,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cam));
         } else {
-            Toast.makeText(this, title + " not found", Toast.LENGTH_SHORT).show();
+            new StyleableToast.Builder(MapsActivity.this)
+                    .text(title + " not found")
+                    .textColor(Color.WHITE)
+                    .backgroundColor(Color.RED)
+                    .show();
         }
     }
 

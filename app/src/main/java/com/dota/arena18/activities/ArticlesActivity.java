@@ -2,6 +2,7 @@ package com.dota.arena18.activities;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import com.dota.arena18.R;
 import com.dota.arena18.api.ArticleDetails;
 import com.dota.arena18.api.ArticlesInterface;
 import com.dota.arena18.api.TestApiClient;
+import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
 import java.util.ArrayList;
 
@@ -52,8 +54,10 @@ public class ArticlesActivity extends AppCompatActivity {
                     Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(download_link));
                     startActivity(myIntent);
                 } catch (ActivityNotFoundException e) {
-                    Toast.makeText(ArticlesActivity.this, "No application can handle this request."
-                            + " Please install a webbrowser",  Toast.LENGTH_LONG).show();
+                    new StyleableToast.Builder(ArticlesActivity.this)
+                            .text("Web browser not found")
+                            .textColor(Color.RED)
+                            .show();
                     e.printStackTrace();
                 }
             }

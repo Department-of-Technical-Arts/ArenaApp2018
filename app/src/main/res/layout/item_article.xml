@@ -13,7 +13,7 @@
         app:cardBackgroundColor="@color/card_bg"
         android:foreground="?android:attr/selectableItemBackground"
         android:layout_gravity="center"
-        android:layout_margin="4dp">
+        android:layout_margin="8dp">
 
         <TextView
             android:id="@+id/item_article_title"
@@ -23,7 +23,7 @@
             android:focusable="true"
             android:fontFamily="@font/lato_bold"
             android:gravity="center"
-            android:padding="8dp"
+            android:padding="16dp"
             tools:text="About us"
             android:textColor="#000"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />

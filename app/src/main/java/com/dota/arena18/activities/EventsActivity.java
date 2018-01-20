@@ -3,6 +3,7 @@ package com.dota.arena18.activities;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Handler;
@@ -27,6 +28,7 @@ import com.dota.arena18.api.EventsInterface;
 import com.dota.arena18.api.ApiClient;
 import com.dota.arena18.api.EventDetails;
 import com.dota.arena18.database.Model;
+import com.muddzdev.styleabletoastlibrary.StyleableToast;
 import com.ramotion.foldingcell.FoldingCell;
 
 import java.util.ArrayList;
@@ -169,7 +171,11 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
              @Override
              public void onFailure(Call<ArrayList<EventDetails>> call, Throwable t) {
-                 Toast.makeText(EventsActivity.this, "Network not available. Loading offline data...", Toast.LENGTH_SHORT).show();
+                 new StyleableToast.Builder(EventsActivity.this)
+                         .text("Network not available. Loading offline data...")
+                         .textColor(Color.WHITE)
+                         .backgroundColor(Color.RED)
+                         .show();
                  Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
                  getdatafromrealm(myrealm);
              }
@@ -205,7 +211,12 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
              @Override
              public void onFailure(Call<ArrayList<EventDetails>> call, Throwable t) {
-                 Toast.makeText(EventsActivity.this, "Network not available. Loading offline data...", Toast.LENGTH_SHORT).show();
+                 new StyleableToast.Builder(EventsActivity.this)
+                         .text("Network not available. Loading offline data...")
+                         .textColor(Color.WHITE)
+                         .backgroundColor(Color.RED)
+                         .show();
+
                  Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
                  getdatafromrealm(myrealm);
              }

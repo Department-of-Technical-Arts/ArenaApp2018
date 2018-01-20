@@ -42,4 +42,5 @@ dependencies {
     implementation 'com.yarolegovich:lovely-dialog:1.0.7'
     implementation 'com.github.jaouan:compoundlayout:1.0.1'
     implementation 'com.uncopt:android.justified:1.0'
+    implementation 'com.muddzdev:styleabletoast:2.0.1'
 }

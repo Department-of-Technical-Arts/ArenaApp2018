@@ -2,6 +2,7 @@ package com.dota.arena18.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import com.dota.arena18.R;
+import com.muddzdev.styleabletoastlibrary.StyleableToast;
 import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
 import java.util.ArrayList;
@@ -56,11 +58,19 @@ public class NewsActivity extends AppCompatActivity {
                                 break;
                             case 2: // News Feed
 //                                i = new Intent(NewsActivity.this, MedalsTallyActivity.class);
-//                                break;
+//                                Toast.makeText(NewsActivity.this, "Coming Soon...", Toast.LENGTH_SHORT).show();
+                                new StyleableToast.Builder(NewsActivity.this)
+                                        .text("Feature coming soon...")
+                                        .textColor(Color.GREEN)
+                                        .show();
                                 return;
                             case 3: // Newsletters
-                                i = new Intent(NewsActivity.this, ArticlesActivity.class);
-                                break;
+//                                i = new Intent(NewsActivity.this, ArticlesActivity.class);
+                                new StyleableToast.Builder(NewsActivity.this)
+                                        .text("Feature coming soon...")
+                                        .textColor(Color.GREEN)
+                                        .show();
+                                return;
                             default:
                                 Log.i("NewsActivity", "onItemClick: unexpected position passed.");
                                 return;

@@ -8,6 +8,7 @@
     <color name="landing_tint_color">#77000000</color>
 
     <color name="table_header_color">#00B0FF</color>
+    <color name="jc_tint">@color/colorPrimary</color>
     <color name="activity_bg">#1D1D1D</color>
     <color name="card_bg">#FAFAFA</color>
     <color name="white">#fff</color>
