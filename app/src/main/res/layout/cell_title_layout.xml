@@ -8,14 +8,14 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="135dp">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/folded_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            tools:src="@drawable/event_basketball_girls_fold"/>
+            tools:src="@drawable/event_basketball_girls_unfold"/>
 
         <TextView
             android:layout_width="match_parent"

@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            tools:src="@drawable/event_basketball_boys_unfold" />
+            tools:src="@drawable/event_basketball_girls_fold" />
 
         <!-- content header line -->
         <RelativeLayout

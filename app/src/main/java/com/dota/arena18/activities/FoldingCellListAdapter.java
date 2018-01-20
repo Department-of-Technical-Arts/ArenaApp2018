@@ -160,11 +160,12 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
     }
 
     /**
+     * The file names are wrong, the method is correct. Couldn't refactor so many files easily
      *
      * @param event String <b>must</b> be lowercase
      * @return Drawable resId for corresponding image
      */
-    private @DrawableRes int getFoldedImage(String event){
+    private @DrawableRes int getUnfoldedImage(String event){
         int resId = R.drawable.download; // default value
 
         if (event.contains("athletics")) {
@@ -244,11 +245,12 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
     }
 
     /**
+     *The file names are wrong, the method is correct. Couldn't refactor so many files easily
      *
      * @param event String <b>must</b> be lowercase
      * @return Drawable resId for corresponding image
      */
-    private @DrawableRes int getUnfoldedImage(String event){
+    private @DrawableRes int getFoldedImage(String event){
         int resId = R.drawable.head_image; // default value
 
         if (event.contains("athletics")) {
