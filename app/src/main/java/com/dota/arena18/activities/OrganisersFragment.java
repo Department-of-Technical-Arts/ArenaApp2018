@@ -58,7 +58,7 @@ public class OrganisersFragment extends android.support.v4.app.Fragment implemen
         Contacts temp2 = new Contacts("Aditya Iyer","General Secretary",
                 "9705932532", R.drawable.default_pic,"blank");
 
-        Contacts temp3 = new Contacts("Kritanshu Singh","Sports Secretary(B)",
+        Contacts temp3 = new Contacts("Kritanshu Singh","Sports Secretary (B)",
                 "7587785794", R.drawable.default_pic,"blank");
 
         Contacts temp4 = new Contacts("Alla Pranathi","Department of Arts and Deco",
@@ -91,7 +91,7 @@ public class OrganisersFragment extends android.support.v4.app.Fragment implemen
         Contacts temp13 = new Contacts("Sayan Ray","Department of Visual Effects",
                 "9133312930", R.drawable.default_pic,"blank");
 
-        Contacts temp14 = new Contacts("Aastha Singh","Sports Secretary(G)",
+        Contacts temp14 = new Contacts("Aastha Singh","Sports Secretary (G)",
                 "9133235010",R.drawable.default_pic,"blank");
 
         data.add(temp1);

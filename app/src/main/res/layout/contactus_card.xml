@@ -34,6 +34,7 @@
             android:id="@+id/contact_info_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
             android:layout_toRightOf="@id/contact_image"
             android:layout_toLeftOf="@id/call_image_card"
             android:gravity="center_vertical"
@@ -66,7 +67,7 @@
             android:layout_centerVertical="true"
             android:id="@+id/call_image_card"
             android:layout_marginRight="8dp"
-            android:layout_width="40dp"
+            android:layout_width="36dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/call" />
