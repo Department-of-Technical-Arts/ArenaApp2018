@@ -14,16 +14,10 @@
         app:piv_invertScrollDirection="false"
         app:piv_show_scrollbar="false" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+    <com.szugyi.circlemenu.view.CircleLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
             <android.support.v7.widget.CardView
                 android:id="@+id/card_about"
@@ -62,19 +56,14 @@
 
             </android.support.v7.widget.CardView>
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal">
+
 
             <android.support.v7.widget.CardView
                 android:id="@+id/card_events"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/LandingPageCenterCard"
+                style="@style/LandingPagecardview"
                 app:cardBackgroundColor="@color/landing_tint_color"
                 android:foreground="?android:attr/selectableItemBackground"
                 tools:layout_editor_absoluteX="213dp"
@@ -91,12 +80,9 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Button" />
             </android.support.v7.widget.CardView>
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+
+
 
             <android.support.v7.widget.CardView
                 android:id="@+id/card_credits"
@@ -120,7 +106,6 @@
             <android.support.v7.widget.CardView
                 android:id="@+id/card_contacts"
                 style="@style/LandingPagecardview"
-                android:layout_height="match_parent"
                 app:cardBackgroundColor="@color/landing_tint_color"
                 android:foreground="?android:attr/selectableItemBackground"
                 tools:layout_editor_absoluteX="26dp"
@@ -137,7 +122,8 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
             </android.support.v7.widget.CardView>
-        </LinearLayout>
-    </LinearLayout>
+
+    </com.szugyi.circlemenu.view.CircleLayout>
+
 
 </FrameLayout>
