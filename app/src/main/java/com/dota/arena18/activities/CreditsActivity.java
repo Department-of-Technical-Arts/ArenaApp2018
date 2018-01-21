@@ -25,6 +25,7 @@ public class CreditsActivity extends AppCompatActivity {
      */
 
     private TextView subtitleTextView;
+    private TextView subtitleTextView1;
     private TextView description;
     private View descriptionLayout;
 
@@ -36,17 +37,23 @@ public class CreditsActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
         subtitleTextView = findViewById(R.id.subtitle);
+        subtitleTextView1 = findViewById(R.id.subtitle1);
         description = findViewById(R.id.long_description);
         descriptionLayout = findViewById(R.id.description_layout);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.akhil, R.string.akhil, (CircleGradientRadioLayout) findViewById(R.id.profile_1), getColor(R.color.circle1), getColor(R.color.circle2));
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_2), R.string.harshvardhan, R.string.harshvardhan, (CircleGradientRadioLayout) findViewById(R.id.profile_2), getColor(R.color.circle3), getColor(R.color.circle4));
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_3), R.string.ashwik, R.string.ashwik, (CircleGradientRadioLayout) findViewById(R.id.profile_3),getColor(R.color.circle5), getColor(R.color.circle6));
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.akhil, R.string.akhil, (CircleGradientRadioLayout) findViewById(R.id.profile_1), getColor(R.color.circle1), getColor(R.color.circle2), subtitleTextView);
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_2), R.string.harshvardhan, R.string.harshvardhan, (CircleGradientRadioLayout) findViewById(R.id.profile_2), getColor(R.color.circle3), getColor(R.color.circle4),subtitleTextView);
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_3), R.string.ashwik, R.string.ashwik, (CircleGradientRadioLayout) findViewById(R.id.profile_3),getColor(R.color.circle5), getColor(R.color.circle6),subtitleTextView);
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_4), R.string.rohitt, R.string.rohitt, (CircleGradientRadioLayout) findViewById(R.id.profile_4),getColor(R.color.circle1), getColor(R.color.circle2),subtitleTextView1);
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_5), R.string.abhilash, R.string.abhilash, (CircleGradientRadioLayout) findViewById(R.id.profile_5),getColor(R.color.circle3), getColor(R.color.circle4),subtitleTextView1);
+
         } else {
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.akhil, R.string.akhil, (CircleGradientRadioLayout) findViewById(R.id.profile_1), 0, 0);
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_2), R.string.harshvardhan, R.string.harshvardhan, (CircleGradientRadioLayout) findViewById(R.id.profile_2), 0,0);
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_3), R.string.ashwik, R.string.ashwik, (CircleGradientRadioLayout) findViewById(R.id.profile_3), 0,0);
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.akhil, R.string.akhil, (CircleGradientRadioLayout) findViewById(R.id.profile_1), 0, 0,subtitleTextView);
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_2), R.string.harshvardhan, R.string.harshvardhan, (CircleGradientRadioLayout) findViewById(R.id.profile_2), 0,0,subtitleTextView);
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_3), R.string.ashwik, R.string.ashwik, (CircleGradientRadioLayout) findViewById(R.id.profile_3), 0,0,subtitleTextView);
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_4), R.string.rohitt, R.string.rohitt, (CircleGradientRadioLayout) findViewById(R.id.profile_4),0, 0,subtitleTextView1);
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_5), R.string.abhilash, R.string.abhilash, (CircleGradientRadioLayout) findViewById(R.id.profile_5),0, 0,subtitleTextView1);
         }
     }
 
@@ -59,7 +66,8 @@ public class CreditsActivity extends AppCompatActivity {
     private void bindCompoundListener(final CompoundLayout compoundLayout, @StringRes final int subtitle, @StringRes final int desc
             , final CircleGradientRadioLayout circleGradientRadioLayout
             , final int color1
-            , final int color2) {
+            , final int color2
+            , final TextView textView) {
         compoundLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,7 +79,7 @@ public class CreditsActivity extends AppCompatActivity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        subtitleTextView.setText(getString(subtitle));
+                        textView.setText(getString(subtitle));
                         description.setText(desc);
                         descriptionLayout.startAnimation(AnimationUtils.loadAnimation(CreditsActivity.this
                                 , android.R.anim.fade_in));

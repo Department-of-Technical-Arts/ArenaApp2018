@@ -70,7 +70,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="#CCCCCC"
-                        android:src="@drawable/dev_harshvardhan" />
+                        android:src="@drawable/my_dp" />
 
                 </com.jaouan.compoundlayout.CircleGradientRadioLayout>
 
@@ -154,6 +154,7 @@
                 app:orientation="horizontal">
 
                 <com.jaouan.compoundlayout.CircleGradientRadioLayout
+                    android:id="@+id/profile_4"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
@@ -162,10 +163,11 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/default_pic" />
+                        android:src="@drawable/dev_rohitt" />
                 </com.jaouan.compoundlayout.CircleGradientRadioLayout>
 
                 <com.jaouan.compoundlayout.CircleGradientRadioLayout
+                    android:id="@+id/profile_5"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="10dp">
@@ -173,19 +175,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/default_pic" />
-                </com.jaouan.compoundlayout.CircleGradientRadioLayout>
-
-                <com.jaouan.compoundlayout.CircleGradientRadioLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:elevation="2dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/default_pic" />
+                        android:src="@drawable/dev_abhilash" />
                 </com.jaouan.compoundlayout.CircleGradientRadioLayout>
 
             </com.jaouan.compoundlayout.RadioLayoutGroup>
@@ -199,6 +189,7 @@
             android:paddingStart="16dp">
 
             <TextView
+                android:id="@+id/subtitle1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/opensans_regular"
