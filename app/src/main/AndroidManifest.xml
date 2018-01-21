@@ -73,6 +73,7 @@
             android:label="Leaderboard"
             android:screenOrientation="landscape" />
         <activity android:name=".activities.ArticlesActivity"
+            android:theme="@style/ArticlesTheme"
             android:label="Newsletters"
             android:screenOrientation="portrait"/>
         <activity android:name=".activities.ArticleDisplayActivity"

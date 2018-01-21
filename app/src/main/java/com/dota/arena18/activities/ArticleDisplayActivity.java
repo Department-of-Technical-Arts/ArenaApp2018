@@ -12,9 +12,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.dota.arena18.R;
+import com.dota.arena18.api.ApiClient;
 import com.dota.arena18.api.ArticleDetails;
 import com.dota.arena18.api.ArticlesInterface;
 import com.dota.arena18.api.TestApiClient;
+import com.google.android.gms.common.api.Api;
 
 import java.util.ArrayList;
 
@@ -46,6 +48,7 @@ public class ArticleDisplayActivity extends AppCompatActivity {
         mDivider = findViewById(R.id.divider);
 
         ArticlesInterface articlesInterface = TestApiClient.getClient().create(ArticlesInterface.class);
+
         Call<ArticleDetails> call  = articlesInterface.getArticle(id);
         call.enqueue(new Callback<ArticleDetails>() {
             @Override

@@ -65,12 +65,13 @@ public class NewsActivity extends AppCompatActivity {
                                         .show();
                                 return;
                             case 3: // Newsletters
-//                                i = new Intent(NewsActivity.this, ArticlesActivity.class);
-                                new StyleableToast.Builder(NewsActivity.this)
-                                        .text("Feature coming soon...")
-                                        .textColor(Color.GREEN)
-                                        .show();
-                                return;
+                                i = new Intent(NewsActivity.this, ArticlesActivity.class);
+//                                new StyleableToast.Builder(NewsActivity.this)
+//                                        .text("Feature coming soon...")
+//                                        .textColor(Color.GREEN)
+//                                        .show();
+//                                return;
+                                break;
                             default:
                                 Log.i("NewsActivity", "onItemClick: unexpected position passed.");
                                 return;
