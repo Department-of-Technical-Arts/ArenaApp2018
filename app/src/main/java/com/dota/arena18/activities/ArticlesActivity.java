@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dota.arena18.R;
+import com.dota.arena18.api.ApiClient;
 import com.dota.arena18.api.ArticleDetails;
 import com.dota.arena18.api.ArticlesInterface;
 import com.dota.arena18.api.TestApiClient;
@@ -79,7 +80,7 @@ public class ArticlesActivity extends AppCompatActivity {
 
     private void refreshArticlesList() {
         mRefresh.setRefreshing(true);
-        ArticlesInterface articles = TestApiClient.getClient().create(ArticlesInterface.class);
+        ArticlesInterface articles = ApiClient.getClient().create(ArticlesInterface.class);
         Call<ArrayList<ArticleDetails>> call = articles.getArticlesList();
 
         call.enqueue(new Callback<ArrayList<ArticleDetails>>() {
