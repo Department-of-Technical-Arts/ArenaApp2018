@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout
+    android:id="@+id/articles_swiperefresh"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:paddingTop="8dp"
     android:paddingStart="8dp"
     android:paddingEnd="8dp"
@@ -11,28 +12,53 @@
     android:layout_height="match_parent"
     tools:context="com.dota.arena18.activities.ArticlesActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:paddingTop="?android:attr/actionBarSize"
-        android:id="@+id/articles_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
 
-    <TextView
-        android:text="Brought to you by:"
-        android:fontFamily="@font/lato_bold"
-        android:textColor="@color/white"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <android.support.v7.widget.RecyclerView
+            android:layout_above="@id/jc_caption"
+            android:id="@+id/articles_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    <ImageView
-        android:id="@+id/journal_club_link"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_gravity="center"
-        android:scaleType="centerInside"
-        android:src="@drawable/logo_journal" />
+        <TextView
+            android:id="@+id/articles_empty"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:text="No articles to display"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:fontFamily="@font/lato_bold"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/jc_caption"/>
 
-</LinearLayout>
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/journal_club_link"
+            android:id="@+id/jc_caption"
+            android:text="Brought to you by:"
+            android:fontFamily="@font/lato_bold"
+            android:textColor="@color/white"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/journal_club_link"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center"
+            android:scaleType="centerInside"
+            android:src="@drawable/logo_journal" />
+
+    </RelativeLayout>
+
+
+</android.support.v4.widget.SwipeRefreshLayout>

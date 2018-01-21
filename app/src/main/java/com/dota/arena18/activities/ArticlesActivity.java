@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.dota.arena18.R;
 import com.dota.arena18.api.ArticleDetails;
@@ -21,8 +22,7 @@ import com.dota.arena18.api.TestApiClient;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
 import java.util.ArrayList;
-
-import javax.security.auth.login.LoginException;
+import java.util.zip.InflaterInputStream;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,8 +30,10 @@ import retrofit2.Response;
 
 public class ArticlesActivity extends AppCompatActivity {
 
+    private SwipeRefreshLayout mRefresh;
     private RecyclerView mRecycler;
     private ArticlesAdapter mAdapter;
+    private TextView emptyView;
     private ImageView jc_link;
     private String download_link = "https://www.facebook.com/JournalClubBPHC/";
 
@@ -43,9 +45,11 @@ public class ArticlesActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
 
+        mRefresh = findViewById(R.id.articles_swiperefresh);
         mRecycler = findViewById(R.id.articles_recycler);
         mRecycler.setLayoutManager(new LinearLayoutManager(this));
         jc_link = findViewById(R.id.journal_club_link);
+        emptyView = findViewById(R.id.articles_empty);
 
         jc_link.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,20 +67,47 @@ public class ArticlesActivity extends AppCompatActivity {
             }
         });
 
+        mRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshArticlesList();
+            }
+        });
+
+        refreshArticlesList();
+    }
+
+    private void refreshArticlesList() {
+        mRefresh.setRefreshing(true);
         ArticlesInterface articles = TestApiClient.getClient().create(ArticlesInterface.class);
         Call<ArrayList<ArticleDetails>> call = articles.getArticlesList();
 
         call.enqueue(new Callback<ArrayList<ArticleDetails>>() {
             @Override
             public void onResponse(Call<ArrayList<ArticleDetails>> call, Response<ArrayList<ArticleDetails>> response) {
+                mRefresh.setRefreshing(false);
                 ArrayList<ArticleDetails> articles_list = response.body();
-                mAdapter = new ArticlesAdapter(ArticlesActivity.this, articles_list);
-                mRecycler.setAdapter(mAdapter);
+
+                if (articles_list == null || articles_list.size() == 0) {
+                    mRecycler.setVisibility(View.GONE);
+                    emptyView.setVisibility(View.VISIBLE);
+                } else {
+                    emptyView.setVisibility(View.GONE);
+                    mRecycler.setVisibility(View.VISIBLE);
+
+
+                    mAdapter = new ArticlesAdapter(ArticlesActivity.this, articles_list);
+                    mRecycler.setAdapter(mAdapter);
+                }
             }
 
             @Override
             public void onFailure(Call<ArrayList<ArticleDetails>> call, Throwable t) {
+                mRefresh.setRefreshing(false);
                 Log.i("ArticlesActivity", "onFailure: " + call.request().url());
+                mRecycler.setVisibility(View.GONE);
+                emptyView.setText("Network not available. Retry later.");
+                emptyView.setVisibility(View.VISIBLE);
             }
         });
     }
