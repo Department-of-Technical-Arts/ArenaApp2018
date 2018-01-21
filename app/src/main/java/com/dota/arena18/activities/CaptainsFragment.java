@@ -113,71 +113,71 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
             case 9 :
-                smoothScroller.setTargetPosition(12);
+                smoothScroller.setTargetPosition(10);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
             case 10 :
-                smoothScroller.setTargetPosition(13);
+                smoothScroller.setTargetPosition(11);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
             case 11 :
-                smoothScroller.setTargetPosition(14);
+                smoothScroller.setTargetPosition(12);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
             case 12 :
-                smoothScroller.setTargetPosition(15);
+                smoothScroller.setTargetPosition(13);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
             case 13 :
-                smoothScroller.setTargetPosition(16);
+                smoothScroller.setTargetPosition(14);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
             case 14 :
-                smoothScroller.setTargetPosition(17);
+                smoothScroller.setTargetPosition(15);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
             case 15 :
-                smoothScroller.setTargetPosition(27);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 16 :
-                smoothScroller.setTargetPosition(24);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 17 :
-                smoothScroller.setTargetPosition(18);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 18 :
-                smoothScroller.setTargetPosition(19);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 19 :
-                smoothScroller.setTargetPosition(20);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 20 :
-                smoothScroller.setTargetPosition(22);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 21 :
-                smoothScroller.setTargetPosition(21);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 22 :
-                smoothScroller.setTargetPosition(23);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 23 :
-                smoothScroller.setTargetPosition(24);
-                layoutManager.startSmoothScroll(smoothScroller);
-                break;
-            case 24 :
                 smoothScroller.setTargetPosition(25);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
+            case 16 :
+                smoothScroller.setTargetPosition(22);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 17 :
+                smoothScroller.setTargetPosition(16);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 18 :
+                smoothScroller.setTargetPosition(17);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 19 :
+                smoothScroller.setTargetPosition(18);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 20 :
+                smoothScroller.setTargetPosition(20);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 21 :
+                smoothScroller.setTargetPosition(19);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 22 :
+                smoothScroller.setTargetPosition(21);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 23 :
+                smoothScroller.setTargetPosition(22);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
+            case 24 :
+                smoothScroller.setTargetPosition(23);
+                layoutManager.startSmoothScroll(smoothScroller);
+                break;
             case 25 :
-                smoothScroller.setTargetPosition(26);
+                smoothScroller.setTargetPosition(24);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
 
@@ -289,8 +289,6 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
         data1.add(temp11);
 
         data1.add(temp3);
-        data1.add(temp4);
-        data1.add(temp5);
 
         data1.add(temp28);
 
