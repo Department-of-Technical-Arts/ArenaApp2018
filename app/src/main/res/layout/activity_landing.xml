@@ -17,13 +17,15 @@
 
     <com.szugyi.circlemenu.view.CircleLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:isRotating="false">
 
             <android.support.v7.widget.CardView
                 android:id="@+id/card_about"
                 style="@style/LandingPagecardview"
                 android:foreground="?android:attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/landing_tint_color">
+                app:cardBackgroundColor="@color/landing_tint_color"
+                app:cardCornerRadius="62dp">
 
                 <TextView
                     android:id="@+id/textview3"
@@ -42,7 +44,8 @@
                 app:cardBackgroundColor="@color/landing_tint_color"
                 android:foreground="?android:attr/selectableItemBackground"
                 tools:layout_editor_absoluteX="26dp"
-                tools:layout_editor_absoluteY="45dp">
+                tools:layout_editor_absoluteY="45dp"
+                app:cardCornerRadius="62dp">
 
                 <TextView
                     android:id="@+id/textview2"
@@ -67,7 +70,8 @@
                 app:cardBackgroundColor="@color/landing_tint_color"
                 android:foreground="?android:attr/selectableItemBackground"
                 tools:layout_editor_absoluteX="213dp"
-                tools:layout_editor_absoluteY="45dp">
+                tools:layout_editor_absoluteY="45dp"
+                app:cardCornerRadius="62dp">
 
                 <TextView
                     android:id="@+id/textview"
@@ -90,7 +94,8 @@
                 app:cardBackgroundColor="@color/landing_tint_color"
                 android:foreground="?android:attr/selectableItemBackground"
                 tools:layout_editor_absoluteX="213dp"
-                tools:layout_editor_absoluteY="45dp">
+                tools:layout_editor_absoluteY="45dp"
+                app:cardCornerRadius="62dp">
 
                 <TextView
                     android:id="@+id/textview5"
@@ -109,7 +114,8 @@
                 app:cardBackgroundColor="@color/landing_tint_color"
                 android:foreground="?android:attr/selectableItemBackground"
                 tools:layout_editor_absoluteX="26dp"
-                tools:layout_editor_absoluteY="45dp">
+                tools:layout_editor_absoluteY="45dp"
+                app:cardCornerRadius="62dp">
 
                 <TextView
                     android:id="@+id/textview6"
