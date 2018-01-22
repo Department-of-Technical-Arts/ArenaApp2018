@@ -239,7 +239,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
             resId = R.drawable.event_throwball_unfold;
         }
         else if (event.contains("volleyball")) {
-
+            resId = R.drawable.event_volleyball_unfold;
         }
 
         return resId;
@@ -324,7 +324,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
             resId = R.drawable.event_throwball_fold;
         }
         else if (event.contains("volleyball")) {
-
+            resId = R.drawable.event_volleyball_fold;
         }
 
         return resId;
