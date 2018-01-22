@@ -15,7 +15,6 @@ import com.dota.arena18.R;
 import com.dota.arena18.api.ApiClient;
 import com.dota.arena18.api.ArticleDetails;
 import com.dota.arena18.api.ArticlesInterface;
-import com.dota.arena18.api.TestApiClient;
 import com.google.android.gms.common.api.Api;
 
 import java.util.ArrayList;
