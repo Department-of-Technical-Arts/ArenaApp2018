@@ -100,6 +100,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
                 i.putExtra("api_id",objects.get(position).getApi_id());
                 i.putExtra("eventid",String.valueOf(objects.get(position).getId()));
                 i.putExtra("event_name",eventTitle);
+                i.putExtra("img_res",getUnfoldedImage(eventTitle.toLowerCase()));
                 context.startActivity(i);
             }
         });
@@ -226,7 +227,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
             resId = R.drawable.event_snooker_unfold;
         }
         else if (event.contains("squash")) {
-            resId = R.drawable.event_snooker_unfold;
+            resId = R.drawable.event_squash_unfold;
         }
         else if (event.contains("table tennis")) {
             resId = R.drawable.event_tabletennis_fold;

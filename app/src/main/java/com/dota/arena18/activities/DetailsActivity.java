@@ -7,6 +7,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
@@ -39,6 +40,7 @@ public class DetailsActivity extends AppCompatActivity {
     TextView rules;
     String api_id, stringid;
     int id;
+    ImageView img;
 
 
     @Override
@@ -50,15 +52,20 @@ public class DetailsActivity extends AppCompatActivity {
         ActionBar actionBar =getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
+        img = findViewById(R.id.app_bar_image);
+
         Intent intent = getIntent();
         String name = getIntent().getStringExtra("event_name");
-        Log.i("DetailsActivity", "onCreate: " + name);
+
         setTitle(name);
         api_id = intent.getStringExtra("api_id");
         stringid = intent.getStringExtra("eventid");
         id = Integer.parseInt(stringid);
         rules = (TextView)findViewById(R.id.rules_details);
         realm = Realm.getDefaultInstance();
+
+        img.setImageResource(getIntent().getIntExtra("img_res", R.drawable.download));
+
 
         EventsInterface apiservice  = ApiClient.getClient().create(EventsInterface.class);
         Call<EventDetails> call = apiservice.getevent(api_id);

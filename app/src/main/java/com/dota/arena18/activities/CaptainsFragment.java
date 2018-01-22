@@ -157,11 +157,11 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
             case 20 :
-                smoothScroller.setTargetPosition(20);
+                smoothScroller.setTargetPosition(19);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
             case 21 :
-                smoothScroller.setTargetPosition(19);
+                smoothScroller.setTargetPosition(20);
                 layoutManager.startSmoothScroll(smoothScroller);
                 break;
             case 22 :
