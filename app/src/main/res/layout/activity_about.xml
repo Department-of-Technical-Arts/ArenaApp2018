@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/activity_bg"
+    android:background="@drawable/aboutus"
     android:paddingLeft="32dp"
     android:paddingRight="32dp"
     android:paddingTop="8dp"
