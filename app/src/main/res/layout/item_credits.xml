@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:background="@drawable/credits"
+    android:layout_marginBottom="16dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/credits_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_bold"
+        android:paddingEnd="16dp"
+        android:paddingLeft="20dp"
+        android:paddingStart="16dp"
+        tools:text="Android Developers"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/white" />
+
+    <com.jaouan.compoundlayout.RadioLayoutGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:orientation="horizontal">
+
+        <com.jaouan.compoundlayout.CircleGradientRadioLayout
+            android:id="@+id/profile_1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:src="@drawable/dev_akhil" />
+        </com.jaouan.compoundlayout.CircleGradientRadioLayout>
+
+        <com.jaouan.compoundlayout.CircleGradientRadioLayout
+            android:id="@+id/profile_2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#CCCCCC"
+                tools:src="@drawable/dev_harshvardhan" />
+
+        </com.jaouan.compoundlayout.CircleGradientRadioLayout>
+
+        <com.jaouan.compoundlayout.CircleGradientRadioLayout
+            android:id="@+id/profile_3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:src="@drawable/dev_ashwik" />
+        </com.jaouan.compoundlayout.CircleGradientRadioLayout>
+
+    </com.jaouan.compoundlayout.RadioLayoutGroup>
+
+    <LinearLayout
+        android:id="@+id/description_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp">
+
+        <TextView
+            android:id="@+id/credits_devname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            android:paddingTop="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white"
+            tools:text="Harshvardhan Takawale" />
+
+        <LinearLayout
+            android:id="@+id/button_layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:paddingBottom="5dp">
+
+            <Button
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:id ="@+id/credit_button1"
+                style="@style/thin.white.small.button"
+                android:background="@drawable/ic_facebook"
+                android:padding="5dp"
+                android:layout_marginRight="12dp"
+                />
+
+            <Button
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:id ="@+id/credit_button2"
+                style="@style/thin.white.small.button"
+                android:background="@drawable/ic_github_white"
+                android:padding="5dp"
+                android:layout_marginRight="12dp"
+                />
+
+            <Button
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:id ="@+id/credit_button3"
+                style="@style/thin.white.small.button"
+                android:background="@drawable/ic_linkedin"
+                android:padding="5dp"
+                android:layout_marginRight="12dp"
+                />
+
+            <Button
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:id ="@+id/credit_button4"
+                style="@style/thin.white.small.button"
+                android:background="@drawable/ic_behance"
+                android:padding="5dp"
+                android:layout_marginRight="12dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

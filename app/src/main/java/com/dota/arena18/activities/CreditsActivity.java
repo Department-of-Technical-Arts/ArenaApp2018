@@ -7,6 +7,8 @@ import android.support.annotation.StringRes;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -19,6 +21,8 @@ import com.jaouan.compoundlayout.CircleGradientRadioLayout;
 import com.jaouan.compoundlayout.CompoundLayout;
 import com.jaouan.compoundlayout.GradientRadioLayout;
 
+import java.util.ArrayList;
+
 
 public class CreditsActivity extends AppCompatActivity {
     /**
@@ -27,15 +31,9 @@ public class CreditsActivity extends AppCompatActivity {
      *
      */
 
-    private TextView subtitleTextView;
-    private TextView subtitleTextView1;
-    private TextView description;
-    private View descriptionLayout1;
-    private View descriptionLayout2;
-    private View buttonsLayout1;
-    private View buttonsLayout2;
-    private Button button1;
-    private Button button2;
+
+    private RecyclerView mRecycler;
+    private CreditsAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,92 +42,56 @@ public class CreditsActivity extends AppCompatActivity {
         ActionBar actionBar =getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
-        subtitleTextView = findViewById(R.id.subtitle);
-        subtitleTextView1 = findViewById(R.id.subtitle1);
-        description = findViewById(R.id.long_description);
-        descriptionLayout1 = findViewById(R.id.description_layout1);
-        descriptionLayout2 = findViewById(R.id.description_layout2);
-        buttonsLayout1 = findViewById(R.id.button_layout1);
-        buttonsLayout2 = findViewById(R.id.button_layout2);
-        button1 = findViewById(R.id.button1);
-        button2 = findViewById(R.id.button2);
 
+        mRecycler = findViewById(R.id.credits_recycler);
+        mRecycler.setLayoutManager(new LinearLayoutManager(CreditsActivity.this));
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.akhil, R.string.akhil, (CircleGradientRadioLayout) findViewById(R.id.profile_1), getColor(R.color.circle1), getColor(R.color.circle2), subtitleTextView,descriptionLayout1,button1,buttonsLayout1,"https://www.facebook.com/c.akhil.shri");
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_2), R.string.harshvardhan, R.string.harshvardhan, (CircleGradientRadioLayout) findViewById(R.id.profile_2), getColor(R.color.circle3), getColor(R.color.circle4),subtitleTextView,descriptionLayout1,button1,buttonsLayout1,"https://www.facebook.com/harshvardhan.takawale");
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_3), R.string.ashwik, R.string.ashwik, (CircleGradientRadioLayout) findViewById(R.id.profile_3),getColor(R.color.circle5), getColor(R.color.circle6),subtitleTextView,descriptionLayout1,button1,buttonsLayout1,"https://www.facebook.com/ashwik.aileni");
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_4), R.string.rohitt, R.string.rohitt, (CircleGradientRadioLayout) findViewById(R.id.profile_4),getColor(R.color.circle1), getColor(R.color.circle2),subtitleTextView1,descriptionLayout2,button2,buttonsLayout2,"https://www.facebook.com/VagrantRohitt");
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_5), R.string.abhilash, R.string.abhilash, (CircleGradientRadioLayout) findViewById(R.id.profile_5),getColor(R.color.circle3), getColor(R.color.circle4),subtitleTextView1,descriptionLayout2,button2,buttonsLayout2,"https://www.facebook.com/abhilash.verma.127");
+        mAdapter = new CreditsAdapter(CreditsActivity.this, getDevData());
 
-        } else {
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.akhil, R.string.akhil, (CircleGradientRadioLayout) findViewById(R.id.profile_1), 0, 0,subtitleTextView,descriptionLayout1,button1,buttonsLayout1,"https://www.facebook.com/FloofyTheFOSSBoy/");
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_2), R.string.harshvardhan, R.string.harshvardhan, (CircleGradientRadioLayout) findViewById(R.id.profile_2), 0,0,subtitleTextView,descriptionLayout1,button1,buttonsLayout1,"https://www.facebook.com/harshvardhan.takawale");
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_3), R.string.ashwik, R.string.ashwik, (CircleGradientRadioLayout) findViewById(R.id.profile_3), 0,0,subtitleTextView,descriptionLayout1,button1,buttonsLayout1,"https://www.facebook.com/ashwik.aileni");
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_4), R.string.rohitt, R.string.rohitt, (CircleGradientRadioLayout) findViewById(R.id.profile_4),0, 0,subtitleTextView1,descriptionLayout2,button2,buttonsLayout2,"https://www.facebook.com/VagrantRohitt");
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_5), R.string.abhilash, R.string.abhilash, (CircleGradientRadioLayout) findViewById(R.id.profile_5),0, 0,subtitleTextView1,descriptionLayout2,button2,buttonsLayout2,"https://www.facebook.com/abhilash.verma.127");
-        }
+        mRecycler.setAdapter(mAdapter);
     }
 
-    /**
-     * Bind compound listener.
-     *
-     * @param compoundLayout Compound layout.
-     * @param subtitle       Subtitle to set.
-     */
-    private void bindCompoundListener(final CompoundLayout compoundLayout, @StringRes final int subtitle, @StringRes final int desc
-            , final CircleGradientRadioLayout circleGradientRadioLayout
-            , final int color1
-            , final int color2
-            , final TextView textView
-            , final View NameView
-            , final Button button
-            ,final View ButtonView
-            ,final String link) {
-        compoundLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final Animation fadeOutAnimation = AnimationUtils.loadAnimation(CreditsActivity.this, android.R.anim.fade_out);
-                fadeOutAnimation.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        textView.setText(getString(subtitle));
-                        description.setText(desc);
-                        NameView.startAnimation(AnimationUtils.loadAnimation(CreditsActivity.this
-                                , android.R.anim.fade_in));
-                        ButtonView.startAnimation(AnimationUtils.loadAnimation(CreditsActivity.this
-                                , android.R.anim.fade_in));
-                        circleGradientRadioLayout.setColorA(color1);
-                        circleGradientRadioLayout.setColorB(color2);
-                        circleGradientRadioLayout.setAngle(45);
-                        button.setVisibility(View.VISIBLE);
-                        button.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Uri uri = Uri.parse(link);
-                                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                                startActivity(intent);
-
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-                });
-                NameView.startAnimation(fadeOutAnimation);
-                ButtonView.startAnimation(fadeOutAnimation);
-            }
-        });
-    }
     @Override
     public boolean onSupportNavigateUp() {
         finish();
         return true;
+    }
+
+    private ArrayList<DeveloperLayoutDetails> getDevData() {
+        ArrayList<DeveloperLayoutDetails> details = new ArrayList<>(3);
+        details.add(new DeveloperLayoutDetails("Android Developers", getAndroidDevs()));
+        details.add(new DeveloperLayoutDetails("Web Developers", getWebDevs()));
+        details.add(new DeveloperLayoutDetails("Designers", getDesigners()));
+
+        return details;
+    }
+
+    private ArrayList<DeveloperDetails> getAndroidDevs() {
+        ArrayList<DeveloperDetails> details = new ArrayList<>(3);
+
+        details.add(new DeveloperDetails("C Shri Akhil", R.drawable.dev_akhil, new String[] {"https://www.facebook.com/c.akhil.shri","https://github.com/TheGamer007/","https://www.linkedin.com/in/shriakhilc/",null}));
+        details.add(new DeveloperDetails("Harshvardhan Takawale", R.drawable.dev_harshvardhan, new String[] { "https://www.facebook.com/harshvardhan.takawale","https://github.com/harshvardhan-takawale","https://www.linkedin.com/in/harshvardhan-takawale-9b5125142/",null}));
+        details.add(new DeveloperDetails("Ashwik Reddy", R.drawable.dev_ashwik, new String[] {"https://www.facebook.com/ashwik.aileni","https://github.com/Ashwik",null,null}));
+
+        return details;
+    }
+
+    private ArrayList<DeveloperDetails> getWebDevs() {
+        ArrayList<DeveloperDetails> details = new ArrayList<>(2);
+
+        details.add(new DeveloperDetails("Rohitt Vashishtha", R.drawable.dev_rohitt, new String[] {"https://www.facebook.com/VagrantRohitt","https://github.com/aero31aero",null,null}));
+        details.add(new DeveloperDetails("Abhilash Verma", R.drawable.dev_abhilash, new String[] {"https://www.facebook.com/abhilash.verma.127","https://github.com/rogeredthat",null,null}));
+
+        return details;
+    }
+
+    private ArrayList<DeveloperDetails> getDesigners() {
+        ArrayList<DeveloperDetails> details = new ArrayList<>(3);
+
+        details.add(new DeveloperDetails("Gagan Aditya", R.drawable.des_gagan, new String[] {"https://www.facebook.com/gagan.aditya.5",null,null,"https://www.behance.net/gagan1805960ea"}));
+        details.add(new DeveloperDetails("Anshuman Das", R.drawable.des_anshuman, new String[] {"https://www.facebook.com/anshuman.das.9678",null,null,"https://www.behance.net/f2015230fc49"}));
+        details.add(new DeveloperDetails("Nithya Vardhan Reddy", R.drawable.des_nithya, new String[] {"https://www.facebook.com/nithyavardhan",null,null,null}));
+
+        return details;
     }
 }
