@@ -8,7 +8,6 @@
     tools:context="com.dota.arena18.activities.TextDisplayActivity">
 
     <LinearLayout
-        android:paddingTop="?android:attr/actionBarSize"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

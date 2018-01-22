@@ -7,7 +7,6 @@
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
     android:paddingBottom="8dp"
-    android:paddingTop="?android:attr/actionBarSize"
     tools:context="com.dota.arena18.activities.MedalsTallyActivity">
 
     <TextView

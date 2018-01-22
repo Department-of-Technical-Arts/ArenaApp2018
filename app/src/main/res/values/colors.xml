@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#77000000</color>
-    <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#FF871A</color>
+    <color name="colorAccent">#FFFF871A</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <color name="eventsPrimary">#FF0B0B0B</color>
+
+    <color name="newsPrimary">#FF46141A</color>
+    <color name="newsPrimaryDark">#FF62252F</color>
+
+    <color name="creditsPrimary">#FF081217</color>
+    <color name="creditsPrimaryDark">#FF0A1A21</color>
 
     <color name="landing_text_color">#ffffff</color>
     <color name="landing_tint_color">#77000000</color>
 
     <color name="table_header_color">#00B0FF</color>
-    <color name="jc_tint">@color/colorPrimary</color>
     <color name="activity_bg">#1D1D1D</color>
     <color name="card_bg">#FAFAFA</color>
-    <color name="white">#fff</color>
 
     <!-- Colors used in the Arena logo-->
     <color name="arena_color1">#282828</color>
