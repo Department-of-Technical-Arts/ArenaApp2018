@@ -1,17 +1,17 @@
 package com.dota.arena18.activities;
 
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.dota.arena18.R;
+import com.dota.arena18.api.ApiClient;
 import com.dota.arena18.api.CollegeDetails;
 import com.dota.arena18.api.ScoresInterface;
-import com.dota.arena18.api.TestApiClient;
 import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
 import java.util.ArrayList;
@@ -38,6 +38,7 @@ public class MedalsTallyActivity extends AppCompatActivity {
 
     private SortableTableView<CollegeDetails> sortableTableView;
     private ArrayList<CollegeDetails> tableData;
+    private TextView emptyView;
 
     private boolean isInterBITS = false;
 
@@ -48,6 +49,8 @@ public class MedalsTallyActivity extends AppCompatActivity {
         ActionBar actionBar =getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
+
+        emptyView = findViewById(R.id.medals_empty);
         Log.i(TAG, "onCreate: flag: " + getIntent().getIntExtra("flag", 0));
         isInterBITS = (getIntent().getIntExtra("flag", 0) == 1);
 
@@ -151,13 +154,14 @@ public class MedalsTallyActivity extends AppCompatActivity {
             @Override
             public void onRefresh(RefreshIndicator refreshIndicator) {
                 Log.d(TAG, "onRefresh: called");
+                refreshIndicator.show();
                 testResponse(refreshIndicator);
             }
         });
     }
 
     void testResponse() {
-        ScoresInterface scores = TestApiClient.getClient().create(ScoresInterface.class);
+        ScoresInterface scores = ApiClient.getClient().create(ScoresInterface.class);
         Call<ArrayList<CollegeDetails>> call;
 
         if (isInterBITS) {
@@ -169,19 +173,23 @@ public class MedalsTallyActivity extends AppCompatActivity {
         call.enqueue(new Callback<ArrayList<CollegeDetails>>() {
             @Override
             public void onResponse(Call<ArrayList<CollegeDetails>> call, Response<ArrayList<CollegeDetails>> response) {
+
                 tableData = response.body();
+                if (tableData == null || tableData.size() == 0) emptyView.setVisibility(View.VISIBLE);
+                else emptyView.setVisibility(View.GONE);
                 loadData();
             }
 
             @Override
             public void onFailure(Call<ArrayList<CollegeDetails>> call, Throwable t) {
                 Log.i(TAG, "onFailure: " + call.request().url());
+                emptyView.setVisibility(View.VISIBLE);
             }
         });
     }
 
     void testResponse(final SwipeToRefreshListener.RefreshIndicator ref) {
-        ScoresInterface scores = TestApiClient.getClient().create(ScoresInterface.class);
+        ScoresInterface scores = ApiClient.getClient().create(ScoresInterface.class);
         Call<ArrayList<CollegeDetails>> call;
 
         if (isInterBITS) {
@@ -194,6 +202,8 @@ public class MedalsTallyActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArrayList<CollegeDetails>> call, Response<ArrayList<CollegeDetails>> response) {
                 tableData = response.body();
+                if (tableData == null || tableData.size() == 0) emptyView.setVisibility(View.VISIBLE);
+                else emptyView.setVisibility(View.GONE);
                 loadData();
                 ref.hide();
             }
@@ -201,6 +211,7 @@ public class MedalsTallyActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ArrayList<CollegeDetails>> call, Throwable t) {
                 Log.i(TAG, "onFailure: " + call.request().url());
+                emptyView.setVisibility(View.VISIBLE);
                 ref.hide();
             }
         });

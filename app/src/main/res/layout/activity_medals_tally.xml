@@ -32,4 +32,16 @@
         android:layout_height="match_parent"
         table:tableView_columnCount="5" />
 
+    <TextView
+        android:id="@+id/medals_empty"
+        android:text="No scores to display"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:fontFamily="@font/lato_bold"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </RelativeLayout>
