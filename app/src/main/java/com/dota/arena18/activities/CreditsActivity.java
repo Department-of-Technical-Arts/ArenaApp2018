@@ -1,5 +1,7 @@
 package com.dota.arena18.activities;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.StringRes;
 import android.support.v7.app.ActionBar;
@@ -9,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.dota.arena18.R;
@@ -27,7 +30,12 @@ public class CreditsActivity extends AppCompatActivity {
     private TextView subtitleTextView;
     private TextView subtitleTextView1;
     private TextView description;
-    private View descriptionLayout;
+    private View descriptionLayout1;
+    private View descriptionLayout2;
+    private View buttonsLayout1;
+    private View buttonsLayout2;
+    private Button button1;
+    private Button button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,21 +47,27 @@ public class CreditsActivity extends AppCompatActivity {
         subtitleTextView = findViewById(R.id.subtitle);
         subtitleTextView1 = findViewById(R.id.subtitle1);
         description = findViewById(R.id.long_description);
-        descriptionLayout = findViewById(R.id.description_layout);
+        descriptionLayout1 = findViewById(R.id.description_layout1);
+        descriptionLayout2 = findViewById(R.id.description_layout2);
+        buttonsLayout1 = findViewById(R.id.button_layout1);
+        buttonsLayout2 = findViewById(R.id.button_layout2);
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.akhil, R.string.akhil, (CircleGradientRadioLayout) findViewById(R.id.profile_1), getColor(R.color.circle1), getColor(R.color.circle2), subtitleTextView);
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_2), R.string.harshvardhan, R.string.harshvardhan, (CircleGradientRadioLayout) findViewById(R.id.profile_2), getColor(R.color.circle3), getColor(R.color.circle4),subtitleTextView);
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_3), R.string.ashwik, R.string.ashwik, (CircleGradientRadioLayout) findViewById(R.id.profile_3),getColor(R.color.circle5), getColor(R.color.circle6),subtitleTextView);
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_4), R.string.rohitt, R.string.rohitt, (CircleGradientRadioLayout) findViewById(R.id.profile_4),getColor(R.color.circle1), getColor(R.color.circle2),subtitleTextView1);
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_5), R.string.abhilash, R.string.abhilash, (CircleGradientRadioLayout) findViewById(R.id.profile_5),getColor(R.color.circle3), getColor(R.color.circle4),subtitleTextView1);
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.akhil, R.string.akhil, (CircleGradientRadioLayout) findViewById(R.id.profile_1), getColor(R.color.circle1), getColor(R.color.circle2), subtitleTextView,descriptionLayout1,button1,buttonsLayout1,"https://www.facebook.com/c.akhil.shri");
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_2), R.string.harshvardhan, R.string.harshvardhan, (CircleGradientRadioLayout) findViewById(R.id.profile_2), getColor(R.color.circle3), getColor(R.color.circle4),subtitleTextView,descriptionLayout1,button1,buttonsLayout1,"https://www.facebook.com/harshvardhan.takawale");
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_3), R.string.ashwik, R.string.ashwik, (CircleGradientRadioLayout) findViewById(R.id.profile_3),getColor(R.color.circle5), getColor(R.color.circle6),subtitleTextView,descriptionLayout1,button1,buttonsLayout1,"https://www.facebook.com/ashwik.aileni");
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_4), R.string.rohitt, R.string.rohitt, (CircleGradientRadioLayout) findViewById(R.id.profile_4),getColor(R.color.circle1), getColor(R.color.circle2),subtitleTextView1,descriptionLayout2,button2,buttonsLayout2,"https://www.facebook.com/VagrantRohitt");
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_5), R.string.abhilash, R.string.abhilash, (CircleGradientRadioLayout) findViewById(R.id.profile_5),getColor(R.color.circle3), getColor(R.color.circle4),subtitleTextView1,descriptionLayout2,button2,buttonsLayout2,"https://www.facebook.com/abhilash.verma.127");
 
         } else {
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.akhil, R.string.akhil, (CircleGradientRadioLayout) findViewById(R.id.profile_1), 0, 0,subtitleTextView);
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_2), R.string.harshvardhan, R.string.harshvardhan, (CircleGradientRadioLayout) findViewById(R.id.profile_2), 0,0,subtitleTextView);
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_3), R.string.ashwik, R.string.ashwik, (CircleGradientRadioLayout) findViewById(R.id.profile_3), 0,0,subtitleTextView);
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_4), R.string.rohitt, R.string.rohitt, (CircleGradientRadioLayout) findViewById(R.id.profile_4),0, 0,subtitleTextView1);
-            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_5), R.string.abhilash, R.string.abhilash, (CircleGradientRadioLayout) findViewById(R.id.profile_5),0, 0,subtitleTextView1);
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_1), R.string.akhil, R.string.akhil, (CircleGradientRadioLayout) findViewById(R.id.profile_1), 0, 0,subtitleTextView,descriptionLayout1,button1,buttonsLayout1,"https://www.facebook.com/FloofyTheFOSSBoy/");
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_2), R.string.harshvardhan, R.string.harshvardhan, (CircleGradientRadioLayout) findViewById(R.id.profile_2), 0,0,subtitleTextView,descriptionLayout1,button1,buttonsLayout1,"https://www.facebook.com/harshvardhan.takawale");
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_3), R.string.ashwik, R.string.ashwik, (CircleGradientRadioLayout) findViewById(R.id.profile_3), 0,0,subtitleTextView,descriptionLayout1,button1,buttonsLayout1,"https://www.facebook.com/ashwik.aileni");
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_4), R.string.rohitt, R.string.rohitt, (CircleGradientRadioLayout) findViewById(R.id.profile_4),0, 0,subtitleTextView1,descriptionLayout2,button2,buttonsLayout2,"https://www.facebook.com/VagrantRohitt");
+            bindCompoundListener((CompoundLayout) findViewById(R.id.profile_5), R.string.abhilash, R.string.abhilash, (CircleGradientRadioLayout) findViewById(R.id.profile_5),0, 0,subtitleTextView1,descriptionLayout2,button2,buttonsLayout2,"https://www.facebook.com/abhilash.verma.127");
         }
     }
 
@@ -67,7 +81,11 @@ public class CreditsActivity extends AppCompatActivity {
             , final CircleGradientRadioLayout circleGradientRadioLayout
             , final int color1
             , final int color2
-            , final TextView textView) {
+            , final TextView textView
+            , final View NameView
+            , final Button button
+            ,final View ButtonView
+            ,final String link) {
         compoundLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,18 +99,31 @@ public class CreditsActivity extends AppCompatActivity {
                     public void onAnimationEnd(Animation animation) {
                         textView.setText(getString(subtitle));
                         description.setText(desc);
-                        descriptionLayout.startAnimation(AnimationUtils.loadAnimation(CreditsActivity.this
+                        NameView.startAnimation(AnimationUtils.loadAnimation(CreditsActivity.this
+                                , android.R.anim.fade_in));
+                        ButtonView.startAnimation(AnimationUtils.loadAnimation(CreditsActivity.this
                                 , android.R.anim.fade_in));
                         circleGradientRadioLayout.setColorA(color1);
                         circleGradientRadioLayout.setColorB(color2);
                         circleGradientRadioLayout.setAngle(45);
+                        button.setVisibility(View.VISIBLE);
+                        button.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Uri uri = Uri.parse(link);
+                                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                                startActivity(intent);
+
+                            }
+                        });
                     }
 
                     @Override
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-                descriptionLayout.startAnimation(fadeOutAnimation);
+                NameView.startAnimation(fadeOutAnimation);
+                ButtonView.startAnimation(fadeOutAnimation);
             }
         });
     }

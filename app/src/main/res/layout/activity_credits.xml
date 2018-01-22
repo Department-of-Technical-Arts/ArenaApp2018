@@ -92,7 +92,7 @@
         </HorizontalScrollView>
 
         <LinearLayout
-            android:id="@+id/description_layout"
+            android:id="@+id/description_layout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -122,6 +122,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/button_layout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -131,32 +132,15 @@
             android:paddingStart="16dp">
 
             <Button
-                android:id ="@+id/push_button"
+                android:id ="@+id/button1"
                 style="@style/thin.white.small.button"
                 android:background="@drawable/if_facebook_circle_294710"
-                android:padding="15dp"
+                android:padding="5dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
+                android:visibility="invisible"
                 />
 
-            <Button
-                android:id="@+id/preset_button1"
-                style="@style/thin.white.small.button"
-                android:background="@drawable/if_facebook_circle_294710"
-                android:padding="15dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                />
-
-            <Button
-                android:id="@+id/preset_button2"
-                style="@style/thin.white.small.button"
-                android:text="3"
-                android:background="@drawable/if_facebook_circle_294710"
-                android:padding="15dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                />
 
         </LinearLayout>
 
@@ -221,6 +205,7 @@
         </HorizontalScrollView>
 
         <LinearLayout
+            android:id="@+id/description_layout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -247,6 +232,31 @@
                 android:visibility="gone"
                 tools:text="Android Grunt #1" />
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/button_layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp">
+
+            <Button
+                android:id ="@+id/button2"
+                style="@style/thin.white.small.button"
+                android:background="@drawable/if_facebook_circle_294710"
+                android:padding="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:visibility="invisible"
+                />
+
+
+        </LinearLayout>
+
+
 
         <TextView
             android:layout_width="wrap_content"
