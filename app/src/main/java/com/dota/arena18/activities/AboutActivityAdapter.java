@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dota.arena18.R;
@@ -27,7 +26,7 @@ public class AboutActivityAdapter extends RecyclerView.Adapter<AboutActivityAdap
         this.list = list;
         this.context = context;
     }
-;
+
     @Override
     public AboutViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_about_content, parent, false);
@@ -51,8 +50,8 @@ public class AboutActivityAdapter extends RecyclerView.Adapter<AboutActivityAdap
         TextView textView;
         public AboutViewHolder(View itemView) {
             super(itemView);
-            imageView = (ImageView)itemView.findViewById(R.id.about_image);
-            textView  = (TextView)itemView.findViewById(R.id.about_text);
+            imageView = itemView.findViewById(R.id.about_image);
+            textView  = itemView.findViewById(R.id.about_text);
         }
     }
 }

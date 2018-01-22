@@ -1,7 +1,5 @@
 package com.dota.arena18.activities;
 
-import android.support.annotation.DrawableRes;
-
 import java.util.ArrayList;
 
 /**

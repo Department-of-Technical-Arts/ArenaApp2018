@@ -19,7 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            tools:src="@drawable/event_basketball_girls_fold" />
+            tools:src="@drawable/event_basketball_girls_fold"
+            tools:ignore="ContentDescription" />
 
         <!-- content header line -->
         <RelativeLayout
@@ -38,7 +39,8 @@
                 android:layout_centerVertical="true"
                 android:tint="@color/white"
                 app:srcCompat="@drawable/ic_arrow_up"
-                android:layout_alignParentRight="true" />
+                android:layout_alignParentRight="true"
+                tools:ignore="ContentDescription" />
 
         </RelativeLayout>
 
@@ -92,6 +94,8 @@
 
             <TextView
                 android:id="@+id/cell_content_prize"
+                android:layout_toStartOf="@id/content_prize_view"
+                android:layout_toLeftOf="@id/content_prize_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -116,7 +120,8 @@
             android:layout_marginTop="9dp"
             android:src="@color/contentDividerLine"
             android:id="@+id/firstline"
-            android:clickable="false"/>
+            android:clickable="false"
+            tools:ignore="ContentDescription" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -125,7 +130,6 @@
 
 
             <TextView
-                android:id="@+id/content_name_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
@@ -143,7 +147,8 @@
                 android:layout_centerVertical="true"
                 android:rotation="90"
                 app:srcCompat="@drawable/ic_arrow_up"
-                android:layout_alignParentRight="true" />
+                android:layout_alignParentRight="true"
+                tools:ignore="ContentDescription" />
 
         </RelativeLayout>
 
@@ -157,7 +162,8 @@
             android:layout_marginTop="9dp"
             android:src="@color/contentDividerLine"
             android:id="@+id/secondline"
-            android:clickable="false"/>
+            android:clickable="false"
+            tools:ignore="ContentDescription" />
 
 
         <RelativeLayout
@@ -185,7 +191,8 @@
                 android:layout_centerVertical="true"
                 android:rotation="90"
                 app:srcCompat="@drawable/ic_arrow_up"
-                android:layout_alignParentRight="true" />
+                android:layout_alignParentRight="true"
+                tools:ignore="ContentDescription" />
 
         </RelativeLayout>
 
@@ -197,7 +204,8 @@
             android:layout_marginTop="9dp"
             android:src="@color/contentDividerLine"
             android:id="@+id/thirdline"
-            android:clickable="false"/>
+            android:clickable="false"
+            tools:ignore="ContentDescription" />
 
 
         <LinearLayout
@@ -208,7 +216,6 @@
 
 
             <TextView
-                android:id="@+id/content_location_view"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="2dp"

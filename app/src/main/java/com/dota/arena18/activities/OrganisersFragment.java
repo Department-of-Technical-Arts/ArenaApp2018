@@ -1,7 +1,5 @@
 package com.dota.arena18.activities;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -39,7 +37,7 @@ public class OrganisersFragment extends android.support.v4.app.Fragment implemen
         super.onViewCreated(view, savedInstanceState);
         data = new ArrayList<>();
         call_image_org =  view.findViewById(R.id.call_image_card);
-        recyclerView = (RecyclerView) view.findViewById(R.id.contacts_recycler);
+        recyclerView = view.findViewById(R.id.contacts_recycler);
 
         OrganisersAdapter = new OrganisersAdapter(getActivity(),this,data);
         recyclerView.setAdapter(OrganisersAdapter);

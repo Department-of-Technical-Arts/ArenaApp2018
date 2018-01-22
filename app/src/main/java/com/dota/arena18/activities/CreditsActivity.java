@@ -1,25 +1,12 @@
 package com.dota.arena18.activities;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import android.support.annotation.StringRes;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.dota.arena18.R;
-import com.jaouan.compoundlayout.CircleGradientRadioLayout;
-import com.jaouan.compoundlayout.CompoundLayout;
-import com.jaouan.compoundlayout.GradientRadioLayout;
 
 import java.util.ArrayList;
 

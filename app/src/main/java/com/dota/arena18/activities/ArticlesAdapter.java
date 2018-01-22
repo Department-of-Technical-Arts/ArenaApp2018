@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.dota.arena18.R;
 import com.dota.arena18.api.ArticleDetails;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**

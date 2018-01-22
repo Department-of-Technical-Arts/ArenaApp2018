@@ -1,6 +1,5 @@
 package com.dota.arena18.activities;
 
-import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -15,7 +14,6 @@ import com.dota.arena18.R;
 import com.dota.arena18.api.ApiClient;
 import com.dota.arena18.api.ArticleDetails;
 import com.dota.arena18.api.ArticlesInterface;
-import com.google.android.gms.common.api.Api;
 
 import java.util.ArrayList;
 
@@ -73,7 +71,7 @@ public class ArticleDisplayActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ArticleDetails> call, Throwable t) {
-                Log.i(TAG, "onFailure: " + call.request().url());
+                //Log.i(TAG, "onFailure: " + call.request().url());
             }
         });
 
@@ -95,6 +93,7 @@ public class ArticleDisplayActivity extends AppCompatActivity {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return Html.fromHtml(content, Html.FROM_HTML_MODE_COMPACT);
         } else {
+            //noinspection deprecation
             return Html.fromHtml(content);
         }
     }

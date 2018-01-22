@@ -352,20 +352,20 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            TitleName = (TextView) itemView.findViewById(R.id.title_eventname);
-            ContentName = (TextView) itemView.findViewById(R.id.content_eventname);
-            prizemoney =  (TextView)itemView.findViewById(R.id.cell_content_prize);
-            rules = (TextView) itemView.findViewById(R.id.content_rules_view);
-            venue = (TextView) itemView.findViewById(R.id.cell_content_venue);
+            TitleName = itemView.findViewById(R.id.title_eventname);
+            ContentName = itemView.findViewById(R.id.content_eventname);
+            prizemoney = itemView.findViewById(R.id.cell_content_prize);
+            rules = itemView.findViewById(R.id.content_rules_view);
+            venue = itemView.findViewById(R.id.cell_content_venue);
 
             locationlayout = itemView.findViewById(R.id.content_location);
             prizelayout =  itemView.findViewById(R.id.prize_layout);
             ruleslayout = itemView.findViewById(R.id.content_rules);
             contactcaptainlayout = itemView.findViewById(R.id.content_contact_captain);
 
-            one = (ImageView) itemView.findViewById(R.id.firstline);
-            two = (ImageView) itemView.findViewById(R.id.secondline);
-            three = (ImageView) itemView.findViewById(R.id.thirdline);
+            one = itemView.findViewById(R.id.firstline);
+            two = itemView.findViewById(R.id.secondline);
+            three = itemView.findViewById(R.id.thirdline);
             foldedImage = itemView.findViewById(R.id.folded_image);
             unfoldedImage = itemView.findViewById(R.id.unfolded_image);
 

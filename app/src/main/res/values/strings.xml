@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Arena 2018</string>
     <string name="title_activity_maps">Campus Map</string>
-    <string name="icons_license">Icons from  <a href="https://icons8.com">Icons8</a></string>
 
     <string name="about_us">Sports have always been one of the primary channels used by man to quench his thirst for competition as well as promote camaraderie and unity among participants and fans alike. It is the spirit of the game that urges man to dream, push his limits, and achieve glory. Once a year, here at BITS Pilani Hyderabad Campus, we allow this spirit to entirely consume us as we host our annual sports fest, Arena.\n\n Arena is one of the biggest sporting festivals conducted in India. The preparation ahead of the fest is grueling, the buildup intense, and participation nothing short of mind blowing as we welcome competitors not only from Telangana and Andhra Pradesh but on a national level as well.\n\n In keeping with the ambitions and expectations from a campus such as ours, we are envisioning a bigger, grander and more thrilling fest for the 6th edition of Arena. Join us as we compete to the limits of our capabilities, vie for glory on the field and most importantly enjoy the game.</string>
 
@@ -13,9 +12,6 @@ From Secunderabad Railway Station (Gurudwara Point) to BITS Main Gate:\n\n
 From BITS Main Gate to Secunderabad Railway Station :\n\n
 06:55, 07:55, 08:50, 09:20, 09:50, 11:00, 12:00, 13:00, 14:00, 15:05, 16:05, 18:15, 19:15, 20:15\n\n
 Besides that, there are City Buses having numbers 211S, 211A, 211C, 211D, 211E, 211J, 211K, 211T, 211U, 567, 568, 569 which ply from Secunderabad Railway Station to various destinations on the Campus side. Further, there are many APSRTC buses from Secunderabad and Jubilee bus stand to Karim Nagar, Siddhipet, Ramagundam, Gajwel, Cheriyal etc. People can board any of these buses, get down either at Thumkunta or Dongala Mysamma junction which is 1KM away and take an auto to the campus.\n</string>
-
-    <string name="consumer_key">MgxtRJPfrI69bHViQA69mdngm</string>
-    <string name="consumer_secret">xK3o4ebHE1Eq4KIikpkjHyB3L1rhwzYnPtgcI4cCTpFX05evqr</string>
 
     <!-- Array of strings corresponding to Arena logo SVG paths-->
     <string-array name="arena_strings">

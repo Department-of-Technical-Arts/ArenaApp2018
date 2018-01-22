@@ -16,9 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dota.arena18.R;
-import com.google.android.gms.maps.model.Circle;
 import com.jaouan.compoundlayout.CircleGradientRadioLayout;
-import com.jaouan.compoundlayout.CompoundLayout;
 
 import java.util.ArrayList;
 
@@ -65,7 +63,7 @@ public class CreditsAdapter extends RecyclerView.Adapter<CreditsAdapter.CreditsV
             circLayout.setBackgroundResource(dev.getProfileImg());
 
             // set onClickListener
-            ((CompoundLayout) circLayout).setOnClickListener(new View.OnClickListener() {
+            circLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     final Animation fadeOutAnimation = AnimationUtils.loadAnimation(mContext, android.R.anim.fade_out);
@@ -89,7 +87,7 @@ public class CreditsAdapter extends RecyclerView.Adapter<CreditsAdapter.CreditsV
                                     currButton.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
-                                            Log.i(TAG, "reached socialButton onClick");
+                                            //Log.i(TAG, "reached socialButton onClick");
                                             Uri uri = Uri.parse(currLink);
                                             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                                             mContext.startActivity(intent);

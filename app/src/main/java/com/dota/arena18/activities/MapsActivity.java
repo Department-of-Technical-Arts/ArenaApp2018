@@ -59,7 +59,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             @Override
             public void onSearchClosed() {
-                Log.i(TAG, "onSearchClosed");
+                //Log.i(TAG, "onSearchClosed");
             }
 
             @Override
@@ -126,7 +126,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         } catch (SecurityException e) {
             // Location permission not given, or other runtime error occured. Do not enable the feature.
             // Note: Since we aren't letting them open this map without granting the permission, this block should never hit.
-            Log.i(TAG, "onMapReady: " + e.getMessage());
+            //Log.i(TAG, "onMapReady: " + e.getMessage());
         }
 
         MapStyleOptions style = MapStyleOptions.loadRawResourceStyle(

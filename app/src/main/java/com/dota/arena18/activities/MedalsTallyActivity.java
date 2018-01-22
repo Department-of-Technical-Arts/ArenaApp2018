@@ -51,13 +51,13 @@ public class MedalsTallyActivity extends AppCompatActivity {
         actionBar.setHomeButtonEnabled(true);
 
         emptyView = findViewById(R.id.medals_empty);
-        Log.i(TAG, "onCreate: flag: " + getIntent().getIntExtra("flag", 0));
+        //Log.i(TAG, "onCreate: flag: " + getIntent().getIntExtra("flag", 0));
         isInterBITS = (getIntent().getIntExtra("flag", 0) == 1);
 
         TextView tv_points = findViewById(R.id.tv_points);
         
         if (isInterBITS) {
-            Log.i(TAG, "onCreate: isInterBits");
+            //Log.i(TAG, "onCreate: isInterBits");
             tv_points.setVisibility(View.VISIBLE);
         } else {
             tv_points.setVisibility(View.GONE);
@@ -153,7 +153,7 @@ public class MedalsTallyActivity extends AppCompatActivity {
         sortableTableView.setSwipeToRefreshListener(new SwipeToRefreshListener() {
             @Override
             public void onRefresh(RefreshIndicator refreshIndicator) {
-                Log.d(TAG, "onRefresh: called");
+                //Log.d(TAG, "onRefresh: called");
                 refreshIndicator.show();
                 testResponse(refreshIndicator);
             }
@@ -182,7 +182,7 @@ public class MedalsTallyActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ArrayList<CollegeDetails>> call, Throwable t) {
-                Log.i(TAG, "onFailure: " + call.request().url());
+                //Log.i(TAG, "onFailure: " + call.request().url());
                 emptyView.setVisibility(View.VISIBLE);
             }
         });
@@ -210,7 +210,7 @@ public class MedalsTallyActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ArrayList<CollegeDetails>> call, Throwable t) {
-                Log.i(TAG, "onFailure: " + call.request().url());
+                //Log.i(TAG, "onFailure: " + call.request().url());
                 emptyView.setVisibility(View.VISIBLE);
                 ref.hide();
             }
@@ -248,7 +248,7 @@ public class MedalsTallyActivity extends AppCompatActivity {
         for (int i = 1; i <= sorted.size(); i++) {
             CollegeDetails col = sorted.get(i-1);
             col.setRank(i);
-            Log.i(TAG, "getRankedList: " + col.toString());
+            //Log.i(TAG, "getRankedList: " + col.toString());
         }
         return sorted;
     }

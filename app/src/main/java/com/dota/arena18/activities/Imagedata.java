@@ -1,7 +1,5 @@
 package com.dota.arena18.activities;
 
-import android.graphics.Bitmap;
-
 /**
  * Created by ashwik on 09-01-2018.
  */

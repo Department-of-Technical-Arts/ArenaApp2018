@@ -4,8 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
-import retrofit2.http.GET;
-
 /**
  * Created by TheGamer007 on 11/1/18.
  */

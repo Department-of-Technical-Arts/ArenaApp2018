@@ -1,7 +1,5 @@
 package com.dota.arena18.activities;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -51,7 +49,7 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
         super.onViewCreated(view, savedInstanceState);
         data1 = new ArrayList<>();
         call_image_captain = view.findViewById(R.id.call_image_card);
-        recyclerView = (RecyclerView) view.findViewById(R.id.contacts_recycler);
+        recyclerView = view.findViewById(R.id.contacts_recycler);
         OrganisersAdapter = new OrganisersAdapter(getActivity(),this,data1);
         recyclerView.setAdapter(OrganisersAdapter);
         layoutManager = new LinearLayoutManager(getContext());
@@ -222,10 +220,10 @@ public class CaptainsFragment extends Fragment implements AdapterView.OnItemClic
         Contacts temp11 = new Contacts("Aishwarya","Carrom (G)",
                 "8885818066", R.drawable.default_pic,"blank");
 
-        Contacts temp12 = new Contacts("Siddharth Garg","Squash, Team A",
+        Contacts temp12 = new Contacts("Siddharth Garg","Squash",
                 "9100589625", R.drawable.default_pic,"blank");
 
-        Contacts temp13 = new Contacts("Madhan Thyagarajan","Squash, Team B",
+        Contacts temp13 = new Contacts("Madhan Thyagarajan","Squash",
                 "9611938719", R.drawable.default_pic,"blank");
 
         Contacts temp14 = new Contacts("Ajay Singh","Athletics (B)",

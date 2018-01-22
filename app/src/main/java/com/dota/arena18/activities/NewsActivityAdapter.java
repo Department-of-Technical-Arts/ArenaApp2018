@@ -52,8 +52,8 @@ public class NewsActivityAdapter extends RecyclerView.Adapter<NewsActivityAdapte
         LinearLayout layout;
         public CustomViewHolder(View itemView) {
             super(itemView);
-            imageView = (ImageView)itemView.findViewById(R.id.news_image);
-            textView  = (TextView)itemView.findViewById(R.id.news_text);
+            imageView = itemView.findViewById(R.id.news_image);
+            textView  = itemView.findViewById(R.id.news_text);
             layout = itemView.findViewById(R.id.news_layout);
         }
 

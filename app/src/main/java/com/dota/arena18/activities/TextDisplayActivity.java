@@ -4,7 +4,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 
 import com.dota.arena18.R;
 import com.uncopt.android.widget.text.justify.JustifiedTextView;
@@ -31,7 +30,7 @@ public class TextDisplayActivity extends AppCompatActivity {
             setTitle("Directions");
             display.setText(R.string.directions);
         } else {
-            Log.i(TAG, "onCreate: Something went wrong");
+            //Log.i(TAG, "onCreate: Something went wrong");
         }
     }
     @Override

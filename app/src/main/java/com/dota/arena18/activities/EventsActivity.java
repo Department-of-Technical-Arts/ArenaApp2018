@@ -19,9 +19,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.dota.arena18.R;
 import com.dota.arena18.api.EventsInterface;
@@ -85,8 +82,8 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
 
-        theRecyclerView = (RecyclerView) findViewById(R.id.mainRecyclerView);
-        swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swiperefresh);
+        theRecyclerView = findViewById(R.id.mainRecyclerView);
+        swipeRefreshLayout = findViewById(R.id.swiperefresh);
         myrealm = Realm.getDefaultInstance();
         adapter = new FoldingCellListAdapter(EventsActivity.this,realmlist,this);
         theRecyclerView.setAdapter(adapter);
@@ -110,12 +107,12 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
          if(myrealm.isEmpty())
         {
-            Log.e(TAG,"realm is empty");
+            //Log.e(TAG,"realm is empty");
             callapi();
         }
         else
         {
-            Log.e(TAG,"realm is not empty");
+            //Log.e(TAG,"realm is not empty");
             callLightapi();
         }
 
@@ -125,12 +122,12 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
                     public void onRefresh() {
                         if(myrealm.isEmpty())
                         {
-                            Log.e(TAG,"realm is empty");
+                            //Log.e(TAG,"realm is empty");
                             callapi();
                         }
                         else
                         {
-                            Log.e(TAG,"realm is not empty");
+                            //Log.e(TAG,"realm is not empty");
                             callLightapi();
                         }
                         swipeRefreshLayout.setRefreshing(false);
@@ -205,7 +202,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
              @Override
              public void onFailure(Call<ArrayList<EventDetails>> call, Throwable t) {
-                 Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
+                 //Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
                  getdatafromrealm(myrealm);
              }
          });
@@ -216,7 +213,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
      public void getdatafromrealm(Realm realm1) {
 
         RealmResults<Model> results = realm1.where(Model.class).findAll();
-        Log.e(TAG,"results size:"+String.valueOf(results.size()));
+        //Log.e(TAG,"results size:"+String.valueOf(results.size()));
 
          for (int i = 0; i < results.size(); i++) {
              realm1.beginTransaction();
@@ -231,7 +228,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
              id++;
          }
 
-         Log.e(EventsActivity.class.getSimpleName(),"Get datafromrealm total events: " + String.valueOf(results.size()));
+         //Log.e(EventsActivity.class.getSimpleName(),"Get datafromrealm total events: " + String.valueOf(results.size()));
 
          adapter.notifyDataSetChanged();
          if(results.size()==0)
@@ -251,7 +248,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
                      .textColor(Color.WHITE)
                      .backgroundColor(Color.RED)
                      .show();
-             Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
+             //Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
          }
          swipeRefreshLayout.setRefreshing(false);
 
@@ -262,7 +259,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
         myrealm.beginTransaction();
         Model checkmodel = myrealm.where(Model.class).equalTo("id",id).findFirst();
         if(checkmodel == null ) {
-            Log.e(TAG,"checkmodel=null"+String.valueOf(id));
+            //Log.e(TAG,"checkmodel=null"+String.valueOf(id));
         Model event = myrealm.createObject(Model.class);
         event.setId(id);
         event.setDb_eventname(mymodel.getDb_eventname());
@@ -273,7 +270,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
         realmlist.add(event);}
 
         else{
-            Log.e(TAG,"checkmodel!=null"+String.valueOf(id));
+            //Log.e(TAG,"checkmodel!=null"+String.valueOf(id));
             checkmodel.setDb_eventname(mymodel.getDb_eventname());
             if(mymodel.getDb_rules()!="")
             {

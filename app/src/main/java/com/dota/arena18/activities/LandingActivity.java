@@ -1,21 +1,14 @@
 package com.dota.arena18.activities;
 
-import android.content.AsyncTaskLoader;
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.View;
 
 import com.dota.arena18.R;
 import com.gjiazhe.panoramaimageview.GyroscopeObserver;
 import com.gjiazhe.panoramaimageview.PanoramaImageView;
-import com.twitter.sdk.android.core.DefaultLogger;
-import com.twitter.sdk.android.core.Twitter;
-import com.twitter.sdk.android.core.TwitterAuthConfig;
-import com.twitter.sdk.android.core.TwitterConfig;
 
 public class LandingActivity extends AppCompatActivity {
 
@@ -43,15 +36,15 @@ public class LandingActivity extends AppCompatActivity {
 
         gyroscopeObserver.setMaxRotateRadian(Math.PI/2);
 
-        PanoramaImageView panoramaImageView = (PanoramaImageView) findViewById(R.id.panorama_image_view);
+        PanoramaImageView panoramaImageView = findViewById(R.id.panorama_image_view);
         panoramaImageView.setGyroscopeObserver(gyroscopeObserver);
 
 
-       events = (CardView)findViewById(R.id.card_events);
-        aboutus= (CardView)findViewById(R.id.card_about);
-        news= (CardView)findViewById(R.id.card_news);
-        contacts = (CardView)findViewById(R.id.card_contacts);
-        credits = (CardView)findViewById(R.id.card_credits);
+       events = findViewById(R.id.card_events);
+        aboutus= findViewById(R.id.card_about);
+        news= findViewById(R.id.card_news);
+        contacts = findViewById(R.id.card_contacts);
+        credits = findViewById(R.id.card_credits);
 
 
         events.setOnClickListener(new View.OnClickListener() {

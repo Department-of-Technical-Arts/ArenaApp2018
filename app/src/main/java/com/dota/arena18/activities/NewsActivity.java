@@ -2,7 +2,6 @@ package com.dota.arena18.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,12 +9,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Switch;
-import android.widget.Toast;
 
 import com.dota.arena18.R;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
-import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +28,7 @@ public class NewsActivity extends AppCompatActivity {
         ActionBar actionBar =getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
-        recyclerView = (RecyclerView)findViewById(R.id.news_recyclerview);
+        recyclerView = findViewById(R.id.news_recyclerview);
         list.add(new Imagedata(R.drawable.ic_arena_leaderboard,"Arena Leaderboard"));
         list.add(new Imagedata(R.drawable.ic_interbits_leaderboard,"Inter-BITS Leaderboard"));
         list.add(new Imagedata(R.drawable.ic_newsfeed,"Live Feed"));
@@ -73,7 +69,7 @@ public class NewsActivity extends AppCompatActivity {
 //                                return;
                                 break;
                             default:
-                                Log.i("NewsActivity", "onItemClick: unexpected position passed.");
+                                //Log.i("NewsActivity", "onItemClick: unexpected position passed.");
                                 return;
                         }
                         startActivity(i);

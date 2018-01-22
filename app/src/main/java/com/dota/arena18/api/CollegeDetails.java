@@ -1,10 +1,6 @@
 package com.dota.arena18.api;
 
-import android.util.Log;
-
 import com.google.gson.annotations.SerializedName;
-
-import java.util.ArrayList;
 
 /**
  * Created by TheGamer007 on 2/1/18.

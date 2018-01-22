@@ -1,9 +1,7 @@
 package com.dota.arena18.activities;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,9 +14,6 @@ import com.dota.arena18.api.ApiClient;
 import com.dota.arena18.api.EventDetails;
 import com.dota.arena18.api.EventsInterface;
 import com.dota.arena18.database.Model;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import io.realm.Realm;
 import retrofit2.Call;
@@ -61,7 +56,7 @@ public class DetailsActivity extends AppCompatActivity {
         api_id = intent.getStringExtra("api_id");
         stringid = intent.getStringExtra("eventid");
         id = Integer.parseInt(stringid);
-        rules = (TextView)findViewById(R.id.rules_details);
+        rules = findViewById(R.id.rules_details);
         realm = Realm.getDefaultInstance();
 
         img.setImageResource(getIntent().getIntExtra("img_res", R.drawable.download));
@@ -82,7 +77,7 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<EventDetails> call, Throwable t) {
 
-                Log.e(DetailsActivity.class.getSimpleName(),"DetailsActivity: not connected to internet");
+                //Log.e(DetailsActivity.class.getSimpleName(),"DetailsActivity: not connected to internet");
                 getDatafromrealm();
             }
         });

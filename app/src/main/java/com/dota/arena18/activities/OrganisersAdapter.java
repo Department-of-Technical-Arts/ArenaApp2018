@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
@@ -107,10 +105,10 @@ public class OrganisersAdapter extends RecyclerView.Adapter<OrganisersAdapter.My
         public MyViewHolder(View itemView) {
             super(itemView);
             mView=itemView;
-            imageView = (ImageView) itemView.findViewById(R.id.contact_image);
+            imageView = itemView.findViewById(R.id.contact_image);
             call_image = itemView.findViewById(R.id.call_image_card);
-            name=(TextView) itemView.findViewById(R.id.contact_name);
-            designation=(TextView)itemView.findViewById(R.id.contact_designation);
+            name= itemView.findViewById(R.id.contact_name);
+            designation= itemView.findViewById(R.id.contact_designation);
             itemView.setOnClickListener(this);
         }
 

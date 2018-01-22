@@ -120,23 +120,11 @@
 
 
     <color name="bgBackSideColor">#f4f0ff</color>
-    <color name="bgTitleLeft">#594691</color>
-    <color name="bgTitleRight">#ffffff</color>
-    <color name="bgContentTop">#594691</color>
     <color name="bgContent">#ffffff</color>
     <color name="contentDividerLine">#e0e0e0</color>
-    <color name="contentBadgeTitle">#a9a9a9</color>
-    <color name="titleBadgeTitle">#adafb1</color>
-    <color name="titleBadgeText">#adafb1</color>
     <color name="mainTextColor">#343d43</color>
-    <color name="btnRequest">#ffbf12</color>
-
-    <color name="circle1">#77FFA726</color>
-    <color name="circle2">#77EC407A</color>
 
     <color name="circle3">#7742A5F5</color>
     <color name="circle4">#77AB47BC</color>
 
-    <color name="circle5">#77AB47BC</color>
-    <color name="circle6">#77EF5350</color>
 </resources>

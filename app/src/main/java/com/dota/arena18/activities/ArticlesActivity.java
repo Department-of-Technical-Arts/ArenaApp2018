@@ -22,7 +22,6 @@ import com.dota.arena18.api.ArticlesInterface;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
 import java.util.ArrayList;
-import java.util.zip.InflaterInputStream;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -104,7 +103,7 @@ public class ArticlesActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ArrayList<ArticleDetails>> call, Throwable t) {
                 mRefresh.setRefreshing(false);
-                Log.i("ArticlesActivity", "onFailure: " + call.request().url());
+                //Log.i("ArticlesActivity", "onFailure: " + call.request().url());
                 mRecycler.setVisibility(View.GONE);
                 emptyView.setText("Network not available. Retry later.");
                 emptyView.setVisibility(View.VISIBLE);
