@@ -171,12 +171,6 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
              @Override
              public void onFailure(Call<ArrayList<EventDetails>> call, Throwable t) {
-                 new StyleableToast.Builder(EventsActivity.this)
-                         .text("Network not available. Loading offline data...")
-                         .textColor(Color.WHITE)
-                         .backgroundColor(Color.RED)
-                         .show();
-                 Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
                  getdatafromrealm(myrealm);
              }
          });
@@ -211,12 +205,6 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
              @Override
              public void onFailure(Call<ArrayList<EventDetails>> call, Throwable t) {
-                 new StyleableToast.Builder(EventsActivity.this)
-                         .text("Network not available. Loading offline data...")
-                         .textColor(Color.WHITE)
-                         .backgroundColor(Color.RED)
-                         .show();
-
                  Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
                  getdatafromrealm(myrealm);
              }
@@ -257,6 +245,13 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
                      dialogInterface.cancel();
                  }
              }).create().show();
+         } else {
+             new StyleableToast.Builder(EventsActivity.this)
+                     .text("Network not available. Loading offline data...")
+                     .textColor(Color.WHITE)
+                     .backgroundColor(Color.RED)
+                     .show();
+             Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
          }
          swipeRefreshLayout.setRefreshing(false);
 

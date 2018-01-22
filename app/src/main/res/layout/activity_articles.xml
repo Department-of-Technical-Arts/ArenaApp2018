@@ -17,7 +17,7 @@
         android:layout_width="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:layout_above="@id/jc_caption"
+            android:layout_above="@id/journal_club_link"
             android:id="@+id/articles_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -33,20 +33,7 @@
             android:fontFamily="@font/lato_bold"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/jc_caption"/>
-
-
-        <TextView
-            android:layout_centerHorizontal="true"
-            android:layout_above="@id/journal_club_link"
-            android:id="@+id/jc_caption"
-            android:text="Brought to you by:"
-            android:fontFamily="@font/lato_bold"
-            android:textColor="@color/white"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_above="@id/journal_club_link"/>
 
         <ImageView
             android:id="@+id/journal_club_link"
