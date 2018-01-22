@@ -49,12 +49,10 @@ public class AboutActivityAdapter extends RecyclerView.Adapter<AboutActivityAdap
     public class AboutViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView textView;
-        LinearLayout layout;
         public AboutViewHolder(View itemView) {
             super(itemView);
             imageView = (ImageView)itemView.findViewById(R.id.about_image);
             textView  = (TextView)itemView.findViewById(R.id.about_text);
-            layout = itemView.findViewById(R.id.about_layout);
         }
     }
 }
