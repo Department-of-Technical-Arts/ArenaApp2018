@@ -25,7 +25,7 @@
             android:id="@+id/tv_authors"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
             android:fontFamily="@font/opensans_regular"
-            tools:text="C Shri Akhil, Rohitt Vashishta"
+            tools:text="By: C Shri Akhil, Rohitt Vashishta"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

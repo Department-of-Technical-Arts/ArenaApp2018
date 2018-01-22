@@ -47,7 +47,7 @@ public class ArticleDisplayActivity extends AppCompatActivity {
         mContent = findViewById(R.id.tv_content);
         mDivider = findViewById(R.id.divider);
 
-        ArticlesInterface articlesInterface = TestApiClient.getClient().create(ArticlesInterface.class);
+        ArticlesInterface articlesInterface = ApiClient.getClient().create(ArticlesInterface.class);
 
         Call<ArticleDetails> call  = articlesInterface.getArticle(id);
         call.enqueue(new Callback<ArticleDetails>() {
@@ -65,7 +65,7 @@ public class ArticleDisplayActivity extends AppCompatActivity {
                 }
 
                 String content = current.getContent();
-                if (content.contains("<p>")){
+                if ( content != null && content.contains("</p>")){
                     mContent.setText(formatContent(current.getContent()));
                 } else {
                     mContent.setText(content);
@@ -81,7 +81,7 @@ public class ArticleDisplayActivity extends AppCompatActivity {
     }
 
     private String formatAuthors(ArrayList<String> authList) {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder("By: ");
         int lim = authList.size();
         for (int i = 0; i < lim; i++) {
             sb.append(authList.get(i));

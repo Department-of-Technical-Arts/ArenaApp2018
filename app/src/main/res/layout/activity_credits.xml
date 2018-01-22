@@ -134,11 +134,12 @@
             <Button
                 android:id ="@+id/button1"
                 style="@style/thin.white.small.button"
-                android:background="@drawable/if_facebook_circle_294710"
+                android:background="@drawable/ic_facebook"
                 android:padding="5dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:visibility="invisible"
+                tools:visibility="visible"
                 />
 
 
@@ -246,7 +247,7 @@
             <Button
                 android:id ="@+id/button2"
                 style="@style/thin.white.small.button"
-                android:background="@drawable/if_facebook_circle_294710"
+                android:background="@drawable/ic_facebook"
                 android:padding="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
