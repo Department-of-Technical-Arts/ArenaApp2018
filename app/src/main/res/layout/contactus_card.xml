@@ -28,7 +28,8 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/default_pic" />
+            android:src="@drawable/default_pic"
+            android:visibility="gone"/>
 
         <LinearLayout
             android:id="@+id/contact_info_layout"
@@ -46,6 +47,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lato_bold"
                     android:textColor="@android:color/black"
+                    android:paddingLeft="10dp"
                     android:autoSizeTextType="uniform"
                     android:autoSizeMaxTextSize="18sp"
                     android:textSize="18dp" />
@@ -55,6 +57,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
+                    android:paddingLeft="10dp"
                     android:fontFamily="@font/opensans_regular"
                     android:autoSizeTextType="uniform"
                     android:autoSizeMaxTextSize="14sp"
