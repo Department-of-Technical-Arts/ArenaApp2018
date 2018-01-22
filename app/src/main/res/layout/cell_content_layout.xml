@@ -15,7 +15,7 @@
 
         <ImageView
             android:id="@+id/unfolded_image"
-            android:tint="@color/landing_tint_color"
+            android:tint="@color/events_image_tint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
