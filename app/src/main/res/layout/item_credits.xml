@@ -20,6 +20,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/white" />
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
     <com.jaouan.compoundlayout.RadioLayoutGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,6 +72,8 @@
         </com.jaouan.compoundlayout.CircleGradientRadioLayout>
 
     </com.jaouan.compoundlayout.RadioLayoutGroup>
+
+    </HorizontalScrollView>
 
     <LinearLayout
         android:id="@+id/description_layout"
