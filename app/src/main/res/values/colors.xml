@@ -16,7 +16,7 @@
     <color name="landing_text_color">#FFFFFFFF</color>
     <color name="landing_tint_color">#AA000000</color>
 
-    <color name="events_image_tint">#55000000</color>
+    <color name="events_image_tint">#66000000</color>
 
     <color name="table_header_color">#00B0FF</color>
     <color name="activity_bg">#1D1D1D</color>
