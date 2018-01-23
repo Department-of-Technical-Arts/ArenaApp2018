@@ -3,6 +3,7 @@ package com.dota.arena18.activities;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,15 +29,17 @@ import retrofit2.Response;
 
 public class ScoresFeedActivity extends AppCompatActivity{
 
-    RecyclerView recyclerView;
-    List<ScoresFeed> list;
-    ScoredFeedAdapter adapter;
+    private RecyclerView recyclerView;
+    private List<ScoresFeed> list;
+    private ScoredFeedAdapter adapter;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scoresfeed);
 
+        swipeRefreshLayout = findViewById(R.id.feed_refresh);
         recyclerView = findViewById(R.id.feed_recyclerview);
         adapter = new ScoredFeedAdapter(list,this);
 
@@ -44,6 +47,14 @@ public class ScoresFeedActivity extends AppCompatActivity{
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
 
     }
