@@ -53,13 +53,14 @@ public class NewsActivity extends AppCompatActivity {
                                 i.putExtra("flag", 1);
                                 break;
                             case 2: // News Feed
-//                                i = new Intent(NewsActivity.this, MedalsTallyActivity.class);
-//                                Toast.makeText(NewsActivity.this, "Coming Soon...", Toast.LENGTH_SHORT).show();
-                                new StyleableToast.Builder(NewsActivity.this)
+
+                               i = new Intent(NewsActivity.this, ScoresFeedActivity.class);
+                             break;
+                                /*new StyleableToast.Builder(NewsActivity.this)
                                         .text("Feature coming soon...")
                                         .textColor(Color.GREEN)
-                                        .show();
-                                return;
+                                        .show();*/
+
                             case 3: // Newsletters
                                 i = new Intent(NewsActivity.this, ArticlesActivity.class);
 //                                new StyleableToast.Builder(NewsActivity.this)

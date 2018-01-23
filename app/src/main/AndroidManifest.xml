@@ -80,6 +80,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".activities.ArticleDisplayActivity"
             android:screenOrientation="portrait"/>
+
+        <activity android:name=".activities.ScoresFeedActivity"></activity>
     </application>
 
 </manifest>
