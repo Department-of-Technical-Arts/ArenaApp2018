@@ -2,9 +2,11 @@ package com.dota.arena18.activities;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.dota.arena18.R;
 import com.dota.arena18.api.ScoresFeed;
@@ -37,20 +39,28 @@ public class ScoredFeedAdapter extends RecyclerView.Adapter<ScoredFeedAdapter.Sc
     @Override
     public void onBindViewHolder(ScoresFeedViewHolder holder, int position) {
 
+
+        holder.title.setText(list.get(position).getSport());
+        holder.text.setText(list.get(position).getScorestext());
+
     }
 
     @Override
     public int getItemCount() {
 
-        if(list!=null){return list.size();}
-
-        return 0;
+        Log.e("Adapter",String.valueOf(list.size()));
+        return list.size();
     }
 
     public class ScoresFeedViewHolder extends RecyclerView.ViewHolder{
 
+        TextView title ,text ,time;
+
         public ScoresFeedViewHolder(View itemView) {
             super(itemView);
+            title = itemView.findViewById(R.id.sport_title);
+            text = itemView.findViewById(R.id.text_feed);
+            time = itemView.findViewById(R.id.time_feed);
         }
     }
 

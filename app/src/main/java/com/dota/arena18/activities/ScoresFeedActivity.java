@@ -13,6 +13,7 @@ import com.dota.arena18.R;
 import com.dota.arena18.api.ApiClient;
 import com.dota.arena18.api.ScoresFeed;
 import com.dota.arena18.api.ScoresInterface;
+import com.dota.arena18.api.TestApiClient;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
 import java.lang.reflect.Array;
@@ -30,9 +31,10 @@ import retrofit2.Response;
 public class ScoresFeedActivity extends AppCompatActivity{
 
     private RecyclerView recyclerView;
-    private List<ScoresFeed> list;
+    private List<ScoresFeed> list = new ArrayList<>();
     private ScoredFeedAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private  String TAG = ScoresFeedActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,7 +53,7 @@ public class ScoresFeedActivity extends AppCompatActivity{
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                
+
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
@@ -61,18 +63,24 @@ public class ScoresFeedActivity extends AppCompatActivity{
 
      private  void getdatafromApi()
      {
-         ScoresInterface apiservice = ApiClient.getClient().create(ScoresInterface.class);
+         ScoresInterface apiservice = TestApiClient.getClient().create(ScoresInterface.class);
          Call<ArrayList<ScoresFeed>> call = apiservice.getScoresfeed();
          call.enqueue(new Callback<ArrayList<ScoresFeed>>() {
              @Override
              public void onResponse(Call<ArrayList<ScoresFeed>> call, Response<ArrayList<ScoresFeed>> response) {
-                 list = response.body();
+                 List<ScoresFeed> result = response.body();
+
+                 for(int i=0;i<result.size();i++)
+                 {
+                     list.add(result.get(i));
+                 }
                  adapter.notifyDataSetChanged();
+                 Log.e(TAG,"connected"+String.valueOf(list.size()));
              }
 
              @Override
              public void onFailure(Call<ArrayList<ScoresFeed>> call, Throwable t) {
-                 Log.e("ScoresFeedActivity","Not connected to internet");
+                 Log.e(TAG,"Not connected to internet");
                  new StyleableToast.Builder(ScoresFeedActivity.this)
                          .text("No Network Connection...")
                          .textColor(Color.RED)
