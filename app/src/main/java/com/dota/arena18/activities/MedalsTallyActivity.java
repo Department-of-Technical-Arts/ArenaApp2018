@@ -2,9 +2,9 @@ package com.dota.arena18.activities;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -27,8 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MedalsTallyActivity extends AppCompatActivity {
-
-    private static final String TAG = MedalsTallyActivity.class.getSimpleName();
+    
 
     public static final int COLUMN_RANK = 0;
     public static final int COLUMN_NAME = 1;
@@ -47,8 +46,12 @@ public class MedalsTallyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medals_tally);
         ActionBar actionBar =getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        if (actionBar != null ) {
+            actionBar.setHomeButtonEnabled(true);
+        }
 
         emptyView = findViewById(R.id.medals_empty);
         //Log.i(TAG, "onCreate: flag: " + getIntent().getIntExtra("flag", 0));
@@ -172,7 +175,7 @@ public class MedalsTallyActivity extends AppCompatActivity {
 
         call.enqueue(new Callback<ArrayList<CollegeDetails>>() {
             @Override
-            public void onResponse(Call<ArrayList<CollegeDetails>> call, Response<ArrayList<CollegeDetails>> response) {
+            public void onResponse(@NonNull Call<ArrayList<CollegeDetails>> call, @NonNull Response<ArrayList<CollegeDetails>> response) {
 
                 tableData = response.body();
                 if (tableData == null || tableData.size() == 0) emptyView.setVisibility(View.VISIBLE);
@@ -181,7 +184,7 @@ public class MedalsTallyActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ArrayList<CollegeDetails>> call, Throwable t) {
+            public void onFailure(@NonNull Call<ArrayList<CollegeDetails>> call, @NonNull Throwable t) {
                 //Log.i(TAG, "onFailure: " + call.request().url());
                 emptyView.setVisibility(View.VISIBLE);
             }
@@ -200,7 +203,7 @@ public class MedalsTallyActivity extends AppCompatActivity {
 
         call.enqueue(new Callback<ArrayList<CollegeDetails>>() {
             @Override
-            public void onResponse(Call<ArrayList<CollegeDetails>> call, Response<ArrayList<CollegeDetails>> response) {
+            public void onResponse(@NonNull Call<ArrayList<CollegeDetails>> call, @NonNull Response<ArrayList<CollegeDetails>> response) {
                 tableData = response.body();
                 if (tableData == null || tableData.size() == 0) emptyView.setVisibility(View.VISIBLE);
                 else emptyView.setVisibility(View.GONE);
@@ -209,7 +212,7 @@ public class MedalsTallyActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ArrayList<CollegeDetails>> call, Throwable t) {
+            public void onFailure(@NonNull Call<ArrayList<CollegeDetails>> call, @NonNull Throwable t) {
                 //Log.i(TAG, "onFailure: " + call.request().url());
                 emptyView.setVisibility(View.VISIBLE);
                 ref.hide();
