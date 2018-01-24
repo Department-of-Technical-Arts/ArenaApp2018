@@ -68,6 +68,14 @@ public class ScoresFeedActivity extends AppCompatActivity{
             @Override
             public void onRefresh() {
 
+                loading = true;
+                page =1;
+                if(list.size()!=0)
+                {
+                    list = new ArrayList<>();
+                }
+                getdatafromApi();
+
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
