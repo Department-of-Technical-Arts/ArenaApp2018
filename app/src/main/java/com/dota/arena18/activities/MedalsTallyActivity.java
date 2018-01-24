@@ -27,7 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MedalsTallyActivity extends AppCompatActivity {
-    
+
 
     public static final int COLUMN_RANK = 0;
     public static final int COLUMN_NAME = 1;

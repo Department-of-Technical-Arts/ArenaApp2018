@@ -17,7 +17,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 
 import com.dota.arena18.R;
@@ -56,7 +55,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
     public Model model = new Model();
     int id;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private String TAG = EventsActivity.class.getSimpleName();
+
     private RecyclerView.SmoothScroller smoothScroller;
     private RecyclerView.LayoutManager layoutManager;
 
@@ -152,7 +151,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
          Call<ArrayList<EventDetails>> call = apiservice.getEventsfromapi();
          call.enqueue(new Callback<ArrayList<EventDetails>>() {
              @Override
-             public void onResponse(Call<ArrayList<EventDetails>> call, Response<ArrayList<EventDetails>> response) {
+             public void onResponse(@NonNull Call<ArrayList<EventDetails>> call, @NonNull Response<ArrayList<EventDetails>> response) {
 
                  list = response.body();
                  if (list != null) {
@@ -173,7 +172,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
              }
 
              @Override
-             public void onFailure(Call<ArrayList<EventDetails>> call, Throwable t) {
+             public void onFailure(@NonNull Call<ArrayList<EventDetails>> call, @NonNull Throwable t) {
                  getdatafromrealm(myrealm);
              }
          });
@@ -188,7 +187,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
          Call<ArrayList<EventDetails>> call = apiservice.getEvents();
          call.enqueue(new Callback<ArrayList<EventDetails>>() {
              @Override
-             public void onResponse(Call<ArrayList<EventDetails>> call, Response<ArrayList<EventDetails>> response) {
+             public void onResponse(@NonNull Call<ArrayList<EventDetails>> call, @NonNull Response<ArrayList<EventDetails>> response) {
                  list = response.body();
 
                  if (list != null) {
@@ -211,7 +210,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
              }
 
              @Override
-             public void onFailure(Call<ArrayList<EventDetails>> call, Throwable t) {
+             public void onFailure(@NonNull Call<ArrayList<EventDetails>> call, @NonNull Throwable t) {
                  //Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
                  getdatafromrealm(myrealm);
              }
