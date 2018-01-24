@@ -13,6 +13,7 @@ import android.util.Log;
 import com.dota.arena18.R;
 import com.dota.arena18.api.ApiClient;
 import com.dota.arena18.api.ScoresFeed;
+import com.dota.arena18.api.ScoresFeedResponse;
 import com.dota.arena18.api.ScoresInterface;
 import com.dota.arena18.api.TestApiClient;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
@@ -36,6 +37,11 @@ public class ScoresFeedActivity extends AppCompatActivity{
     private ScoredFeedAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
     private  String TAG = ScoresFeedActivity.class.getSimpleName();
+    private RecyclerView.OnScrollListener scrollListener;
+    int pastVisiblesItems, visibleItemCount, totalItemCount;
+    private boolean loading = true;
+    LinearLayoutManager layoutManager;
+    private int page=1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,10 +55,11 @@ public class ScoresFeedActivity extends AppCompatActivity{
         swipeRefreshLayout = findViewById(R.id.feed_refresh);
         recyclerView = findViewById(R.id.feed_recyclerview);
         adapter = new ScoredFeedAdapter(list,this);
+        layoutManager = new LinearLayoutManager(this);
 
         getdatafromApi();
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -63,18 +70,43 @@ public class ScoresFeedActivity extends AppCompatActivity{
             }
         });
 
+        scrollListener = new RecyclerView.OnScrollListener() {
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if(dy > 0) //check for scroll down
+                {
+                    visibleItemCount = layoutManager.getChildCount();
+                    totalItemCount = layoutManager.getItemCount();
+                    pastVisiblesItems = layoutManager.findFirstVisibleItemPosition();
+
+                    if (loading)
+                    {
+                        if ( (visibleItemCount + pastVisiblesItems) >= totalItemCount)
+                        {
+                            loading = false;
+                            Log.v("...", "Last Item Wow !");
+                            page++;
+                            getdatafromApi();
+                        }
+                    }
+                }
+            }
+        };
+
+       recyclerView.addOnScrollListener(scrollListener);
 
     }
 
      private  void getdatafromApi()
      {
          ScoresInterface apiservice = TestApiClient.getClient().create(ScoresInterface.class);
-         Call<ArrayList<ScoresFeed>> call = apiservice.getScoresfeed();
-         call.enqueue(new Callback<ArrayList<ScoresFeed>>() {
+         Call<ScoresFeedResponse> call = apiservice.getScoresfeed(page);
+         call.enqueue(new Callback<ScoresFeedResponse>() {
              @Override
-             public void onResponse(Call<ArrayList<ScoresFeed>> call, Response<ArrayList<ScoresFeed>> response) {
-                 List<ScoresFeed> result = response.body();
-
+             public void onResponse(Call<ScoresFeedResponse> call, Response<ScoresFeedResponse> response) {
+                 List<ScoresFeed> result = response.body().getDocs();
+                   page = response.body().getPage();
                  for(int i=0;i<result.size();i++)
                  {
                      list.add(result.get(i));
@@ -84,7 +116,7 @@ public class ScoresFeedActivity extends AppCompatActivity{
              }
 
              @Override
-             public void onFailure(Call<ArrayList<ScoresFeed>> call, Throwable t) {
+             public void onFailure(Call<ScoresFeedResponse> call, Throwable t) {
                  Log.e(TAG,"Not connected to internet");
                  new StyleableToast.Builder(ScoresFeedActivity.this)
                          .text("No Network Connection...")
