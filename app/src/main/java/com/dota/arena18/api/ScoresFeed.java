@@ -26,13 +26,26 @@ public class ScoresFeed {
     @SerializedName("__v")
     String win;
 
-    public ScoresFeed(String id, String sport, String scorestext, String team1, String team2, String win) {
+    @SerializedName("createdAt")
+    String createdtime;
+
+    public ScoresFeed(String id, String sport, String scorestext, String team1, String team2, String win,String createdtime) {
         this.id = id;
         this.sport = sport;
         this.scorestext = scorestext;
         this.team1 = team1;
         this.team2 = team2;
         this.win = win;
+        this.createdtime = createdtime;
+    }
+
+
+    public String getCreatedtime() {
+        return createdtime;
+    }
+
+    public void setCreatedtime(String createdtime) {
+        this.createdtime = createdtime;
     }
 
     public String getId() {
