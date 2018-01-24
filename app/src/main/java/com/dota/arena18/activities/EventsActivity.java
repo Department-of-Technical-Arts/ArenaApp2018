@@ -79,8 +79,12 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
         ActionBar actionBar =getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+        }
 
         theRecyclerView = findViewById(R.id.mainRecyclerView);
         swipeRefreshLayout = findViewById(R.id.swiperefresh);
@@ -151,14 +155,16 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
              public void onResponse(Call<ArrayList<EventDetails>> call, Response<ArrayList<EventDetails>> response) {
 
                  list = response.body();
-                 for(int i=0;i<list.size();i++)
-                 {
-                     model.setApi_id(list.get(i).getApi_id());
-                     model.setDb_eventname(list.get(i).getEventname());
-                     model.setDb_rules(list.get(i).getRules());
-                     model.setDb_prizemoney(list.get(i).getPrize());
-                     model.setDb_venue(list.get(i).getVenue());
-                     adddatatorealm(model);
+                 if (list != null) {
+                     for(int i=0;i<list.size();i++)
+                     {
+                         model.setApi_id(list.get(i).getApi_id());
+                         model.setDb_eventname(list.get(i).getEventname());
+                         model.setDb_rules(list.get(i).getRules());
+                         model.setDb_prizemoney(list.get(i).getPrize());
+                         model.setDb_venue(list.get(i).getVenue());
+                         adddatatorealm(model);
+                     }
                  }
 
                  adapter.notifyDataSetChanged();
@@ -185,16 +191,20 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
              public void onResponse(Call<ArrayList<EventDetails>> call, Response<ArrayList<EventDetails>> response) {
                  list = response.body();
 
-                   for(int i=0;i<list.size();i++)
-                     {
-                         model.setApi_id(list.get(i).getApi_id());
-                         model.setDb_eventname(list.get(i).getEventname());
-                         model.setDb_prizemoney(list.get(i).getPrize());
-                         model.setDb_venue(list.get(i).getVenue());
-                         Model model1 = myrealm.where(Model.class).equalTo("id",i).findFirst();
-                         model.setDb_rules(model1.getDb_rules());
-                         adddatatorealm(model);
-                     }
+                 if (list != null) {
+                     for(int i=0;i<list.size();i++)
+                       {
+                           model.setApi_id(list.get(i).getApi_id());
+                           model.setDb_eventname(list.get(i).getEventname());
+                           model.setDb_prizemoney(list.get(i).getPrize());
+                           model.setDb_venue(list.get(i).getVenue());
+                           Model model1 = myrealm.where(Model.class).equalTo("id",i).findFirst();
+                           if (model1 != null) {
+                               model.setDb_rules(model1.getDb_rules());
+                           }
+                           adddatatorealm(model);
+                       }
+                 }
 
                  adapter.notifyDataSetChanged();
                  swipeRefreshLayout.setRefreshing(false);
@@ -303,7 +313,10 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        NetworkInfo activeNetworkInfo = null;
+        if (connectivityManager != null) {
+            activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        }
         return activeNetworkInfo != null ;
     }
 
