@@ -2,6 +2,7 @@ package com.dota.arena18.activities;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
@@ -51,8 +52,12 @@ public class ScoresFeedActivity extends AppCompatActivity{
         setContentView(R.layout.activity_scoresfeed);
 
         ActionBar actionBar =getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+        }
 
         swipeRefreshLayout = findViewById(R.id.feed_refresh);
         recyclerView = findViewById(R.id.feed_recyclerview);
@@ -123,7 +128,7 @@ public class ScoresFeedActivity extends AppCompatActivity{
          Call<ScoresFeedResponse> call = apiservice.getScoresfeed(page);
          call.enqueue(new Callback<ScoresFeedResponse>() {
              @Override
-             public void onResponse(Call<ScoresFeedResponse> call, Response<ScoresFeedResponse> response) {
+             public void onResponse(@NonNull Call<ScoresFeedResponse> call, @NonNull Response<ScoresFeedResponse> response) {
                  List<ScoresFeed> result = response.body().getDocs();
                    page = response.body().getPage();
                    Log.e(TAG,"page:"+String.valueOf(page));
@@ -139,7 +144,7 @@ public class ScoresFeedActivity extends AppCompatActivity{
              }
 
              @Override
-             public void onFailure(Call<ScoresFeedResponse> call, Throwable t) {
+             public void onFailure(@NonNull Call<ScoresFeedResponse> call, @NonNull Throwable t) {
                  Log.e(TAG,"Not connected to internet");
                  swipeRefreshLayout.setRefreshing(false);
                  new StyleableToast.Builder(ScoresFeedActivity.this)

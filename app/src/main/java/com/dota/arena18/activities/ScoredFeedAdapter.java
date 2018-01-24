@@ -29,7 +29,7 @@ public class ScoredFeedAdapter extends RecyclerView.Adapter<ScoredFeedAdapter.Sc
 
 
     List<ScoresFeed> list = new ArrayList<>();
-    Context c ;
+    private Context c ;
 
     public ScoredFeedAdapter(List<ScoresFeed> list, Context c) {
         this.list = list;
