@@ -90,9 +90,7 @@ public class ScoresFeedActivity extends AppCompatActivity{
                     visibleItemCount = layoutManager.getChildCount();
                     totalItemCount = layoutManager.getItemCount();
                     pastVisiblesItems = layoutManager.findFirstVisibleItemPosition();
-                    Log.e(TAG,"total:"+String.valueOf(totalItemCount)+"v:"+String.valueOf(visibleItemCount)
-                    +"p:"+String.valueOf(pastVisiblesItems)
-                    );
+
                     if (loading)
                     {
                         swipeRefreshLayout.setRefreshing(true);
