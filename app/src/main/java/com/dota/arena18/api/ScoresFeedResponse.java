@@ -18,10 +18,14 @@ public class ScoresFeedResponse {
     @SerializedName("docs")
     List<ScoresFeed> docs;
 
-    public ScoresFeedResponse(int page, String totalresults, List<ScoresFeed> docs) {
+    @SerializedName("pages")
+    int totalPages;
+
+    public ScoresFeedResponse(int page, String totalresults, List<ScoresFeed> docs,int totalPages) {
         this.page = page;
         this.totalresults = totalresults;
         this.docs = docs;
+        this.totalPages = totalPages;
     }
 
     public int getPage() {
@@ -46,5 +50,13 @@ public class ScoresFeedResponse {
 
     public void setDocs(List<ScoresFeed> docs) {
         this.docs = docs;
+    }
+
+    public int getTotalPages() {
+        return totalPages;
+    }
+
+    public void setTotalPages(int totalPages) {
+        this.totalPages = totalPages;
     }
 }

@@ -42,6 +42,8 @@ public class ScoresFeedActivity extends AppCompatActivity{
     private boolean loading = true;
     LinearLayoutManager layoutManager;
     private int page=1;
+    private int totalpages = -1;
+    int num=1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,19 +78,30 @@ public class ScoresFeedActivity extends AppCompatActivity{
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 if(dy > 0) //check for scroll down
                 {
+
                     visibleItemCount = layoutManager.getChildCount();
                     totalItemCount = layoutManager.getItemCount();
                     pastVisiblesItems = layoutManager.findFirstVisibleItemPosition();
-
+                    Log.e(TAG,"total:"+String.valueOf(totalItemCount)+"v:"+String.valueOf(visibleItemCount)
+                    +"p:"+String.valueOf(pastVisiblesItems)
+                    );
                     if (loading)
                     {
+                        swipeRefreshLayout.setRefreshing(true);
                         if ( (visibleItemCount + pastVisiblesItems) >= totalItemCount)
                         {
-                            loading = false;
+
                             Log.v("...", "Last Item Wow !");
                             page++;
                             getdatafromApi();
+                            Log.e(TAG,"current page:"+String.valueOf(page));
+
                         }
+
+                    }
+                    if(page == totalpages)
+                    {
+                        loading = false;
                     }
                 }
             }
@@ -107,17 +120,22 @@ public class ScoresFeedActivity extends AppCompatActivity{
              public void onResponse(Call<ScoresFeedResponse> call, Response<ScoresFeedResponse> response) {
                  List<ScoresFeed> result = response.body().getDocs();
                    page = response.body().getPage();
+                   Log.e(TAG,"page:"+String.valueOf(page));
+                 totalpages = response.body().getTotalPages();
+                 Log.e(TAG,"TotalPages:"+String.valueOf(totalpages));
                  for(int i=0;i<result.size();i++)
                  {
                      list.add(result.get(i));
                  }
                  adapter.notifyDataSetChanged();
+                 swipeRefreshLayout.setRefreshing(false);
                  Log.e(TAG,"connected"+String.valueOf(list.size()));
              }
 
              @Override
              public void onFailure(Call<ScoresFeedResponse> call, Throwable t) {
                  Log.e(TAG,"Not connected to internet");
+                 swipeRefreshLayout.setRefreshing(false);
                  new StyleableToast.Builder(ScoresFeedActivity.this)
                          .text("No Network Connection...")
                          .textColor(Color.RED)

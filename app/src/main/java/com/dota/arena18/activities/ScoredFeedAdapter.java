@@ -48,7 +48,6 @@ public class ScoredFeedAdapter extends RecyclerView.Adapter<ScoredFeedAdapter.Sc
     @Override
     public int getItemCount() {
 
-        Log.e("Adapter",String.valueOf(list.size()));
         return list.size();
     }
 
