@@ -38,7 +38,7 @@ public class ScoresFeedActivity extends AppCompatActivity{
     private  String TAG = ScoresFeedActivity.class.getSimpleName();
     private RecyclerView.OnScrollListener scrollListener;
     int pastVisiblesItems, visibleItemCount, totalItemCount;
-    private boolean loading = true;
+    private boolean isLoading = false;
     LinearLayoutManager layoutManager;
     private int page=1;
     private int totalpages = -1;
@@ -62,24 +62,21 @@ public class ScoresFeedActivity extends AppCompatActivity{
         adapter = new ScoresFeedAdapter(list,this);
         layoutManager = new LinearLayoutManager(this);
 
-        getdatafromApi();
-
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-
-                loading = true;
-                page =1;
-                if(list.size()!=0)
+                isLoading = true;
+                page = 1;
+                int cur_size = list.size();
+                if( cur_size != 0)
                 {
-                    list = new ArrayList<>();
+                    adapter.clearData();
+
                 }
                 getdatafromApi();
-
-                swipeRefreshLayout.setRefreshing(false);
             }
         });
 
@@ -94,12 +91,11 @@ public class ScoresFeedActivity extends AppCompatActivity{
                     totalItemCount = layoutManager.getItemCount();
                     pastVisiblesItems = layoutManager.findFirstVisibleItemPosition();
 
-                    if (loading)
+                    if ( (page != totalpages) && !isLoading)
                     {
-                        swipeRefreshLayout.setRefreshing(true);
                         if ( (visibleItemCount + pastVisiblesItems) >= totalItemCount)
                         {
-
+                            isLoading = true;
                             Log.v("...", "Last Item Wow !");
                             page++;
                             getdatafromApi();
@@ -108,47 +104,56 @@ public class ScoresFeedActivity extends AppCompatActivity{
                         }
 
                     }
-                    if(page == totalpages)
-                    {
-                        loading = false;
-                    }
                 }
             }
         };
 
        recyclerView.addOnScrollListener(scrollListener);
 
+        getdatafromApi();
+
     }
 
      private  void getdatafromApi()
      {
+         swipeRefreshLayout.setRefreshing(true);
+
          ScoresInterface apiservice = TestApiClient.getClient().create(ScoresInterface.class);
          Call<ScoresFeedResponse> call = apiservice.getScoresfeed(page);
+
          call.enqueue(new Callback<ScoresFeedResponse>() {
              @Override
              public void onResponse(@NonNull Call<ScoresFeedResponse> call, @NonNull Response<ScoresFeedResponse> response) {
                  List<ScoresFeed> result = response.body().getDocs();
-                   page = response.body().getPage();
-                   Log.e(TAG,"page:"+String.valueOf(page));
-                 totalpages = response.body().getTotalPages();
-                 Log.e(TAG,"TotalPages:"+String.valueOf(totalpages));
-                 for(int i=0;i<result.size();i++)
-                 {
-                     list.add(result.get(i));
+
+                 if (result != null) {
+                     page = response.body().getPage();
+                     Log.e(TAG,"page:"+String.valueOf(page));
+                     totalpages = response.body().getTotalPages();
+                     Log.e(TAG,"TotalPages:"+String.valueOf(totalpages));
+
+                     list.addAll(result);
+
+                     adapter.notifyDataSetChanged();
+                     swipeRefreshLayout.setRefreshing(false);
+                     Log.e(TAG,"connected "+String.valueOf(list.size()));
+                 } else {
+                     // empty view stuff, there's no valid result
                  }
-                 adapter.notifyDataSetChanged();
                  swipeRefreshLayout.setRefreshing(false);
-                 Log.e(TAG,"connected"+String.valueOf(list.size()));
+                 isLoading = false;
              }
 
              @Override
              public void onFailure(@NonNull Call<ScoresFeedResponse> call, @NonNull Throwable t) {
                  Log.e(TAG,"Not connected to internet");
-                 swipeRefreshLayout.setRefreshing(false);
+                 // empty view stuff ?
                  new StyleableToast.Builder(ScoresFeedActivity.this)
                          .text("No Network Connection...")
                          .textColor(Color.RED)
                          .show();
+                 swipeRefreshLayout.setRefreshing(false);
+                 isLoading = false;
              }
          });
 

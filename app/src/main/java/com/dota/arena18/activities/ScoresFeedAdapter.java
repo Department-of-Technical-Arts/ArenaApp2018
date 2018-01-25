@@ -49,6 +49,12 @@ public class ScoresFeedAdapter extends RecyclerView.Adapter<ScoresFeedAdapter.Sc
         return (list!= null) ? list.size() : 0;
     }
 
+    public void clearData() {
+        int cur_size = list.size();
+        this.list.clear();
+        notifyItemRangeRemoved(0, cur_size);
+    }
+
     public class ScoresFeedViewHolder extends RecyclerView.ViewHolder{
 
         TextView title ,text ,time;
