@@ -2,7 +2,6 @@ package com.dota.arena18.activities;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,26 +11,20 @@ import com.dota.arena18.R;
 import com.dota.arena18.api.ScoresFeed;
 
 
-
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Created by ashwik on 23-01-2018.
  */
 
-public class ScoredFeedAdapter extends RecyclerView.Adapter<ScoredFeedAdapter.ScoresFeedViewHolder> {
+public class ScoresFeedAdapter extends RecyclerView.Adapter<ScoresFeedAdapter.ScoresFeedViewHolder> {
 
 
     List<ScoresFeed> list = new ArrayList<>();
     private Context c ;
 
-    public ScoredFeedAdapter(List<ScoresFeed> list, Context c) {
+    public ScoresFeedAdapter(List<ScoresFeed> list, Context c) {
         this.list = list;
         this.c = c;
     }
@@ -55,7 +48,7 @@ public class ScoredFeedAdapter extends RecyclerView.Adapter<ScoredFeedAdapter.Sc
     @Override
     public int getItemCount() {
 
-        return list.size();
+        return (list!= null) ? list.size() : 0;
     }
 
     public class ScoresFeedViewHolder extends RecyclerView.ViewHolder{

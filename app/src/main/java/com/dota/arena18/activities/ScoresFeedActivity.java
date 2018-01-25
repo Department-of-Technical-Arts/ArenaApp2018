@@ -12,14 +12,12 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.dota.arena18.R;
-import com.dota.arena18.api.ApiClient;
 import com.dota.arena18.api.ScoresFeed;
 import com.dota.arena18.api.ScoresFeedResponse;
 import com.dota.arena18.api.ScoresInterface;
 import com.dota.arena18.api.TestApiClient;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +33,7 @@ public class ScoresFeedActivity extends AppCompatActivity{
 
     private RecyclerView recyclerView;
     private List<ScoresFeed> list = new ArrayList<>();
-    private ScoredFeedAdapter adapter;
+    private ScoresFeedAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
     private  String TAG = ScoresFeedActivity.class.getSimpleName();
     private RecyclerView.OnScrollListener scrollListener;
@@ -61,7 +59,7 @@ public class ScoresFeedActivity extends AppCompatActivity{
 
         swipeRefreshLayout = findViewById(R.id.feed_refresh);
         recyclerView = findViewById(R.id.feed_recyclerview);
-        adapter = new ScoredFeedAdapter(list,this);
+        adapter = new ScoresFeedAdapter(list,this);
         layoutManager = new LinearLayoutManager(this);
 
         getdatafromApi();

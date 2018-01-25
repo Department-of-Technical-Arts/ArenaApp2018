@@ -42,7 +42,7 @@ public class AboutActivityAdapter extends RecyclerView.Adapter<AboutActivityAdap
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return (list!= null) ? list.size() : 0;
     }
 
     public class AboutViewHolder extends RecyclerView.ViewHolder {

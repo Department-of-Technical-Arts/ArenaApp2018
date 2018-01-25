@@ -125,7 +125,7 @@ public class CreditsAdapter extends RecyclerView.Adapter<CreditsAdapter.CreditsV
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return (data!= null) ? data.size() : 0;
     }
 
     public class CreditsViewHolder extends RecyclerView.ViewHolder {

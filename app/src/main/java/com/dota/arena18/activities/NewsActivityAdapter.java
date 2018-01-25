@@ -43,7 +43,8 @@ public class NewsActivityAdapter extends RecyclerView.Adapter<NewsActivityAdapte
 
     @Override
     public int getItemCount() {
-        return list.size();}
+        return (list!= null) ? list.size() : 0;
+    }
 
 
     public class CustomViewHolder extends RecyclerView.ViewHolder{

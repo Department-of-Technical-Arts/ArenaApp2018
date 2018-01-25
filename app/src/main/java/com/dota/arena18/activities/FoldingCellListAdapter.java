@@ -132,7 +132,7 @@ public class FoldingCellListAdapter extends RecyclerView.Adapter<FoldingCellList
 
     @Override
     public int getItemCount() {
-        return objects.size();
+        return (objects!= null) ? objects.size() : 0;
     }
 
     public void registerToggle(int position) {
