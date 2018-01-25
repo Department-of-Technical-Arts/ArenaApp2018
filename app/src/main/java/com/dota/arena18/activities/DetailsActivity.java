@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
@@ -63,7 +62,7 @@ public class DetailsActivity extends AppCompatActivity {
 
 
         EventsInterface apiservice  = ApiClient.getClient().create(EventsInterface.class);
-        Call<EventDetails> call = apiservice.getevent(api_id);
+        Call<EventDetails> call = apiservice.getEvent(api_id);
 
         call.enqueue(new Callback<EventDetails>() {
             @Override

@@ -148,7 +148,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
         }
          id =0;
          EventsInterface apiservice  = ApiClient.getClient().create(EventsInterface.class);
-         Call<ArrayList<EventDetails>> call = apiservice.getEventsfromapi();
+         Call<ArrayList<EventDetails>> call = apiservice.getAllEvents("name");
          call.enqueue(new Callback<ArrayList<EventDetails>>() {
              @Override
              public void onResponse(@NonNull Call<ArrayList<EventDetails>> call, @NonNull Response<ArrayList<EventDetails>> response) {
@@ -184,7 +184,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
          id=0;
 
          EventsInterface apiservice  = ApiClient.getClient().create(EventsInterface.class);
-         Call<ArrayList<EventDetails>> call = apiservice.getEvents();
+         Call<ArrayList<EventDetails>> call = apiservice.getEventList("name", new String[]{"_id","name","prize","venue"});
          call.enqueue(new Callback<ArrayList<EventDetails>>() {
              @Override
              public void onResponse(@NonNull Call<ArrayList<EventDetails>> call, @NonNull Response<ArrayList<EventDetails>> response) {

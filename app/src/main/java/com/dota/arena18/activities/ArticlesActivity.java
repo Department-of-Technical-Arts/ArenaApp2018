@@ -79,7 +79,7 @@ public class ArticlesActivity extends AppCompatActivity {
     private void refreshArticlesList() {
         mRefresh.setRefreshing(true);
         ArticlesInterface articles = ApiClient.getClient().create(ArticlesInterface.class);
-        Call<ArrayList<ArticleDetails>> call = articles.getArticlesList();
+        Call<ArrayList<ArticleDetails>> call = articles.getArticlesList(new String[]{"_id", "title"});
 
         call.enqueue(new Callback<ArrayList<ArticleDetails>>() {
             @Override
