@@ -2,6 +2,7 @@ package com.dota.arena18.activities;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,11 @@ import com.dota.arena18.R;
 import com.dota.arena18.api.ScoresFeed;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TimeZone;
 
 /**
  * Created by ashwik on 23-01-2018.
@@ -38,9 +42,26 @@ public class ScoresFeedAdapter extends RecyclerView.Adapter<ScoresFeedAdapter.Sc
 
     @Override
     public void onBindViewHolder(ScoresFeedViewHolder holder, int position) {
-        holder.title.setText(list.get(position).getSport());
-        holder.text.setText(list.get(position).getScorestext());
+        ScoresFeed currentPost = list.get(position);
+        holder.title.setText(currentPost.getSport());
+        holder.text.setText(currentPost.getScorestext());
+        holder.time.setText(formatTimeString(currentPost.getCreatedtime()));
+    }
 
+    public static String formatTimeString (String utcTimeString) {
+        DateFormat iso8601Format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        TimeZone istTimeZone = TimeZone.getTimeZone("IST");
+        iso8601Format.setTimeZone(istTimeZone);
+
+        DateFormat outputFormat = new SimpleDateFormat("EEE, d MMM, hh:mm a");
+
+        try {
+//            Log.i("ScoresFeedAdapter", "formatTimeString: formatted = " + iso8601Format.parse(utcTimeString).toString());
+            return outputFormat.format(iso8601Format.parse(utcTimeString));
+        } catch (Exception e) {
+//            Log.i("ScoresFeedAdapter", "formatTimeString: " + e.getMessage());
+            return ""; // just to prevent crashes and stuff
+        }
     }
 
     @Override

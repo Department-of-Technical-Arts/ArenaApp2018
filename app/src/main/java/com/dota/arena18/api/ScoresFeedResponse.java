@@ -13,7 +13,7 @@ public class ScoresFeedResponse {
     private int page;
 
     @SerializedName("total")
-    private String totalresults;
+    private int totalresults = 0;
 
     @SerializedName("docs")
     List<ScoresFeed> docs;
@@ -21,7 +21,7 @@ public class ScoresFeedResponse {
     @SerializedName("pages")
     int totalPages;
 
-    public ScoresFeedResponse(int page, String totalresults, List<ScoresFeed> docs,int totalPages) {
+    public ScoresFeedResponse(int page, int totalresults, List<ScoresFeed> docs,int totalPages) {
         this.page = page;
         this.totalresults = totalresults;
         this.docs = docs;
@@ -36,11 +36,11 @@ public class ScoresFeedResponse {
         this.page = page;
     }
 
-    public String getTotalresults() {
-        return totalresults;
+    public int getTotalresults() {
+        return this.totalresults;
     }
 
-    public void setTotalresults(String totalresults) {
+    public void setTotalresults(int totalresults) {
         this.totalresults = totalresults;
     }
 

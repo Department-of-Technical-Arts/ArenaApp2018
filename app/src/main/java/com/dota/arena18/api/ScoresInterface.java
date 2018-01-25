@@ -20,5 +20,5 @@ public interface ScoresInterface {
     Call<ArrayList<CollegeDetails>> getBitsLeaderboard();
 
     @GET("scores/feed")
-    Call<ScoresFeedResponse> getScoresfeed(@Query("page") int num);
+    Call<ScoresFeedResponse> getScoresfeed(@Query("page") int num, @Query("sort") String key, @Query("direction") String ord);
 }
