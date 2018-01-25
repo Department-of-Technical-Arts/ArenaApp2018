@@ -38,8 +38,6 @@ public class ScoresFeedAdapter extends RecyclerView.Adapter<ScoresFeedAdapter.Sc
 
     @Override
     public void onBindViewHolder(ScoresFeedViewHolder holder, int position) {
-
-
         holder.title.setText(list.get(position).getSport());
         holder.text.setText(list.get(position).getScorestext());
 

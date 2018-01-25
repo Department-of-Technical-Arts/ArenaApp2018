@@ -15,7 +15,6 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         android:divider="@android:color/transparent"
-        android:background="@color/activity_bg"
         android:dividerHeight="16dp"
         android:paddingBottom="16dp"
         android:paddingLeft="4dp"
