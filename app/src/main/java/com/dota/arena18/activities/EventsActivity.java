@@ -240,24 +240,28 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
          //Log.e(EventsActivity.class.getSimpleName(),"Get datafromrealm total events: " + String.valueOf(results.size()));
 
          adapter.notifyDataSetChanged();
-         if(results.size()==0)
-         {
-             AlertDialog.Builder alertdailog = new AlertDialog.Builder(this);
-             alertdailog.setMessage("Internet connectivity is needed to load and update data. " +
-                     "Offline data will be available after connecting once.")
-                     .setCancelable(false).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                 @Override
-                 public void onClick(DialogInterface dialogInterface, int i) {
-                     dialogInterface.cancel();
-                 }
-             }).create().show();
-         } else {
-             new StyleableToast.Builder(EventsActivity.this)
-                     .text("Network not available. Loading offline data...")
-                     .textColor(Color.WHITE)
-                     .backgroundColor(Color.RED)
-                     .show();
-             //Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
+
+         if (!this.isFinishing()){
+
+             if(results.size()==0)
+             {
+                 AlertDialog.Builder alertdailog = new AlertDialog.Builder(EventsActivity.this);
+                 alertdailog.setMessage("Internet connectivity is needed to load and update data. " +
+                         "Offline data will be available after connecting once.")
+                         .setCancelable(false).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                     @Override
+                     public void onClick(DialogInterface dialogInterface, int i) {
+                         dialogInterface.cancel();
+                     }
+                 }).create().show();
+             } else {
+                 new StyleableToast.Builder(EventsActivity.this)
+                         .text("Network not available. Loading offline data...")
+                         .textColor(Color.WHITE)
+                         .backgroundColor(Color.RED)
+                         .show();
+                 //Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
+             }
          }
          swipeRefreshLayout.setRefreshing(false);
 
