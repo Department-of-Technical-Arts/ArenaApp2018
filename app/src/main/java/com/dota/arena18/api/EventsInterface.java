@@ -17,7 +17,7 @@ public interface EventsInterface {
     Call<ArrayList<EventDetails>> getAllEvents(@Query("sort") String sortBy);
 
     @GET("events")
-    Call<ArrayList<EventDetails>> getEventList(@Query("sort") String sortBy, @Query("fields") String[] fields);
+    Call<ArrayList<EventDetails>> getEventList(@Query("sort") String sortBy, @Query("fields") String fields);
 
     @GET("events/{id}")
     Call<EventDetails> getEvent(@Path("id") String id);

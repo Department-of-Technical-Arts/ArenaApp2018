@@ -17,6 +17,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 
 import com.dota.arena18.R;
@@ -44,6 +45,8 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
      * Each event will have its own DetailsActivity to display information.
      *
      */
+
+    private static final String TAG = EventsActivity.class.getSimpleName();
 
     private static final float MILLIS_PER_INCH = 100f; // Larger value ==> slower scroll
 
@@ -110,12 +113,12 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
          if(myrealm.isEmpty())
         {
-            //Log.e(TAG,"realm is empty");
+            Log.e(TAG,"realm is empty");
             callapi();
         }
         else
         {
-            //Log.e(TAG,"realm is not empty");
+            Log.e(TAG,"realm is not empty");
             callLightapi();
         }
 
@@ -153,6 +156,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
              @Override
              public void onResponse(@NonNull Call<ArrayList<EventDetails>> call, @NonNull Response<ArrayList<EventDetails>> response) {
 
+                 Log.i("EventsActivity", "onResponse: reached Heavy");
                  list = response.body();
                  if (list != null) {
                      for(int i=0;i<list.size();i++)
@@ -173,6 +177,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
              @Override
              public void onFailure(@NonNull Call<ArrayList<EventDetails>> call, @NonNull Throwable t) {
+                 Log.i("EventsActivity", "onFailure: reached Heavy");
                  getdatafromrealm(myrealm);
              }
          });
@@ -184,15 +189,19 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
          id=0;
 
          EventsInterface apiservice  = ApiClient.getClient().create(EventsInterface.class);
-         Call<ArrayList<EventDetails>> call = apiservice.getEventList("name", new String[]{"_id","name","prize","venue"});
+         Call<ArrayList<EventDetails>> call = apiservice.getEventList("name", "_id,name,prize,venue");
          call.enqueue(new Callback<ArrayList<EventDetails>>() {
              @Override
              public void onResponse(@NonNull Call<ArrayList<EventDetails>> call, @NonNull Response<ArrayList<EventDetails>> response) {
+
+                 Log.i("EventsActivity", "onResponse: reached Light with " + call.request().url());
                  list = response.body();
 
                  if (list != null) {
+                     Log.i("EventsActivity", "onResponse, Light: list not null");
                      for(int i=0;i<list.size();i++)
                        {
+                           Log.i("EventsActivity", "onResponse, Light: event - " + list.get(i).getEventname());
                            model.setApi_id(list.get(i).getApi_id());
                            model.setDb_eventname(list.get(i).getEventname());
                            model.setDb_prizemoney(list.get(i).getPrize());
@@ -211,7 +220,8 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
              @Override
              public void onFailure(@NonNull Call<ArrayList<EventDetails>> call, @NonNull Throwable t) {
-                 //Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
+                 Log.i("EventsActivity", "onFailure: reached Light");
+                 Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
                  getdatafromrealm(myrealm);
              }
          });

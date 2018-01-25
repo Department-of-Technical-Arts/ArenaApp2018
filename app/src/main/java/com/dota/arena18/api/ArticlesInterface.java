@@ -12,8 +12,8 @@ import retrofit2.http.Query;
  */
 
 public interface ArticlesInterface {
-    @GET("news/index")
-    Call<ArrayList<ArticleDetails>> getArticlesList(@Query("fields") String[] fields);
+    @GET("news")
+    Call<ArrayList<ArticleDetails>> getArticlesList(@Query("fields") String fields);
 
     @GET("news/{id}")
     Call<ArticleDetails> getArticle(@Path("id") String id);
