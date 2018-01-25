@@ -102,10 +102,10 @@ public class ScoresFeedActivity extends AppCompatActivity{
                         if ( (visibleItemCount + pastVisiblesItems) >= totalItemCount)
                         {
                             isLoading = true;
-                            Log.v("...", "Last Item Wow !");
+                            //Log.v("...", "Last Item Wow !");
                             page++;
                             getdatafromApi();
-                            Log.e(TAG,"current page:"+String.valueOf(page));
+                            //Log.e(TAG,"current page:"+String.valueOf(page));
 
                         }
 

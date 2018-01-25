@@ -156,7 +156,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
              @Override
              public void onResponse(@NonNull Call<ArrayList<EventDetails>> call, @NonNull Response<ArrayList<EventDetails>> response) {
 
-                 Log.i("EventsActivity", "onResponse: reached Heavy");
+                 //Log.i("EventsActivity", "onResponse: reached Heavy");
                  list = response.body();
                  if (list != null) {
                      for(int i=0;i<list.size();i++)
@@ -177,7 +177,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
              @Override
              public void onFailure(@NonNull Call<ArrayList<EventDetails>> call, @NonNull Throwable t) {
-                 Log.i("EventsActivity", "onFailure: reached Heavy");
+                 //Log.i("EventsActivity", "onFailure: reached Heavy");
                  getdatafromrealm(myrealm);
              }
          });
@@ -194,14 +194,14 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
              @Override
              public void onResponse(@NonNull Call<ArrayList<EventDetails>> call, @NonNull Response<ArrayList<EventDetails>> response) {
 
-                 Log.i("EventsActivity", "onResponse: reached Light with " + call.request().url());
+                 //Log.i("EventsActivity", "onResponse: reached Light with " + call.request().url());
                  list = response.body();
 
                  if (list != null) {
-                     Log.i("EventsActivity", "onResponse, Light: list not null");
+                     //Log.i("EventsActivity", "onResponse, Light: list not null");
                      for(int i=0;i<list.size();i++)
                        {
-                           Log.i("EventsActivity", "onResponse, Light: event - " + list.get(i).getEventname());
+                           //Log.i("EventsActivity", "onResponse, Light: event - " + list.get(i).getEventname());
                            model.setApi_id(list.get(i).getApi_id());
                            model.setDb_eventname(list.get(i).getEventname());
                            model.setDb_prizemoney(list.get(i).getPrize());
@@ -220,8 +220,8 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
              @Override
              public void onFailure(@NonNull Call<ArrayList<EventDetails>> call, @NonNull Throwable t) {
-                 Log.i("EventsActivity", "onFailure: reached Light");
-                 Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
+                 //Log.i("EventsActivity", "onFailure: reached Light");
+                 //Log.e(EventsActivity.class.getSimpleName(),"not connected to internet");
                  getdatafromrealm(myrealm);
              }
          });

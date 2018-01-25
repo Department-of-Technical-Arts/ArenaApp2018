@@ -84,7 +84,7 @@ public class ArticlesActivity extends AppCompatActivity {
         call.enqueue(new Callback<ArrayList<ArticleDetails>>() {
             @Override
             public void onResponse(Call<ArrayList<ArticleDetails>> call, Response<ArrayList<ArticleDetails>> response) {
-                Log.i("Articles", "onResponse: " + call.request().url());
+                //Log.i("Articles", "onResponse: " + call.request().url());
                 mRefresh.setRefreshing(false);
                 ArrayList<ArticleDetails> articles_list = response.body();
 
