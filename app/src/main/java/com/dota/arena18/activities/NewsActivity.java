@@ -26,8 +26,12 @@ public class NewsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
         ActionBar actionBar =getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+        }
         recyclerView = findViewById(R.id.news_recyclerview);
         list.add(new Imagedata(R.drawable.ic_arena_leaderboard,"Arena Leaderboard"));
         list.add(new Imagedata(R.drawable.ic_interbits_leaderboard,"Inter-BITS Leaderboard"));

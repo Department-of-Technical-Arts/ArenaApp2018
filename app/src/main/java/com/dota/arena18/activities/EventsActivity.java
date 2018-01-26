@@ -177,7 +177,7 @@ public class EventsActivity extends AppCompatActivity implements FoldingCellList
 
              @Override
              public void onFailure(@NonNull Call<ArrayList<EventDetails>> call, @NonNull Throwable t) {
-                 //Log.i("EventsActivity", "onFailure: reached Heavy");
+                 Log.i("EventsActivity", "onFailure: reached Heavy " + call.request().url() );
                  getdatafromrealm(myrealm);
              }
          });

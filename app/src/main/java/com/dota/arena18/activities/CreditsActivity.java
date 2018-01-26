@@ -1,5 +1,6 @@
 package com.dota.arena18.activities;
 
+import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,21 +22,33 @@ public class CreditsActivity extends AppCompatActivity {
 
     private RecyclerView mRecycler;
     private CreditsAdapter mAdapter;
+    private CreditsAdapterOldVersion creditsAdapterOldVersion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credits);
         ActionBar actionBar =getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+        }
 
         mRecycler = findViewById(R.id.credits_recycler);
         mRecycler.setLayoutManager(new LinearLayoutManager(CreditsActivity.this));
 
-        mAdapter = new CreditsAdapter(CreditsActivity.this, getDevData());
+        if(Build.VERSION.SDK_INT>=21) {
 
-        mRecycler.setAdapter(mAdapter);
+            mAdapter = new CreditsAdapter(CreditsActivity.this, getDevData());
+
+            mRecycler.setAdapter(mAdapter);
+        }else {
+            creditsAdapterOldVersion = new CreditsAdapterOldVersion(CreditsActivity.this, getDevData());
+
+            mRecycler.setAdapter(creditsAdapterOldVersion);
+        }
     }
 
     @Override
