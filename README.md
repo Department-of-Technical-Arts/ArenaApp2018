@@ -8,7 +8,7 @@ Play Store Link: https://play.google.com/store/apps/details?id=com.dota.arena18
 
 ### Useful Links (Previous Apps)
 
-Pearl 17 repo : https://github.com/TheGamer007/PearlApp17
+Pearl 17 repo : https://github.com/Department-of-Technical-Arts/PearlApp17
 
 ### Contribution guidelines
 Write good commit messages. [this blog post](https://chris.beams.io/posts/git-commit/) is a good reference. You'll easily find others.
